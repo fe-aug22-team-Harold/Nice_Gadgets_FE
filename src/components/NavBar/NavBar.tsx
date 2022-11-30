@@ -12,10 +12,10 @@ export const NavBar: React.FC = () => {
         <NavLink to="/phones" className="nav__link">
           Phones
         </NavLink>
-        <NavLink to="/phones" className="nav__link">
+        <NavLink to="/tablets" className="nav__link">
           Tablets
         </NavLink>
-        <NavLink to="/about" className="nav__link">
+        <NavLink to="/accessories" className="nav__link">
           Accessories
         </NavLink>
       </div>
