@@ -1,10 +1,10 @@
 import React from 'react';
 import harold from './harold.jpeg';
 import './App.scss';
-import { Route, Routes } from "react-router-dom";
-import { NavBar } from "./components/NavBar";
-import { PageNotFound } from "./components/PageNotFound";
-import { HomePage } from "./components/HomePage";
+import { Route, Routes } from 'react-router-dom';
+import { NavBar } from './components/NavBar';
+import { PageNotFound } from './components/PageNotFound';
+import { HomePage } from './components/HomePage';
 
 function App() {
   return (
