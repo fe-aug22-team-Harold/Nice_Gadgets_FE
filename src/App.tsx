@@ -2,14 +2,14 @@ import React from 'react';
 import harold from './harold.jpeg';
 import './App.scss';
 import { Route, Routes } from "react-router-dom";
-import { NavBar } from "./components/NavBar";
+import { Header } from "./components/Header/Header";
 import { PageNotFound } from "./components/PageNotFound";
 import { HomePage } from "./components/HomePage";
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
+      <Header />
 
       <header className="App-header">
         <img src={harold} className="App-logo" alt="logo" />
