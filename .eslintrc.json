@@ -14,7 +14,8 @@
   "plugins": ["react", "@typescript-eslint"],
   "extends": [
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "@mate-academy/eslint-config"
   ],
   "rules": {}
 }
