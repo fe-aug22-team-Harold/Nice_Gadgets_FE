@@ -1,42 +1,37 @@
 import React from 'react';
+import { WelcomeBanner } from '../WelcomeBanner';
 
 export const HomePage: React.FC = () => {
   return (
     <div className="home-page">
-      <section className="page_section welcome">
-        <div className="grid grid--desktop">
-          <div
-            className="grid__item
-            grid__item--desktop-1-17
-            grid__item--tablet-1-9"
-          >
-            <div className="welcome__title">Welcome to Nice Gadgets store!</div>
-          </div>
-          <div
-            className="grid__item
-            grid__item--desktop-1-1
-            grid__item--tablet-1-1"
-          >
-            <div className="welcome__left-sidebar"></div>
-          </div>
-          <div
-            className="grid__item
-            grid__item--desktop-2-23
-            grid__item--tablet-2-11"
-          >
-            <div className="welcome__now-available"></div>
-          </div>
-          <div
-            className="
+      <div className="home-page__container">
+        <WelcomeBanner />
+        <div className="page_section brand-new-models">
+          <div className="brand-new-models__title"></div>
+          <div className="brand-new-models__block block">
+            <div className="grid">
+              <div
+                className="
             grid__item
-            grid__item--desktop-24-24
-            grid__item--tablet-12-12
-            "
-          >
-            <div className="welcome__right-sidebar"></div>
+            grid__item--desktop-1-6
+            grid__item--tablet-1-5
+            grid__item--mobile-1-3"
+              >
+                <div className="block__phone"></div>
+              </div>
+              <div
+                className="
+              grid__item
+              grid__item--desktop-7-12
+              grid__item--tablet-6-10
+              grid__item--mobile-4-4"
+              >
+                <div className="block__phone"></div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

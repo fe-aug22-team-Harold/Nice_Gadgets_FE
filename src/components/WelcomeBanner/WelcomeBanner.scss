@@ -1,0 +1,50 @@
+.welcome {
+  &__title {
+    @include onDesktop {
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 56px;
+      margin-bottom: 56px;
+    }
+    @include onTablet {
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 56px;
+    }
+    font-family: 'Mont';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41px;
+  }
+
+  &__now-available {
+    background-color: #323542;
+    height: 400px;
+  }
+  &__left-sidebar {
+    background-color:#323542;
+    height: 400px;
+    display: none;
+    @include onDesktop {
+      display: block;
+    }
+
+    @include onTablet {
+      display: block;
+    }
+  }
+  &__right-sidebar {
+    display: none;
+    background-color:#323542;
+    height: 400px;
+    display: none;
+    @include onDesktop {
+      display: block;
+    }
+
+    @include onTablet {
+      display: block;
+    }
+  }
+}
