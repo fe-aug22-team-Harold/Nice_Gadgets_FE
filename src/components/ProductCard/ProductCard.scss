@@ -1,0 +1,136 @@
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  background: #161827;
+  border: 1px solid black;
+  padding: 32px;
+
+  &__img {
+    height: 208px;
+    width: 196px;
+    margin: 0 auto 24px;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: #F1F2F9;
+    margin-bottom: 8px;
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  &__price-current {
+    display: flex;
+    justify-content: space-around;
+    font-weight: 800;
+    font-size: 22px;
+    color: #F1F2F9;
+  }
+
+  &__price-full {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 28px;
+    color: #75767F;
+    text-decoration: line-through;
+  }
+
+  &__features {
+    display: flex;
+    flex-direction: column;
+
+    &::before {
+      content: '';
+      height: 1px;
+      width: 100%;
+      background-color: #3B3E4A;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__feature {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 16px;
+    }
+
+    &-value {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      color: #F1F2F9;
+    }
+
+    &-name {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      color: #75767F;
+    }
+  }
+
+  &__buy {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  &__add-to-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: #F1F2F9;
+
+    background: #905BFF;
+
+    text-decoration: none;
+    text-align: center;
+
+    // &:hover {
+    //   background: #A378FF;
+    //   color: #F1F2F9;
+    // }
+
+    &--active {
+      background: #323542;
+      color: #F1F2F9;
+    }
+  }
+
+  &__favorites-icon {
+    height: 40px;
+    width: 40px;
+    background-image: url(../../fav-regular.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &--active {
+      background-image: url(../../fav-selected.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+}
