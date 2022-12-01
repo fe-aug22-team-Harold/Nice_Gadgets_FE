@@ -1,8 +1,9 @@
 /* eslint-disable no-shadow */
-import React from 'react';
+import React, { useState } from 'react';
 import './ProductCard.scss';
-import { PhoneCard } from '../../types/PhoneCard';
+import { Phone } from '../../types/Phone';
 import phonePhoto from '../../phone-photo.png';
+import cn from 'classnames';
 
 const phoneCard = {
   id: '1',
@@ -20,7 +21,7 @@ const phoneCard = {
   image: 'img/phones/apple-iphone-7/black/00.jpg',
 };
 
-export const ProductCard: React.FC<PhoneCard> = ({ phoneCard }) => {
+export const ProductCard: React.FC<Phone> = ({ phoneCard }) => {
   const {
     name,
     fullPrice,
@@ -29,6 +30,9 @@ export const ProductCard: React.FC<PhoneCard> = ({ phoneCard }) => {
     capacity,
     ram,
   } = phoneCard;
+
+  const [added, setAdded] = useState(false);
+  const [favorite, setFavorite] = useState(false);
 
   return (
     <div className="card">
@@ -46,18 +50,18 @@ export const ProductCard: React.FC<PhoneCard> = ({ phoneCard }) => {
 
       <p className="card__price">
         <span className="card__price-current">
-          {`$${price}`}
+          {`${price}`}
         </span>
 
         <span className="card__price-full">
-          {`$${fullPrice}`}
+          {`${fullPrice}`}
         </span>
       </p>
 
       <div className="card__features">
         <p className="card__feature">
           <span className="card__feature-name">
-            {'Screen'}
+            Screen
           </span>
 
           <span className="card__feature-value">
@@ -67,7 +71,7 @@ export const ProductCard: React.FC<PhoneCard> = ({ phoneCard }) => {
 
         <p className="card__feature">
           <span className="card__feature-name">
-            {'Capacity'}
+            Capacity
           </span>
 
           <span className="card__feature-value">
@@ -77,7 +81,7 @@ export const ProductCard: React.FC<PhoneCard> = ({ phoneCard }) => {
 
         <p className="card__feature">
           <span className="card__feature-name">
-            {'RAM'}
+            RAM
           </span>
 
           <span className="card__feature-value">
@@ -86,12 +90,32 @@ export const ProductCard: React.FC<PhoneCard> = ({ phoneCard }) => {
         </p>
       </div>
 
-      <a
-        className="card__add-to-cart"
-        href="#"
+      <div className='card__buy'>
+        <a
+          onClick={() => {
+            setAdded(!added);
+          }}
+          className={cn('card__add-to-cart', {
+            'card__add-to-cart--active': added,
+          })}
       >
-        {'Add to cart'}
+        {
+          added
+            ? 'Added'
+            : 'Add to cart'
+        }
       </a>
+
+      <a
+        onClick={() => {
+          setFavorite(!favorite);
+        }}
+        className={cn('card__favorites-icon', {
+          'card__favorites-icon--active': favorite,
+        })}
+      >
+        </a>
+      </div>
     </div>
   );
 };
