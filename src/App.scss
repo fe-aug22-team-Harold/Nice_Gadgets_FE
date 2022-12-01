@@ -1,3 +1,9 @@
+@import './reset.scss';
+@import './utilsForScss/mixins.scss';
+@import './grid.scss';
+@import './components/HomePage/HomePage.scss';
+@import './components/WelcomeBanner/WelcomeBanner.scss';
+
 .App {
   text-align: center;
 }

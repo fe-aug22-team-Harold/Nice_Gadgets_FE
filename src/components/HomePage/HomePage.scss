@@ -1,0 +1,43 @@
+.page {
+  &__section {
+    &--1 {
+      margin-bottom: 80px;
+    }
+  }
+}
+
+
+.home-page {
+  background-color: #0f1121;
+  &__container {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 16px 0;
+    background-color: #0f1121;
+
+    @include onTablet {
+      padding: 0 24px 0;
+    }
+
+    @include onDesktop {
+      padding: 0 32px 0;
+    }
+  }
+}
+
+.brand-new-models {
+  &__title {
+    display: block;
+    background-color: #323542;
+    height: 40px;
+    margin-bottom: 24px;
+  }
+}
+
+.block {
+  &__phone {
+     background-color: #323542;
+     height: 506px;
+  }
+}
