@@ -23,7 +23,8 @@ export const WelcomeBanner: React.FC = () => {
             grid__item--desktop-2-23
             grid__item--tablet-2-11"
         >
-          <div className="welcome__now-available"></div>
+          <div className="welcome__now-available">
+          </div>
         </div>
         <div
           className="

@@ -1,0 +1,73 @@
+.welcome {
+  background-color: $gray-black;
+  &__title {
+    font-family: 'Mont', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41px;
+    margin-bottom: 24px;
+    margin-top: 24px;
+    color: $gray-white;
+    background-color: $gray-black;
+
+    @include onDesktop {
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 56px;
+      margin-top: 56px;
+      margin-bottom: 56px;
+    }
+    @include onTablet {
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 56px;
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__now-available {
+    background-color: #323542;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 320px;
+
+    @include onTablet {
+      height: 190px;
+      background-image: url(../../../images/Banner.png);
+    }
+
+    @include onDesktop {
+      height: 400px;
+      background-image: url(../../../images/Banner.png);
+    }
+  }
+  &__left-sidebar {
+    background-color: #323542;
+    height: 400px;
+    display: none;
+    @include onDesktop {
+      display: block;
+    }
+
+    @include onTablet {
+      display: block;
+    }
+  }
+  &__right-sidebar {
+    display: none;
+    background-color: #323542;
+    height: 400px;
+    display: none;
+    @include onDesktop {
+      display: block;
+    }
+
+    @include onTablet {
+      display: block;
+    }
+  }
+}
