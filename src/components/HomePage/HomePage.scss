@@ -4,16 +4,7 @@
     box-sizing: border-box;
     margin: 0 auto;
     max-width: 1200px;
-    padding: 0 16px 0;
     background-color: $gray-black;
-
-    @include onTablet {
-      padding: 0 24px 0;
-    }
-
-    @include onDesktop {
-      padding: 0 32px 0;
-    }
   }
 }
 
