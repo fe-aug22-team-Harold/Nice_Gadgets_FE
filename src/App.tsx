@@ -2,7 +2,8 @@ import React from 'react';
 import harold from './harold.jpeg';
 import './App.scss';
 import { Route, Routes } from "react-router-dom";
-import { Header } from "./components/Header/Header";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 import { PageNotFound } from "./components/PageNotFound";
 import { HomePage } from "./components/HomePage";
 
@@ -22,6 +23,7 @@ function App() {
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
