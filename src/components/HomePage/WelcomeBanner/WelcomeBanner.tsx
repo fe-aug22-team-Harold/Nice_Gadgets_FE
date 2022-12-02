@@ -16,7 +16,9 @@ export const WelcomeBanner: React.FC = () => {
             grid__item--desktop-1-1
             grid__item--tablet-1-1"
         >
-          <div className="welcome__left-sidebar"></div>
+          <a className="welcome__sidebar">
+            <div className="icon-arrow icon-arrow--left"></div>
+          </a>
         </div>
         <div
           className="grid__item
@@ -32,8 +34,15 @@ export const WelcomeBanner: React.FC = () => {
             grid__item--tablet-12-12
             "
         >
-          <div className="welcome__right-sidebar"></div>
+          <a className="welcome__sidebar">
+            <div className="icon-arrow"></div>
+          </a>
         </div>
+      </div>
+      <div className="welcome__slider slider">
+        <div className="slider__blocks"></div>
+        <div className="slider__blocks"></div>
+        <div className="slider__blocks"></div>
       </div>
     </section>
   );

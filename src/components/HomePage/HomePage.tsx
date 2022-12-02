@@ -1,10 +1,11 @@
 import React from 'react';
-import { WelcomeBanner } from '../WelcomeBanner';
+import { WelcomeBanner } from './WelcomeBanner';
 
 export const HomePage: React.FC = () => {
   return (
     <div className="home-page">
       <div className="home-page__container">
+
         <WelcomeBanner />
         <div className="page_section brand-new-models">
           <div className="brand-new-models__title"></div>

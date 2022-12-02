@@ -1,28 +1,10 @@
-.page {
-  &__section {
-    &--1 {
-      margin-bottom: 80px;
-    }
-  }
-}
-
-
 .home-page {
-  background-color: #0f1121;
+  background-color: $gray-black;
   &__container {
     box-sizing: border-box;
     margin: 0 auto;
     max-width: 1200px;
-    padding: 0 16px 0;
-    background-color: #0f1121;
-
-    @include onTablet {
-      padding: 0 24px 0;
-    }
-
-    @include onDesktop {
-      padding: 0 32px 0;
-    }
+    background-color: $gray-black;
   }
 }
 
