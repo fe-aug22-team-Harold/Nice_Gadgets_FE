@@ -1,0 +1,43 @@
+.buttons {
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__button {
+    margin-right: 8px;
+    height: 32px;
+    width: 32px;
+    background-color: $gray-surface1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--arrow {
+      background-color: $gray-surface2;
+
+      &:disabled {
+        background-color: $gray-black;
+      }
+
+        &:disabled .icon-arrow {
+        background-image: url(../../../images/Vector_gray_right.svg);
+        }
+    }
+
+    &:first-child {
+      margin-left: 8px;
+    }
+
+    &:hover {
+      background-color: $gray-elements;
+    }
+
+    &:active {
+      background-color: $accent-color;
+    }
+  }
+
+  &__text {
+    color: $gray-white;
+  }
+}

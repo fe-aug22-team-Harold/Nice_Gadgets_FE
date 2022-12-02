@@ -1,8 +1,6 @@
 .page {
   &__section {
     &--1 {
-      box-sizing: border-box;
-      margin-bottom: 80px;
       @include onTablet {
         padding: 0 24px 0;
       }

@@ -1,0 +1,54 @@
+.phones-page {
+  background-color: $gray-black;
+  min-height: 100vh;
+  &__container {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 16px;
+
+    @include onTablet {
+      padding: 0 24px;
+    }
+
+    @include onDesktop {
+      padding: 0 32px;
+    }
+  }
+
+  &__header {
+    margin-bottom: 24px;
+  }
+
+  &__all-phones {
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.all-phones {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  row-gap: 40px;
+  @include onTablet {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 270px);
+  column-gap: 16px;
+  row-gap: 40px;
+  }
+
+  @include onDesktop {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 16px;
+  row-gap: 40px;
+  }
+}
