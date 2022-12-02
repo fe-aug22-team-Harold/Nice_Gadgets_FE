@@ -29,7 +29,6 @@ export const PhonesPage: React.FC = () => {
           {allPhones &&
             status === 'idle' &&
             allPhones
-              .slice(0, 2)
               .map((phone) => (
                 <ProductCard key={phone.itemId} phoneCard={phone} />
               ))};
