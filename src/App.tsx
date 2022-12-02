@@ -1,12 +1,13 @@
+/* eslint-disable */
 import React from 'react';
 import harold from './harold.jpeg';
 import './App.scss';
-import { Route, Routes } from "react-router-dom";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
-import { PageNotFound } from "./components/PageNotFound";
-import { HomePage } from "./components/HomePage";
-
+import { Route, Routes } from 'react-router-dom';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import { PageNotFound } from './components/PageNotFound';
+import { HomePage } from './components/HomePage';
+/* eslint-disable */
 function App() {
   return (
     <div className="App">

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 // import Reducer from '../features/Slice';
 
@@ -17,3 +18,4 @@ export type AppThunk<ReturnType = void> = ThunkAction<
     unknown,
     Action<string>
     >;
+/* eslint-disable */

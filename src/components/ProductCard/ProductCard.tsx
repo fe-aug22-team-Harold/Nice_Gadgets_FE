@@ -21,7 +21,7 @@ const phoneCard = {
   image: 'img/phones/apple-iphone-7/black/00.jpg',
 };
 
-export const ProductCard: React.FC<Phone> = ({ phoneCard }) => {
+export const ProductCard: React.FC<Phone> = ({ phoneCard }: any) => {
   const {
     name,
     fullPrice,
