@@ -63,15 +63,14 @@
       background-color: $icons-color;
     }
 
-    &:disabled{
+    &:disabled {
       background-color: $gray-black;
       border: 1px solid $gray-elements;
     }
 
-        &:disabled .icon-arrow {
-        background-image: url(../../../images/Vector_gray_right.svg);
+    &:disabled .icon-arrow {
+      background-image: url(../../../images/Vector_gray_right.svg);
     }
-
   }
 
   &__slider {
@@ -91,9 +90,9 @@
     height: 4px;
     width: 14px;
     background-color: $gray-elements;
-   &:first-child {
-    margin-left: 14px;
-   }
+    &:first-child {
+      margin-left: 14px;
+    }
     &:active {
       background-color: $gray-white;
     }
@@ -101,7 +100,7 @@
 }
 
 .icon-arrow {
-  display: none;
+  display: block;
   height: 10px;
   width: 6px;
   background-image: contain;
@@ -109,13 +108,18 @@
   background-repeat: no-repeat;
   background-image: url(../../../images/Vector.svg);
 
-  @include onDesktop {
-    display: flex;
+  &--sidebar {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+    }
+
+    @include onTablet {
+      display: flex;
+    }
   }
 
-  @include onTablet {
-    display: flex;
-  }
   &--left {
     transform: rotate(180deg);
   }

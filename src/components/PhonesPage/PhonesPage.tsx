@@ -34,9 +34,11 @@ export const PhonesPage: React.FC = () => {
                 <ProductCard key={phone.itemId} phoneCard={phone} />
               ))};
         </div>
+        {allPhones && status === 'idle' && (
         <div className="phones-page__buttons">
           <Buttons />
         </div>
+        )}
       </div>
     </div>
   );

@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   &__button {
+    border: 0px;
     margin-right: 8px;
     height: 32px;
     width: 32px;
@@ -14,6 +15,7 @@
 
     &--arrow {
       background-color: $gray-surface2;
+      border: solid 1px $gray-elements;
 
       &:disabled {
         background-color: $gray-black;
