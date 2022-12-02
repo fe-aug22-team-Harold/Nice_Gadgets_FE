@@ -1,19 +1,20 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-// import Reducer from '../features/Slice';
+import phonesReducer from '../features/phonesSlice';
 
 export const store = configureStore({
   reducer: {
-    // goods: Reducer,
+    phones: phonesReducer,
   },
 });
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
 
-/* eslint-disable @typescript-eslint/indent */
+/* eslint-disable */
+// @typescript-eslint/indent
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,
   unknown,
   Action<string>
->;
+  >;

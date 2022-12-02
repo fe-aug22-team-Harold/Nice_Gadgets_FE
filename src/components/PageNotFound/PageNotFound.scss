@@ -1,0 +1,20 @@
+@import "../../utilsForScss/colors";
+
+.not-found {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $gray-surface1;
+  color: $accent-hover;
+
+  &__title {
+    font-size: 230px;
+  }
+
+  &__subtitle {
+    font-size: 60px;
+  }
+}
