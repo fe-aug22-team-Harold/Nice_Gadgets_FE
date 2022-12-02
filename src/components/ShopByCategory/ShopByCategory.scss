@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'Mont';
+  src: url('../../utils/fonts/Mont-SemiBold.eot');
+  src: local('../../utils/fonts/Mont SemiBold'), local('Mont-SemiBold'),
+      url('../../utils/fonts/Mont-SemiBold.eot?#iefix') format('embedded-opentype'),
+      url('../../utils/fonts/Mont-SemiBold.woff2') format('woff2'),
+      url('../../utils/fonts/Mont-SemiBold.woff') format('woff'),
+      url('../../utils/fonts/Mont-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+.shopByCategory {
+  &__title {
+    margin-bottom: 24px;
+
+    font-family: 'Mont';
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41px;
+
+    letter-spacing: -0.01em;
+
+    color: #F1F2F9;
+  }
+}
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+
+  &__title {
+    margin-top: 24px;
+    margin-bottom: 0px;
+
+    font-family: 'Mont';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+
+    color: #F1F2F9;
+  }
+
+  &__numberOfModels {
+    margin-top: 4px;
+    font-family: 'Mont';
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: #75767F;
+  }
+}
