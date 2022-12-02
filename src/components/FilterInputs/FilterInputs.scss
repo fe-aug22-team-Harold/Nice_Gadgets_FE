@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Mont';
-  src: url('./font1/Mont-SemiBold.eot');
-  src: local('./font1/Mont SemiBold'), local('Mont-SemiBold'),
-      url('./font1/Mont-SemiBold.eot?#iefix') format('embedded-opentype'),
-      url('./font1/Mont-SemiBold.woff2') format('woff2'),
-      url('./font1/Mont-SemiBold.woff') format('woff'),
-      url('./font1/Mont-SemiBold.ttf') format('truetype');
+  src: url('./fonts/Mont-SemiBold.eot');
+  src: local('./fonts/Mont SemiBold'), local('Mont-SemiBold'),
+      url('./fonts/Mont-SemiBold.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/Mont-SemiBold.woff2') format('woff2'),
+      url('./fonts/Mont-SemiBold.woff') format('woff'),
+      url('./fonts/Mont-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
 }
