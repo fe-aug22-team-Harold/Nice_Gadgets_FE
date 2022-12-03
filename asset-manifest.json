@@ -1,21 +1,42 @@
 {
   "files": {
-    "main.css": "/nice_gadgets_FE/static/css/main.542a10fa.css",
-    "main.js": "/nice_gadgets_FE/static/js/main.b86fe710.js",
+    "main.css": "/nice_gadgets_FE/static/css/main.746ef422.css",
+    "main.js": "/nice_gadgets_FE/static/js/main.a21f6a1d.js",
     "static/js/787.b21c7653.chunk.js": "/nice_gadgets_FE/static/js/787.b21c7653.chunk.js",
+    "static/media/banner-phones.png": "/nice_gadgets_FE/static/media/banner-phones.b4eeda8bd82b712057a2.png",
+    "static/media/banner-accessories-1040.png": "/nice_gadgets_FE/static/media/banner-accessories-1040.86ab88ba84bb46462eb6.png",
     "static/media/logo.svg": "/nice_gadgets_FE/static/media/logo.e0bf13985d78a74197d9.svg",
     "static/media/logoFooter.svg": "/nice_gadgets_FE/static/media/logoFooter.7c86cf5336d53d092e30.svg",
+    "static/media/Mont-SemiBold.eot": "/nice_gadgets_FE/static/media/Mont-SemiBold.2dc79e1cb836e6342c2e.eot",
+    "static/media/Mont-SemiBold.ttf": "/nice_gadgets_FE/static/media/Mont-SemiBold.0b5e68ebb36ca4006e21.ttf",
+    "static/media/Banner.png": "/nice_gadgets_FE/static/media/Banner.57c1512128531573240d.png",
+    "static/media/Category-3.png": "/nice_gadgets_FE/static/media/Category-3.f97da0dc0fcd6230e9d3.png",
+    "static/media/Category-2.png": "/nice_gadgets_FE/static/media/Category-2.70cceed369d267762189.png",
+    "static/media/Category-1.png": "/nice_gadgets_FE/static/media/Category-1.d3090abd5e973ee85475.png",
+    "static/media/Mont-SemiBold.woff": "/nice_gadgets_FE/static/media/Mont-SemiBold.5d4afcfe00f8d6a38e5f.woff",
+    "static/media/BannerSmall.png": "/nice_gadgets_FE/static/media/BannerSmall.0582a9dfa7e5ea770487.png",
+    "static/media/Mont-SemiBold.woff2": "/nice_gadgets_FE/static/media/Mont-SemiBold.95ab478c134f9e9da545.woff2",
     "static/media/cart.svg": "/nice_gadgets_FE/static/media/cart.fbb7bb4b7513df420fa1.svg",
+    "static/media/fav-regular.svg": "/nice_gadgets_FE/static/media/fav-regular.eee73a995179761b2327.svg",
     "static/media/heart.svg": "/nice_gadgets_FE/static/media/heart.793bee0c55e6c159546a.svg",
+    "static/media/fav-selected.svg": "/nice_gadgets_FE/static/media/fav-selected.d1bdfe0892e988a5ff96.svg",
     "index.html": "/nice_gadgets_FE/index.html",
+    "static/media/close.svg": "/nice_gadgets_FE/static/media/close.240bedeea54b93e8ac74.svg",
     "static/media/menu.svg": "/nice_gadgets_FE/static/media/menu.ccd1a9542b5bc584f2a1.svg",
     "static/media/slider.svg": "/nice_gadgets_FE/static/media/slider.63149f1173408198c06c.svg",
-    "main.542a10fa.css.map": "/nice_gadgets_FE/static/css/main.542a10fa.css.map",
-    "main.b86fe710.js.map": "/nice_gadgets_FE/static/js/main.b86fe710.js.map",
+    "static/media/Vector.svg": "/nice_gadgets_FE/static/media/Vector.1218d346d7bbd8f26b9e.svg",
+    "static/media/Vector_gray_right.svg": "/nice_gadgets_FE/static/media/Vector_gray_right.90170297dda7672a6426.svg",
+    "static/media/arrow-right-disabled.svg": "/nice_gadgets_FE/static/media/arrow-right-disabled.90170297dda7672a6426.svg",
+    "static/media/arrow-right.svg": "/nice_gadgets_FE/static/media/arrow-right.1218d346d7bbd8f26b9e.svg",
+    "static/media/arrow-hover.svg": "/nice_gadgets_FE/static/media/arrow-hover.6e4b28ea22939ec09dd8.svg",
+    "static/media/arrow.svg": "/nice_gadgets_FE/static/media/arrow.d34d23c6ec6b2fc56d8e.svg",
+    "static/media/arrow-rotate.svg": "/nice_gadgets_FE/static/media/arrow-rotate.9344bb0be5d109fe52f6.svg",
+    "main.746ef422.css.map": "/nice_gadgets_FE/static/css/main.746ef422.css.map",
+    "main.a21f6a1d.js.map": "/nice_gadgets_FE/static/js/main.a21f6a1d.js.map",
     "787.b21c7653.chunk.js.map": "/nice_gadgets_FE/static/js/787.b21c7653.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.542a10fa.css",
-    "static/js/main.b86fe710.js"
+    "static/css/main.746ef422.css",
+    "static/js/main.a21f6a1d.js"
   ]
 }
