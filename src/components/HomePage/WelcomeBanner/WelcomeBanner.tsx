@@ -4,7 +4,6 @@ import {
   ButtonNext, Slide, DotGroup,
 } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import { PhoneImageSlider } from '../../PhoneImageSlider';
 
 export const WelcomeBanner: React.FC = () => {
   return (
@@ -64,9 +63,6 @@ export const WelcomeBanner: React.FC = () => {
           grid__item--tablet-6-7"
         />
       </CarouselProvider>
-
-      {/* eslint-disable-next-line max-len */}
-       <PhoneImageSlider imgPath="img/phones/apple-iphone-xs/gold/00.jpg" />
     </section>
   );
 };
