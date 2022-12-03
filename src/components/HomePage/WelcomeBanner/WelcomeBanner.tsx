@@ -12,7 +12,7 @@ export const WelcomeBanner: React.FC = () => {
       <div className="grid grid--desktop">
         <div
           className="grid__item
-            grid__item--desktop-1-17
+            grid__item--desktop-1-18
             grid__item--tablet-1-9"
         >
           <div className="welcome__title">Welcome to Nice Gadgets store!</div>
