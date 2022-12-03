@@ -6,7 +6,7 @@ export const WelcomeBanner: React.FC = () => {
       <div className="grid grid--desktop">
         <div
           className="grid__item
-            grid__item--desktop-1-17
+            grid__item--desktop-1-18
             grid__item--tablet-1-9"
         >
           <div className="welcome__title">Welcome to Nice Gadgets store!</div>
@@ -17,7 +17,11 @@ export const WelcomeBanner: React.FC = () => {
             grid__item--tablet-1-1"
         >
           <a className="welcome__sidebar">
-            <div className="icon-arrow icon-arrow--left"></div>
+            <div
+              className="icon-arrow
+            icon-arrow--sidebar
+            icon-arrow--left"
+            ></div>
           </a>
         </div>
         <div
@@ -35,7 +39,7 @@ export const WelcomeBanner: React.FC = () => {
             "
         >
           <a className="welcome__sidebar">
-            <div className="icon-arrow"></div>
+            <div className="icon-arrow icon-arrow--sidebar"></div>
           </a>
         </div>
       </div>
