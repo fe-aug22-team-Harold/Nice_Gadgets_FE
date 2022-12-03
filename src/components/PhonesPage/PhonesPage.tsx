@@ -21,7 +21,7 @@ export const PhonesPage: React.FC = () => {
       <div className="phones-page__container">
         {status === 'loading' && <Loader />}
         {allPhones && status === 'idle' && (
-          <div className="phones-page__header">
+          <div className="phones-page__header all-phones">
             <FilterInputs />
           </div>
         )}
