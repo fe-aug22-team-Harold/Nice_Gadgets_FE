@@ -11,6 +11,7 @@
     margin: 24px 16px;
     color: $gray-white;
     background-color: $gray-black;
+    text-align: left;
 
     @include onDesktop {
       font-size: 48px;
@@ -30,17 +31,25 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    height: 320px;
+    height: 100%;
     background-image: url(../../../images/BannerSmall.png);
 
     @include onTablet {
-      height: 190px;
+      min-height: 190px;
       background-image: url(../../../images/Banner.png);
     }
 
     @include onDesktop {
       height: 400px;
       background-image: url(../../../images/Banner.png);
+    }
+
+    &--2 {
+      background-image: url(../../../images/banner-phones.png);
+    }
+
+    &--3 {
+      background-image: url(../../../images/banner-accessories-1040.png);
     }
   }
   &__sidebar {
@@ -49,9 +58,11 @@
     align-items: center;
     background-color: $gray-surface2;
     width: 100%;
+    outline: none;
+    border-color: transparent;
     @include onTablet {
       display: flex;
-      height: 190px;
+      min-height: 190px;
     }
 
     @include onDesktop {
@@ -84,6 +95,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
   &__blocks {
     margin-right: 14px;
     height: 4px;
@@ -95,6 +109,10 @@
     &:active {
       background-color: $gray-white;
     }
+
+    &--active {
+      background-color: $gray-white;
+    }
   }
 }
 
@@ -102,7 +120,7 @@
   display: block;
   height: 10px;
   width: 6px;
-  background-image: contain;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   background-image: url(../../../images/Vector.svg);

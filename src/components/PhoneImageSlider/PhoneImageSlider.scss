@@ -1,0 +1,41 @@
+.phone-picture {
+  display: flex;
+
+  &__main {
+    height: 400px;
+    width: 400px;
+    object-fit: contain;
+  }
+
+  &__img {
+    max-height: 400px;
+    object-fit: contain;
+    background-size: contain;
+
+    & > .carousel__image {
+      height: 400px;
+      width: 400px;
+      background-size: contain;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+  }
+  &__dot {
+    height: 80px;
+    width: 80px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+  }
+  &__item {
+    display: block;
+    max-height: 80px;
+    max-width: 80px;
+    object-fit: contain;
+  }
+}
