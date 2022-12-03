@@ -1,11 +1,22 @@
+/* eslint-disable no-shadow */
 /* eslint-disable no-return-assign */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react';
+import React, { useState } from 'react';
 import './FilterInputs.scss';
 
 export const FilterInputs: React.FC = () => {
+  // function handleChange() {
+  //   // eslint-disable-next-line no-console
+  //   console.log('g');
+  // }
+
+  const [name, setName] = useState('');
+
+  // eslint-disable-next-line no-console
+  console.log(name);
+
   return (
-    <>
+    <div className="filterInputs">
       <h1 className='objectsTitle'>
         Mobile phones
       </h1>
@@ -23,10 +34,11 @@ export const FilterInputs: React.FC = () => {
           <div className="sortBy__select select" tabIndex={1}>
             <input
               className="select__selectopt"
-              name="test"
+              name="SortBy"
               type="radio"
               id="opt1"
               defaultChecked
+              onChange={() => setName('Newest')}
             />
 
             <label htmlFor="opt1" className="select__option">
@@ -35,9 +47,10 @@ export const FilterInputs: React.FC = () => {
 
             <input
               className="select__selectopt"
-              name="test"
+              name="SortBy"
               type="radio"
               id="opt2"
+              onChange={() => setName('Test1')}
             />
 
             <label htmlFor="opt2" className="select__option">
@@ -46,9 +59,10 @@ export const FilterInputs: React.FC = () => {
 
             <input
               className="select__selectopt"
-              name="test"
+              name="SortBy"
               type="radio"
               id="opt3"
+              onChange={() => setName('Test2')}
             />
 
             <label htmlFor="opt3" className="select__option">
@@ -57,9 +71,10 @@ export const FilterInputs: React.FC = () => {
 
             <input
               className="select__selectopt"
-              name="test"
+              name="SortBy"
               type="radio"
               id="opt4"
+              onChange={() => setName('Test3')}
             />
 
             <label htmlFor="opt4" className="select__option">
@@ -68,9 +83,10 @@ export const FilterInputs: React.FC = () => {
 
             <input
               className="select__selectopt"
-              name="test"
+              name="SortBy"
               type="radio"
               id="opt5"
+              onChange={() => setName('Test4')}
             />
 
             <label htmlFor="opt5" className="select__option">
@@ -90,7 +106,7 @@ export const FilterInputs: React.FC = () => {
           >
             <input
               className="select__selectopt"
-              name="test1"
+              name="SortBy1"
               type="radio"
               id="opt11"
               defaultChecked
@@ -102,7 +118,7 @@ export const FilterInputs: React.FC = () => {
 
             <input
               className="select__selectopt"
-              name="test1"
+              name="SortBy1"
               type="radio"
               id="opt22"
             />
@@ -113,7 +129,7 @@ export const FilterInputs: React.FC = () => {
 
             <input
               className="select__selectopt"
-              name="test1"
+              name="SortBy1"
               type="radio"
               id="opt33"
             />
@@ -124,7 +140,7 @@ export const FilterInputs: React.FC = () => {
 
             <input
               className="select__selectopt"
-              name="test1"
+              name="SortBy1"
               type="radio"
               id="opt44"
             />
@@ -135,7 +151,7 @@ export const FilterInputs: React.FC = () => {
 
             <input
               className="select__selectopt"
-              name="test1"
+              name="SortBy1"
               type="radio"
               id="opt55"
             />
@@ -146,6 +162,6 @@ export const FilterInputs: React.FC = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };

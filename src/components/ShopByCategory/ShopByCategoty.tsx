@@ -13,7 +13,10 @@ export const ShopByCategory: React.FC = () => {
 
       <div className="shopByCategory__sections section">
         <div className="section__first">
-          <img src={fotoCategory1} alt="first-category" />
+          <img
+            className='section__img'
+            src={fotoCategory1}
+            alt="first-category" />
 
           <h3 className='section__title'>
             Mobile phones
@@ -25,7 +28,11 @@ export const ShopByCategory: React.FC = () => {
         </div>
 
         <div className="section__second">
-          <img src={fotoCategory2} alt="first-category" />
+          <img
+            className='section__img'
+            src={fotoCategory2}
+            alt="first-category"
+          />
 
           <h3 className='section__title'>
             Tablets
@@ -37,7 +44,11 @@ export const ShopByCategory: React.FC = () => {
         </div>
 
         <div className="section__third">
-          <img src={fotoCategory3} alt="first-category" />
+          <img
+            className='section__img'
+            src={fotoCategory3}
+            alt="first-category"
+          />
 
           <h3 className='section__title'>
             Accessories
