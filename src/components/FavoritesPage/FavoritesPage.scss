@@ -17,8 +17,10 @@
   }
 
   &__text {
+    width: 270px;
     display: block;
     text-align: left;
+    grid-column: 1 / 1;
   }
 
   &__title {
@@ -30,6 +32,8 @@
     font-size: 32px;
     line-height: 41px;
     margin-bottom: 8px;
+    // grid-column: 1 / 1;
+    // row-gap: 0;
 
     @include onTablet {
       font-size: 48px;
@@ -51,6 +55,8 @@
     font-size: 14px;
     line-height: 21px;
     margin-bottom: 32px;
+    // grid-column: 1 / 1;
+    // row-gap: 0px;
 
     @include onTablet {
       font-size: 14px;

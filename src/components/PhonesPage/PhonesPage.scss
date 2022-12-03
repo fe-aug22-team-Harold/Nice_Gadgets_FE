@@ -39,7 +39,6 @@
 
 .all-phones {
   display: grid;
-  align-items: center;
   justify-content: center;
   row-gap: 40px;
   @include onTablet {

@@ -18,9 +18,11 @@ export const FavoritesPage: React.FC = () => {
     <div className="favorites-page">
       <div className="favorites-page__container">
         {status === 'loading' && <Loader />}
-        <div className="favorites-page__text">
-          <div className="favorites-page__title">Favourites</div>
-          <div className="favorites-page__models-number">95 models</div>
+        <div className="all-phones">
+          <div className="favorites-page__text">
+            <div className="favorites-page__title">Favourites</div>
+            <div className="favorites-page__models-number">95 models</div>
+          </div>
         </div>
         <div className="favorites-page__all-favorites all-phones">
           {allPhones
