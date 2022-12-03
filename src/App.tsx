@@ -6,6 +6,7 @@ import { Footer } from './components/Footer';
 import { PageNotFound } from './components/PageNotFound';
 import { HomePage } from './components/HomePage';
 import { PhonesPage } from './components/PhonesPage';
+import { FavoritesPage } from './components/FavoritesPage';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <Route path="/phones" element={<PhonesPage />} />
 
         <Route path="*" element={<PageNotFound />} />
+
+        <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
 
       <Footer />
