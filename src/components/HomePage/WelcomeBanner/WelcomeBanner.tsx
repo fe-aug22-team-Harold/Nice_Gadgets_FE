@@ -4,7 +4,7 @@ import {
   ButtonNext, Slide, DotGroup,
 } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-// import { PhoneImageSlider } from '../../PhoneImageSlider';
+import { PhoneImageSlider } from '../../PhoneImageSlider';
 
 export const WelcomeBanner: React.FC = () => {
   return (
@@ -66,7 +66,7 @@ export const WelcomeBanner: React.FC = () => {
       </CarouselProvider>
 
       {/* eslint-disable-next-line max-len */}
-      {/* <PhoneImageSlider imgPath="img/phones/apple-iphone-xs/spacegray/00.jpg" /> */}
+       <PhoneImageSlider imgPath="img/phones/apple-iphone-xs/gold/00.jpg" />
     </section>
   );
 };

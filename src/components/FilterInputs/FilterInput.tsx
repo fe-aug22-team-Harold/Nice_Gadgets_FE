@@ -3,13 +3,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import './FilterInputs.scss';
+import { useAppSelector } from '../../app/hooks';
 
-export const FilterInputs: React.FC = () => {
-  // function handleChange() {
-  //   // eslint-disable-next-line no-console
-  //   console.log('g');
-  // }
+type Props = {
+  changeOnPage: (num: number) => void
+}
 
+export const FilterInputs: React.FC<Props> = ({ changeOnPage }) => {
+  const { allPhones } = useAppSelector(state => state.phones);
   const [name, setName] = useState('');
 
   // eslint-disable-next-line no-console
@@ -22,7 +23,7 @@ export const FilterInputs: React.FC = () => {
       </h1>
 
       <h5 className='objectsSubTitle'>
-        95 models
+        {allPhones?.length} models
       </h5>
 
       <div className="filter">
@@ -110,6 +111,7 @@ export const FilterInputs: React.FC = () => {
               type="radio"
               id="opt11"
               defaultChecked
+              onChange={() => changeOnPage(16)}
             />
 
             <label htmlFor="opt11" className="select__option">
@@ -121,6 +123,7 @@ export const FilterInputs: React.FC = () => {
               name="SortBy1"
               type="radio"
               id="opt22"
+              onChange={() => changeOnPage(5)}
             />
 
             <label htmlFor="opt22" className="select__option">
@@ -132,6 +135,7 @@ export const FilterInputs: React.FC = () => {
               name="SortBy1"
               type="radio"
               id="opt33"
+              onChange={() => changeOnPage(3)}
             />
 
             <label htmlFor="opt33" className="select__option">
@@ -143,6 +147,7 @@ export const FilterInputs: React.FC = () => {
               name="SortBy1"
               type="radio"
               id="opt44"
+              onChange={() => changeOnPage(10)}
             />
 
             <label htmlFor="opt44" className="select__option">
@@ -154,6 +159,7 @@ export const FilterInputs: React.FC = () => {
               name="SortBy1"
               type="radio"
               id="opt55"
+              onChange={() => changeOnPage(1)}
             />
 
             <label htmlFor="opt55" className="select__option">
