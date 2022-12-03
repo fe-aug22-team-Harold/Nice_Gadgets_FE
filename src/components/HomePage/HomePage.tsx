@@ -72,6 +72,7 @@ export const HomePage: React.FC = () => {
       <div className='home-page__container'>
 
         <WelcomeBanner />
+
         <CardsSlider allPhones={allPhones} title='Brand new models' />
         <ShopByCategory />
         <CardsSlider allPhones={allPhones} title='Hot prices' />

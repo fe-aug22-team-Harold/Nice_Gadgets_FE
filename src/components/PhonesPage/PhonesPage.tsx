@@ -1,41 +1,67 @@
-/* eslint-disable operator-linebreak */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { getPhonesAsync } from '../../features/phonesSlice';
 import { ProductCard } from '../ProductCard';
 import { Loader } from '../Loader';
 import { FilterInputs } from '../FilterInputs';
-import { PaginationButtons } from './PaginationButtons/PaginationButtons';
+import { PaginationButtons } from './PaginationButtons';
+import { getPhonesPageAsync } from '../../features/allPhonesSlice';
 
 export const PhonesPage: React.FC = () => {
-  // eslint-disable-next-line no-shadow
-  const { allPhones, status } = useAppSelector((state) => state.phones);
+  const { allPhones } = useAppSelector((state) => state.phones);
+  const { phonesOnPage, status: pagePhonesStatus } = useAppSelector(
+    (state) => state.phonesPage,
+  );
   const dispatch = useAppDispatch();
+  const [page, setPage] = useState(3);
+  const [onPage, setOnPage] = useState(16);
 
   useEffect(() => {
-    dispatch(getPhonesAsync());
+    if (!allPhones) {
+      dispatch(getPhonesAsync());
+    }
+
+    dispatch(getPhonesPageAsync({ page, onPage }));
   }, []);
+
+  useEffect(() => {
+    dispatch(getPhonesPageAsync({ page, onPage }));
+  }, [page]);
+
+  const onPageChange = (newPageNum: number) => {
+    setPage(newPageNum);
+  };
+
+  const onChangeOnPage = (newOnPageNum: number) => {
+    setOnPage(newOnPageNum);
+  };
 
   return (
     <div className="phones-page">
       <div className="phones-page__container">
-        {status === 'loading' && <Loader />}
-        {allPhones && status === 'idle' && (
-          <div className="phones-page__header all-phones">
-            <FilterInputs />
+        {pagePhonesStatus === 'loading' && (
+          <div style={{ paddingTop: '150px' }}>
+            <Loader />
           </div>
         )}
+
+        {phonesOnPage && pagePhonesStatus === 'idle' && (
+          <div className="phones-page__header">
+            <FilterInputs changeOnPage={onChangeOnPage} />
+          </div>
+        )}
+
         <div className="phones-page__all-phones all-phones">
-          {allPhones &&
-            status === 'idle' &&
-            allPhones.map((phone) => (
+          {phonesOnPage
+            && pagePhonesStatus === 'idle'
+            && phonesOnPage.map((phone) => (
               <ProductCard key={phone.itemId} phoneCard={phone} />
             ))}
-          ;
         </div>
-        {allPhones && status === 'idle' && (
+
+        {phonesOnPage && pagePhonesStatus === 'idle' && (
           <div className="phones-page__buttons">
-            <PaginationButtons />
+            <PaginationButtons currentPage={page} changePage={onPageChange} />
           </div>
         )}
       </div>
