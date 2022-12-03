@@ -11,5 +11,17 @@
         padding: 0 32px 0;
       }
     }
+
+    &--2 {
+      box-sizing: border-box;
+      padding: 0 16px 57px;
+      @include onTablet {
+        padding: 0 24px 64px;
+      }
+
+      @include onDesktop {
+        padding: 0 32px 80px;
+      }
+    }
   }
 }

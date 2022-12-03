@@ -6,7 +6,12 @@ import fotoCategory3 from './Category-3.png';
 
 export const ShopByCategory: React.FC = () => {
   return (
-    <div className="shopByCategory">
+    <div className="
+      shopByCategory
+      page__section
+      page__section--1
+      "
+    >
       <h2 className='shopByCategory__title'>
         Shop by category
       </h2>
