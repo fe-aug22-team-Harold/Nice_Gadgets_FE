@@ -5,7 +5,7 @@ import { getPhonesAsync } from '../../features/phonesSlice';
 import { ProductCard } from '../ProductCard';
 import { Loader } from '../Loader';
 import { FilterInputs } from '../FilterInputs';
-import { Buttons } from './Buttons/Buttons';
+import { PaginationButtons } from './PaginationButtons/PaginationButtons';
 
 export const PhonesPage: React.FC = () => {
   // eslint-disable-next-line no-shadow
@@ -28,15 +28,15 @@ export const PhonesPage: React.FC = () => {
         <div className="phones-page__all-phones all-phones">
           {allPhones &&
             status === 'idle' &&
-            allPhones
-              .map((phone) => (
-                <ProductCard key={phone.itemId} phoneCard={phone} />
-              ))};
+            allPhones.map((phone) => (
+              <ProductCard key={phone.itemId} phoneCard={phone} />
+            ))}
+          ;
         </div>
         {allPhones && status === 'idle' && (
-        <div className="phones-page__buttons">
-          <Buttons />
-        </div>
+          <div className="phones-page__buttons">
+            <PaginationButtons />
+          </div>
         )}
       </div>
     </div>
