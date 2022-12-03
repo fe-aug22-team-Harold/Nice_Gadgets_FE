@@ -18,9 +18,9 @@ function App() {
 
         <Route path="/phones" element={<PhonesPage />} />
 
-        <Route path="*" element={<PageNotFound />} />
-
         <Route path="/favorites" element={<FavoritesPage />} />
+
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
 
       <Footer />
