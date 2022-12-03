@@ -1,37 +1,81 @@
 import React from 'react';
 import { WelcomeBanner } from './WelcomeBanner';
+import { CardsSlider } from '../CardsSlider';
+import { ShopByCategory } from '../ShopByCategory';
 
 export const HomePage: React.FC = () => {
+  /* const allPhones = [
+    {
+      'id': '1',
+      'category': 'phones',
+      'phoneId': 'apple-iphone-7-32gb-black',
+      'itemId': 'apple-iphone-7-32gb-black',
+      'name': 'Apple iPhone 7 32GB Black',
+      'fullPrice': 400,
+      'price': 375,
+      'screen': "4.7' IPS",
+      'capacity': '32GB',
+      'color': 'black',
+      'ram': '2GB',
+      'year': 2016,
+      'image': 'img/phones/apple-iphone-7/black/00.jpg',
+    },
+    {
+      'id': '2',
+      'category': 'phones',
+      'phoneId': 'apple-iphone-7-plus-32gb-black',
+      'itemId': 'apple-iphone-7-plus-32gb-black',
+      'name': 'Apple iPhone 7 Plus 32GB Black',
+      'fullPrice': 540,
+      'price': 500,
+      'screen': "5.5' IPS",
+      'capacity': '32GB',
+      'color': 'black',
+      'ram': '3GB',
+      'year': 2016,
+      'image': 'img/phones/apple-iphone-7-plus/black/00.jpg',
+    },
+    {
+      'id': '3',
+      'category': 'phones',
+      'phoneId': 'apple-iphone-8-64gb-gold',
+      'itemId': 'apple-iphone-8-64gb-gold',
+      'name': 'Apple iPhone 8 64GB Gold',
+      'fullPrice': 600,
+      'price': 550,
+      'screen': "4.7' IPS",
+      'capacity': '64GB',
+      'color': 'gold',
+      'ram': '2GB',
+      'year': 2017,
+      'image': 'img/phones/apple-iphone-8/gold/00.jpg',
+    },
+    {
+      'id': '4',
+      'category': 'phones',
+      'phoneId': 'apple-iphone-11-64gb-black',
+      'itemId': 'apple-iphone-11-64gb-black',
+      'name': 'Apple iPhone 11 64GB Black',
+      'fullPrice': 932,
+      'price': 880,
+      'screen': "6.1' IPS",
+      'capacity': '64GB',
+      'color': 'black',
+      'ram': '4GB',
+      'year': 2019,
+      'image': 'img/phones/apple-iphone-11/black/00.jpg',
+    },
+  ]; */
+
   return (
-    <div className="home-page">
-      <div className="home-page__container">
+    <div className='home-page'>
+      <div className='home-page__container'>
 
         <WelcomeBanner />
-        <div className="page_section brand-new-models">
-          <div className="brand-new-models__title"></div>
-          <div className="brand-new-models__block block">
-            <div className="grid">
-              <div
-                className="
-                grid__item
-                grid__item--desktop-1-6
-                grid__item--tablet-1-5
-                grid__item--mobile-1-3"
-              >
-                <div className="block__phone"></div>
-              </div>
-              <div
-                className="
-                grid__item
-                grid__item--desktop-7-12
-                grid__item--tablet-6-10
-                grid__item--mobile-4-4"
-              >
-                <div className="block__phone"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+
+        <CardsSlider allPhones={allPhones} title='Brand new models' />
+        <ShopByCategory />
+        <CardsSlider allPhones={allPhones} title='Hot prices' />
       </div>
     </div>
   );
