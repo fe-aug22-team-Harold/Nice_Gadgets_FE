@@ -18,27 +18,47 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      {isOpen && (
-        <Menu>
-          <div className="header">
-            <Link to="/" className="logo" />
-            <div className="icons">
-              <span className="icon icon__close" onClick={closeMenu}></span>
+      <div id="menu-hook">
+        {isOpen && (
+          <Menu>
+            <div className="header">
+              <Link to="/" className="logo" />
+
+              <div className="icons">
+                <span className="icon icon__close" onClick={closeMenu}></span>
+              </div>
             </div>
-          </div>
-          <NavLinks isOpen={isOpen} />
-          <div className="icons icons--menu">
-            <span className="icon icon__heart icon__heart--menu"></span>
-            <span className="icon icon__cart icon__cart--menu"></span>
-          </div>
-        </Menu>
-      )}
+
+            <NavLinks isOpen={isOpen} />
+
+            <div className="icons icons--menu">
+              <Link to={`/`} className="nav__link--heart">
+                <span className="icon icon__heart icon__heart--menu"></span>
+              </Link>
+
+              <Link to={`/cart`} className="nav__link--cart">
+                <span
+                  className="icon icon__cart icon__cart--menu"
+                  onClick={closeMenu}
+                ></span>
+              </Link>
+            </div>
+          </Menu>
+        )}
+      </div>
+
       <div className="header">
         <Link to="/" className="logo" />
+
         <NavBar />
+
         <div className="icons">
           <span className="icon icon__heart"></span>
-          <span className="icon icon__cart"></span>
+
+          <Link to={`/cart`} className="nav__link--cart">
+            <span className="icon icon__cart"></span>
+          </Link>
+
           <span className="icon icon__menu" onClick={openMenu}></span>
         </div>
       </div>

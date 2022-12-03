@@ -122,3 +122,13 @@ $gray-elements: #3b3e4a;
     }
   }
 }
+
+.nav__link--cart {
+  display: flex;
+  flex: 1;
+}
+
+.nav__link--heart {
+  display: flex;
+  flex: 1;
+}
