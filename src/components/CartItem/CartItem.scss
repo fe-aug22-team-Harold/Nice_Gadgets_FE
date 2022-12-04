@@ -88,6 +88,10 @@
     &--minus {
       background-image: url(../../images/minus.svg);
     }
+
+    &--minus-disabled {
+      background-image: url(../../images/minus-disabled.svg);
+    }
   }
 
   &__close--cart-item {
