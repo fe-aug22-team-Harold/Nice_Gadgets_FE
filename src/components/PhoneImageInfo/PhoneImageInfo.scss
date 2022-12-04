@@ -1,13 +1,5 @@
 .phone-info {
-  width: 100%;
-
-  @media (min-width: 640px) {
-    width: 237px;
-  }
-
-  @media (min-width: 1200px) {
-    width: 320px;
-  }
+  font-family: 'Mont';
 
   &__colors {
     margin-bottom: 24px;
@@ -83,6 +75,7 @@
     }
 
     &__button {
+      font-family: 'Mont';
       width: 60px;
       height: 32px;
       color: #F1F2F9;
