@@ -29,7 +29,7 @@ export const Header: React.FC = () => {
               </div>
             </div>
 
-            <NavLinks isOpen={isOpen} />
+            <NavLinks isOpen={isOpen} closeMenu={closeMenu}/>
 
             <div className="icons icons--menu">
               <Link to={`/`} className="nav__link--heart">
