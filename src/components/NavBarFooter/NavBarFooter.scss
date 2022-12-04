@@ -1,4 +1,4 @@
-$color-white: #f1f2f9;
+@import '../../utilsForScss/colors';
 
 .nav {
   &--footer {
@@ -30,7 +30,7 @@ $color-white: #f1f2f9;
   }
 
   &__link--footer {
-    color: $color-white;
+    color: $gray-white;
     line-height: 11px;
 
     &:not(:last-child) {

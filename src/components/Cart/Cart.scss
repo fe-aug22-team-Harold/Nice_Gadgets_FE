@@ -1,32 +1,23 @@
-$gray-white: #f1f2f9;
-$gray-black: #0f1121;
-$accent-color: #905bff;
-$header-h: 64px;
-$header-h--sm: 48px;
-
-$footer-h: 97px;
-$footer-h--sm: 260px;
+@import '../../utilsForScss/colors';
 
 .container {
   background-color: $gray-black;
+  min-height: 100vh;
 }
 
 .cart {
   grid-template-rows: min-content;
+  align-content: start;
   max-width: 1136px;
   padding: 0 32px;
   margin: auto;
 
-  height: calc(100vh - $header-h - $footer-h);
-
   @media (max-width: 1199px) {
     padding: 0 24px;
-    height: calc(100vh - $header-h--sm - $footer-h);
   }
 
   @media (max-width: 639px) {
     padding: 0 16px;
-    height: calc(100vh - $header-h--sm - $footer-h--sm);
   }
 
   &__h1 {
@@ -40,6 +31,7 @@ $footer-h--sm: 260px;
     text-align: left;
 
     margin-top: 16px;
+    margin-bottom: 32px;
 
     @media (max-width: 639px) {
       font-size: 32px;
