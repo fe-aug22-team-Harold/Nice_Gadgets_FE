@@ -1,38 +1,99 @@
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import './CartItem.scss';
+import { Phone } from '../../types/Phone';
+import {
+  useAppDispatch, useAppSelector, useLocalStorage,
+} from '../../app/hooks';
+import { Link } from 'react-router-dom';
+import classNames from 'classnames';
+import {
+  addToCart, removeFromCart, setCart,
+} from '../../features/cartSlice';
 
-export const CartItem: React.FC = () => {
+// eslint-disable-next-line max-len
+const staticURL = 'https://raw.githubusercontent.com/fe-aug22-team-Harold/nice_gadgets_static-files/master/';
+
+type Props = {
+  phoneItem: Phone,
+}
+
+export const CartItem: React.FC<Props> = ({ phoneItem }) => {
+  const { currentCart } = useAppSelector(state => state.cart);
+  const [, setCartStored] = useLocalStorage('cart');
+  const dispatch = useAppDispatch();
+
+  const sameItemInCart = useMemo(() => {
+    return currentCart.filter(item => item.itemId === phoneItem.itemId).length;
+  }, [currentCart]);
+
+  const deleteHandler = () => {
+    dispatch(removeFromCart(phoneItem));
+  };
+
+  const minusHandler = () => {
+    if (sameItemInCart === 1) {
+      return;
+    }
+
+    const restOfCart = currentCart.filter(
+      item => item.itemId !== phoneItem.itemId,
+    );
+    const currentOnCart = currentCart.filter(
+      item => item.itemId === phoneItem.itemId,
+    );
+
+    dispatch(setCart([...restOfCart, ...currentOnCart.slice(1)]));
+  };
+
+  const plusHandler = () => {
+    dispatch(addToCart(phoneItem));
+  };
+
+  useEffect(() => {
+    setCartStored(() => currentCart);
+  }, [currentCart]);
+
   return (
     <div className="cart-item">
       <div className="cart-item__info">
-        <span className="icon icon__close icon__close--cart-item"></span>
+        <span
+          onClick={deleteHandler}
+          className="icon icon__close icon__close--cart-item"
+        ></span>
+
         <div className="cart-item__description">
-          <img
-            className="card__img card__img--cart"
-            src="https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/img/phones/apple-iphone-11/black/00.jpg"
-            alt="phone"
-          />
-          <p className="cart-item__title">Apple iPhone 11 64GB Black</p>
+          <Link to={`/phones/${phoneItem.itemId}`}>
+            <img
+              className="card__img card__img--cart"
+              src={staticURL + phoneItem.image}
+              alt="phone"
+            />
+          </Link>
+          <p className="cart-item__title">{phoneItem.name}</p>
         </div>
       </div>
 
       <div className="cart-item__price-block">
         <div className="cart-item__counter">
           <a
-            className="icon
-              icon__cart-item
-              icon__cart-item--minus
-              icon__cart-item--minus-disabled"
+            onClick={minusHandler}
+            className={
+            classNames('icon icon__cart-item icon__cart-item--minus', {
+              'icon__cart-item--minus-disabled': sameItemInCart === 1,
+            })}
           ></a>
-          1
+          {sameItemInCart}
           <a
+            onClick={plusHandler}
             className="icon
               icon__cart-item
               icon__cart-item--plus"
           ></a>
         </div>
 
-        <div className="cart-item__price">$ 740</div>
+        <div className="cart-item__price">
+          $ {phoneItem.price}
+        </div>
       </div>
     </div>
   );

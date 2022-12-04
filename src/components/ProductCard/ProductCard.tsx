@@ -11,9 +11,10 @@ import {
   addFavorites, removeFavorites, setFavorites,
 } from '../../features/favoritesSlice';
 import { Link } from 'react-router-dom';
+import { setCart, addToCart } from '../../features/cartSlice';
 
 // eslint-disable-next-line max-len
-const staticBasePath = 'https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/';
+const staticBasePath = 'https://raw.githubusercontent.com/fe-aug22-team-Harold/nice_gadgets_static-files/master/';
 
 type Props = {
   phoneCard: Phone,
@@ -32,29 +33,48 @@ export const ProductCard: React.FC<Props> = ({ phoneCard }) => {
   } = phoneCard;
 
   const [favoritesStored, setFavoritesStored] = useLocalStorage('favorites');
+  const [cartStored, setCartStored] = useLocalStorage('cart');
   const dispatch = useAppDispatch();
   const { currentFavorites } = useAppSelector(state => state.favorites);
+  const { currentCart } = useAppSelector(state => state.cart);
 
-  const [added, setAdded] = useState(false);
+  const [added, setAdded] = useState(
+    cartStored.some((item: Phone) => item.itemId === phoneCard.itemId),
+  );
   const [favorite, setFavorite] = useState(
     favoritesStored.some((item: Phone) => item.itemId === phoneCard.itemId),
   );
 
-  const addToFavorite = () => {
+  const addToCartHandler = () => {
+    if (currentCart.find(item => item.itemId === phoneCard.itemId)) {
+      return;
+    }
+
+    setAdded(!added);
+    dispatch(addToCart(phoneCard));
+  };
+
+  const addToFavoriteHandler = () => {
     if (currentFavorites.find(item => item.itemId === phoneCard.itemId)) {
       dispatch(removeFavorites(phoneCard));
     } else {
       dispatch(addFavorites(phoneCard));
     }
+    setFavorite(!favorite);
   };
 
   useEffect(() => {
     dispatch(setFavorites(favoritesStored));
+    dispatch(setCart(cartStored));
   }, []);
 
   useEffect(() => {
     setFavoritesStored(() => currentFavorites);
   }, [currentFavorites]);
+
+  useEffect(() => {
+    setCartStored(() => currentCart);
+  }, [currentCart]);
 
   return (
     <div className="card">
@@ -116,9 +136,7 @@ export const ProductCard: React.FC<Props> = ({ phoneCard }) => {
 
       <div className='card__buy'>
         <a
-          onClick={() => {
-            setAdded(!added);
-          }}
+          onClick={addToCartHandler}
           className={cn('card__add-to-cart', {
             'card__add-to-cart--active': added,
           })}
@@ -131,10 +149,7 @@ export const ProductCard: React.FC<Props> = ({ phoneCard }) => {
       </a>
 
       <a
-        onClick={() => {
-          setFavorite(!favorite);
-          addToFavorite();
-        }}
+        onClick={addToFavoriteHandler}
         className={cn('card__favorites-icon', {
           'card__favorites-icon--active': favorite,
         })}

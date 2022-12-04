@@ -6,6 +6,7 @@ import { Loader } from '../Loader';
 import { FilterInputs } from '../FilterInputs';
 import { PaginationButtons } from './PaginationButtons';
 import { getPhonesPageAsync } from '../../features/allPhonesSlice';
+import { HistoryBlock } from '../HistoryBlock';
 
 export const PhonesPage: React.FC = () => {
   const { allPhones } = useAppSelector((state) => state.phones);
@@ -47,6 +48,12 @@ export const PhonesPage: React.FC = () => {
 
         {phonesOnPage && pagePhonesStatus === 'idle' && (
           <div className="phones-page__header">
+            <div className="phones-page__history">
+              <HistoryBlock
+                firstRoute={'Phones'}
+                secondRoute={undefined}
+              />
+            </div>
             <FilterInputs
               currentOnPage={onPage}
               changeOnPage={onChangeOnPage}

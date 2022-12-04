@@ -11,7 +11,7 @@ import './PhoneImageSlider.scss';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
 // eslint-disable-next-line max-len
-const staticBasePath = 'https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/';
+const staticBasePath = 'https://raw.githubusercontent.com/fe-aug22-team-Harold/nice_gadgets_static-files/master/';
 
 type Props = {
   imgPath: string,
