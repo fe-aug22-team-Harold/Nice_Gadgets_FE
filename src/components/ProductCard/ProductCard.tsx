@@ -78,15 +78,17 @@ export const ProductCard: React.FC<Props> = ({ phoneCard }) => {
 
   return (
     <div className="card">
-      <Link to={`/phones/${itemId}`}>
-        <img
-          className="card__img"
-          src={staticBasePath + image}
-          alt="iPhone"
-          width="208px"
-          height="196px"
-        />
-      </Link>
+      <div className="card__img-container">
+        <Link to={`/phones/${itemId}`}>
+          <img
+            className="card__img"
+            src={staticBasePath + image}
+            alt="iPhone"
+            width="208px"
+            height="196px"
+          />
+        </Link>
+      </div>
 
       <h2 className="card__title">
         {name}

@@ -1,5 +1,17 @@
+@import '../../utilsForScss/colors.scss';
+@import '../../utilsForScss/mixins.scss';
+
 .phone-info {
   font-family: 'Mont';
+  width: 100%;
+  // flex: 1;
+  position: relative;
+
+  &__container {
+    @include onDesktop {
+      max-width: 320px;
+    }
+  }
 
   &__colors {
     margin-bottom: 24px;
@@ -8,7 +20,7 @@
       display: block;
       width: 100%;
       height: 1px;
-      background-color: #3B3E4A;
+      background-color: $gray-elements;
       margin-top: 24px;
     }
   }
@@ -25,7 +37,25 @@
     font-size: 12px;
     line-height: 15px;
 
-    color: #75767F;
+    color: $secondary-color;
+  }
+
+  &__phone-id {
+    font-family: 'Mont';
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: right;
+
+    color: $secondary-color;
+
+    @include onDesktop {
+      right: -150px;
+    }
   }
 
   &__color {
@@ -37,12 +67,19 @@
       height: 32px;
       background-color: #FCDBC1;
 
-      border: 2px double #0F1121;
-      outline: 1px solid #3B3E4A;
+      border: 2px double $gray-black;
+      outline: 1px solid $gray-elements;
       border-radius: 50%;
+      cursor: pointer;
+
+      // for react
+
+      &--active {
+        outline-color: $gray-white;
+      }
 
       &:hover, &:active {
-        outline-color: #F1F2F9;
+        outline-color: $gray-white;
       }
 
       &--2 {
@@ -60,15 +97,6 @@
   }
 
   &__capacity {
-    &::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 1px;
-      background-color: #3B3E4A;
-      margin-top: 24px;
-    }
-
     &__buttons {
       display: flex;
       gap: 8px;
@@ -78,15 +106,32 @@
       font-family: 'Mont';
       width: 60px;
       height: 32px;
-      color: #F1F2F9;
-      background-color: #0F1121;
-      border: 1px solid #4A4D58;
+      color: $gray-white;
+      background-color: $gray-black;
+      border: 1px solid $icons-color;
+      cursor: pointer;
+
+      // for react
+    &__button--active {
+      color: $gray-black;
+      background-color: $gray-white;
+      border: 1px solid transparent;
+    }
 
       &:hover, &:active {
-        color: #0F1121;
-        background-color: #F1F2F9;
+        color: $gray-black;
+        background-color: $gray-white;
         border: 1px solid transparent;
       }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $gray-elements;
+      margin-top: 24px;
     }
   }
 
@@ -109,14 +154,14 @@
     justify-content: space-around;
     font-weight: 800;
     font-size: 22px;
-    color: #F1F2F9;
+    color: $gray-white;
   }
 
   &__price-full {
     font-weight: 600;
     font-size: 22px;
     line-height: 28px;
-    color: #75767F;
+    color: $secondary-color;
     text-decoration: line-through;
   }
 
@@ -139,14 +184,14 @@
       font-weight: 700;
       font-size: 12px;
       line-height: 15px;
-      color: #F1F2F9;
+      color: $gray-white;
     }
 
     &-name {
       font-weight: 700;
       font-size: 12px;
       line-height: 15px;
-      color: #75767F;
+      color: $secondary-color;
     }
   }
 
@@ -167,21 +212,22 @@
     font-size: 14px;
     line-height: 21px;
 
-    color: #F1F2F9;
+    color: $gray-white;
 
-    background: #905BFF;
+    background: $accent-color;
 
     text-decoration: none;
     text-align: center;
+    cursor: pointer;
 
     &:hover {
-      background: #A378FF;
-      color: #F1F2F9;
+      background: $accent-hover;
+      color: $gray-white;
     }
 
     &--active {
-      background: #323542;
-      color: #F1F2F9;
+      background: $gray-surface2;
+      color: $gray-white;
     }
   }
 
@@ -195,6 +241,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    cursor: pointer;
 
     &--active {
       background-image: url(../../images/fav-selected.svg);
