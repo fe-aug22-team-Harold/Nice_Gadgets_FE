@@ -21,7 +21,8 @@ export const CartItem: React.FC = () => {
           <a
             className="icon
               icon__cart-item
-              icon__cart-item--minus"
+              icon__cart-item--minus
+              icon__cart-item--minus-disabled"
           ></a>
           1
           <a
