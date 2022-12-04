@@ -1,0 +1,64 @@
+@font-face {
+  font-family: 'Mont';
+  src: url('../../../utils/fonts/Mont-SemiBold.eot');
+  src: local('../../../utils/fonts/Mont SemiBold'), local('Mont-SemiBold'),
+      url('../../../utils/fonts/Mont-SemiBold.eot?#iefix') format('embedded-opentype'),
+      url('../../../utils/fonts/Mont-SemiBold.woff2') format('woff2'),
+      url('../../../utils/fonts/Mont-SemiBold.woff') format('woff'),
+      url('../../../utils/fonts/Mont-SemiBold.ttf') format('truetype');
+
+  font-weight: 600;
+  font-style: normal;
+}
+
+.AboutPhone {
+  width: 100%; //560px
+
+  &__title {
+    font-family: 'Mont';
+    font-weight: 800;
+    text-align: left;
+    font-size: 22px;
+    line-height: 140%;
+
+    color: #F1F2F9;
+
+    &::after {
+      display: block;
+      content: url('../../../images/LineLong.svg');
+
+      @media (min-width: 1200px) {
+        content: url('../../../images/Line.svg');
+      }
+    }
+
+    @media (min-width: 1200px) {
+      width: 560px;
+    }
+  }
+
+  &__subtitle {
+    margin-top: 20px;
+    margin-bottom: 16px;
+
+    font-family: 'Mont';
+    font-weight: 700;
+    text-align: left;
+    font-size: 20px;
+    line-height: 26px;
+
+    color: #F1F2F9;
+  }
+
+  &__text {
+    padding-bottom: 16px;
+
+    font-family: 'MontRegular';
+    font-weight: 600;
+    text-align: left;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: #75767F;
+  }
+}
