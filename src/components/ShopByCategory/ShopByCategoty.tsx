@@ -4,8 +4,11 @@ import fotoCategory1 from './Category-1.png';
 import fotoCategory2 from './Category-2.png';
 import fotoCategory3 from './Category-3.png';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../../app/hooks';
 
 export const ShopByCategory: React.FC = () => {
+  const { allPhones } = useAppSelector(state => state.phones);
+
   return (
     <div className="
       shopByCategory
@@ -32,7 +35,7 @@ export const ShopByCategory: React.FC = () => {
           </h3>
 
           <p className='section__numberOfModels'>
-            95 models
+            {allPhones?.length} models
           </p>
         </div>
 
@@ -50,7 +53,7 @@ export const ShopByCategory: React.FC = () => {
           </h3>
 
           <p className='section__numberOfModels'>
-            24 models
+            2 models
           </p>
         </div>
 
@@ -68,7 +71,7 @@ export const ShopByCategory: React.FC = () => {
           </h3>
 
           <p className='section__numberOfModels'>
-            100 models
+            2 models
           </p>
         </div>
       </div>

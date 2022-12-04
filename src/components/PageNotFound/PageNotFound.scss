@@ -1,4 +1,5 @@
 @import "../../utilsForScss/colors";
+@import '../../utilsForScss/mixins.scss';
 
 .not-found {
   min-height: 80vh;
@@ -11,10 +12,24 @@
   color: $accent-hover;
 
   &__title {
-    font-size: 230px;
+    font-size: 130px;
+    @include onTablet {
+      font-size: 180px;
+    }
+
+    @include onDesktop{
+      font-size: 230px;
+    }
   }
 
   &__subtitle {
-    font-size: 60px;
+    font-size: 40px;
+    @include onTablet {
+      font-size: 50px;
+    }
+
+    @include onDesktop{
+      font-size: 60px;
+    }
   }
 }

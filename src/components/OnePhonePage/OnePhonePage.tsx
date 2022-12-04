@@ -9,6 +9,7 @@ import { Loader } from '../Loader';
 import { PhoneImageSlider } from '../PhoneImageSlider';
 import { CardsSlider } from '../CardsSlider';
 import { PhoneImageInfo } from '../PhoneImageInfo';
+import { HistoryBlock } from '../HistoryBlock';
 
 const allPhones = [
   {
@@ -110,11 +111,21 @@ export const OnePhonePage: React.FC = () => {
   return (
     <div className='OnePhonePage'>
       <div className='OnePhonePage__container'>
-        {isLoading && <Loader />}
+        {isLoading && (
+          <div className="OnePhonePage__loader">
+            <Loader />
+          </div>
+        )}
 
         {currentItem && !isLoading && (
           <>
             <div className='OnePhonePage page__section page__section--3'>
+              <div className="OnePhonePage__history">
+                <HistoryBlock
+                  firstRoute={'Phones'}
+                  secondRoute={currentItem.name}
+                />
+              </div>
               <h1 className='OnePhonePage__title'>{currentItem.name}</h1>
               <div className='
                 OnePhonePage__phone-choose

@@ -11,6 +11,10 @@
   color: $gray-white;
   padding: 16px;
 
+  &:last-child {
+    margin-bottom: 20px;
+  }
+
   @include onTablet {
     flex-direction: row;
     padding: 31px 24px;
@@ -39,7 +43,7 @@
   }
 
   &__title {
-    font-family: 'Mont', sans-serif;
+    font-family: 'Mont';
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;

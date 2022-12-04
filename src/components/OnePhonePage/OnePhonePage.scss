@@ -18,25 +18,18 @@
 
 .OnePhonePage {
   background-color: #0F1121;
-  &__container {
-      // display: flex;
-      // gap: 50px;
-      // flex-direction: column;
-      // justify-content: space-between;
-      // box-sizing: border-box;
-      // margin: 0 auto;
-      // padding: 0 25px;
-      // max-width: 1200px;
 
-      // @media (min-width: 1200px) {
-      //   flex-direction: row;
-      // }
+  &__loader {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__title {
     margin-bottom: 32px;
 
-    font-family: 'Mont';
+    font-family: 'Mont', sans-serif;
     font-weight: 800;
     font-size: 22px;
     line-height: 31px;
@@ -84,6 +77,19 @@
 
     &__info {
       flex: 1;
+    }
+  }
+
+  &__history {
+    display: grid;
+    grid-column: 1 / 4;
+    padding: 26px 0 24px;
+
+    @include onTablet {
+      padding: 26px 0 40px;
+    }
+    @include onDesktop {
+      padding: 26px 0 40px;
     }
   }
 
