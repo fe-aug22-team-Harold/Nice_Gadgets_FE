@@ -35,6 +35,19 @@
   &__buttons {
     padding-bottom: 64px;
   }
+
+  &__history {
+    display: grid;
+    grid-column: 1 / 4;
+    padding: 26px 0 24px;
+
+    @include onTablet {
+      padding: 26px 0 40px;
+    }
+    @include onDesktop {
+      padding: 26px 0 40px;
+    }
+  }
 }
 
 .all-phones {

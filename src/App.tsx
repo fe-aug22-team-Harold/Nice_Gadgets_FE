@@ -9,6 +9,8 @@ import { PhonesPage } from './components/PhonesPage';
 import { OnePhonePage } from './components/OnePhonePage';
 import { Cart } from './components/Cart';
 import { FavoritesPage } from './components/FavoritesPage';
+import { TabletsPage } from './components/TabletsPage';
+import { AccessoriesPage } from './components/AccessoriesPage';
 
 function App() {
   return (
@@ -23,6 +25,10 @@ function App() {
 
           <Route path=":phoneSlug" element={<OnePhonePage />} />
         </Route>
+
+        <Route path="/tablets" element={<TabletsPage />} />
+
+        <Route path="/accessories" element={<AccessoriesPage />} />
 
         <Route path="/cart" element={<Cart />} />
 

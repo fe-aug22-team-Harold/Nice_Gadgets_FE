@@ -63,11 +63,14 @@
     @include onTablet {
       display: flex;
       min-height: 190px;
+      width: 40%;
+      justify-self: center;
     }
 
     @include onDesktop {
       display: flex;
       height: 400px;
+      width: 100%;
     }
 
     &:hover {

@@ -1,0 +1,31 @@
+[
+  {
+    "id":"1",
+    "category":"tablets",
+    "phoneId":"apple_ipad_10_2_2021_wi_fi_64gb_space_gray",
+    "itemId":"apple_ipad_10_2_2021_wi_fi_64gb_space_gray",
+    "name":"Apple iPad 10.2' 2021 Wi-Fi 64 GB Space Gray",
+    "fullPrice":550,
+    "price":445,
+    "screen":"10.2' OLED",
+    "capacity":"64GB",
+    "color":"silver",
+    "ram":"4GB",
+    "year":2021,
+    "image":"img/ipads/ipad_10_2/silver/00.jpeg"
+  }, {
+    "id":"2",
+    "category":"tablets",
+    "phoneId":"apple_ipad_pro_11_m1_128gb_space_gray",
+    "itemId":"apple_ipad_pro_11_m1_128gb_space_gray",
+    "name":"Apple iPad Pro 11' M1 Wi-Fi 128 GB Space Gray",
+    "fullPrice":1100,
+    "price":999,
+    "screen":"11' OLED",
+    "capacity":"128GB",
+    "color":"silver",
+    "ram":"8GB",
+    "year":2021,
+    "image":"img/ipads/ipad_pro_11_m1/silver/00.jpeg"
+  }
+]
