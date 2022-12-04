@@ -24,5 +24,19 @@
         padding: 0 32px 80px;
       }
     }
+
+    &--3 {
+      padding: 0 16px 0;
+      margin-bottom: 56px;
+      @include onTablet {
+        padding: 0 24px 0;
+        margin-bottom: 64px;
+      }
+
+      @include onDesktop {
+        padding: 0 32px 0;
+        margin-bottom: 80px;
+      }
+    }
   }
 }
