@@ -1,37 +1,46 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { WelcomeBanner } from './WelcomeBanner';
+import { CardsSlider } from '../CardsSlider';
+import { ShopByCategory } from '../ShopByCategory';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { getPhonesAsync } from '../../features/phonesSlice';
+import { Loader } from '../Loader';
 
 export const HomePage: React.FC = () => {
+  const { allPhones, status: allPhonesStatus } = useAppSelector(
+    (state) => state.phones,
+  );
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (!allPhones) {
+      dispatch(getPhonesAsync());
+    }
+  }, []);
+
   return (
-    <div className="home-page">
-      <div className="home-page__container">
+    <div className='home-page'>
+      <div className='home-page__container'>
 
         <WelcomeBanner />
-        <div className="page_section brand-new-models">
-          <div className="brand-new-models__title"></div>
-          <div className="brand-new-models__block block">
-            <div className="grid">
-              <div
-                className="
-            grid__item
-            grid__item--desktop-1-6
-            grid__item--tablet-1-5
-            grid__item--mobile-1-3"
-              >
-                <div className="block__phone"></div>
-              </div>
-              <div
-                className="
-              grid__item
-              grid__item--desktop-7-12
-              grid__item--tablet-6-10
-              grid__item--mobile-4-4"
-              >
-                <div className="block__phone"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+
+        {allPhonesStatus === 'loading' && <Loader />}
+        {allPhones && allPhonesStatus === 'idle'
+          && <CardsSlider
+            allPhones={allPhones?.slice(10, 14)}
+            title='Brand new models'
+          />
+        }
+
+        <ShopByCategory />
+
+        {allPhonesStatus === 'loading' && <Loader />}
+        {allPhones && allPhonesStatus === 'idle'
+          && <CardsSlider
+            allPhones={allPhones?.slice(0, 4)}
+            title='Hot prices'
+          />
+        }
       </div>
     </div>
   );

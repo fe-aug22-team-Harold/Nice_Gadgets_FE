@@ -1,8 +1,19 @@
 /* eslint-disable no-shadow */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import cn from 'classnames';
 import './ProductCard.scss';
 import { Phone } from '../../types/Phone';
-import cn from 'classnames';
+
+import {
+  useAppDispatch, useAppSelector, useLocalStorage,
+} from '../../app/hooks';
+import {
+  addFavorites, removeFavorites, setFavorites,
+} from '../../features/favoritesSlice';
+import { Link } from 'react-router-dom';
+
+// eslint-disable-next-line max-len
+const staticBasePath = 'https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/';
 
 type Props = {
   phoneCard: Phone,
@@ -12,6 +23,7 @@ export const ProductCard: React.FC<Props> = ({ phoneCard }) => {
   const {
     name,
     fullPrice,
+    itemId,
     price,
     screen,
     capacity,
@@ -19,22 +31,42 @@ export const ProductCard: React.FC<Props> = ({ phoneCard }) => {
     image,
   } = phoneCard;
 
-  const [added, setAdded] = useState(false);
-  const [favorite, setFavorite] = useState(false);
+  const [favoritesStored, setFavoritesStored] = useLocalStorage('favorites');
+  const dispatch = useAppDispatch();
+  const { currentFavorites } = useAppSelector(state => state.favorites);
 
-  // temp version of loading images from front-end.
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const imagePhone = require(`../../images/${image}`);
+  const [added, setAdded] = useState(false);
+  const [favorite, setFavorite] = useState(
+    favoritesStored.some((item: Phone) => item.itemId === phoneCard.itemId),
+  );
+
+  const addToFavorite = () => {
+    if (currentFavorites.find(item => item.itemId === phoneCard.itemId)) {
+      dispatch(removeFavorites(phoneCard));
+    } else {
+      dispatch(addFavorites(phoneCard));
+    }
+  };
+
+  useEffect(() => {
+    dispatch(setFavorites(favoritesStored));
+  }, []);
+
+  useEffect(() => {
+    setFavoritesStored(() => currentFavorites);
+  }, [currentFavorites]);
 
   return (
     <div className="card">
-      <img
-        className="card__img"
-        src={imagePhone}
-        alt="iPhone"
-        width="208px"
-        height="196px"
-      />
+      <Link to={`/phones/${itemId}`}>
+        <img
+          className="card__img"
+          src={staticBasePath + image}
+          alt="iPhone"
+          width="208px"
+          height="196px"
+        />
+      </Link>
 
       <h2 className="card__title">
         {name}
@@ -101,6 +133,7 @@ export const ProductCard: React.FC<Props> = ({ phoneCard }) => {
       <a
         onClick={() => {
           setFavorite(!favorite);
+          addToFavorite();
         }}
         className={cn('card__favorites-icon', {
           'card__favorites-icon--active': favorite,

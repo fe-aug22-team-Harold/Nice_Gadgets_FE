@@ -6,7 +6,9 @@ import { Footer } from './components/Footer';
 import { PageNotFound } from './components/PageNotFound';
 import { HomePage } from './components/HomePage';
 import { PhonesPage } from './components/PhonesPage';
+import { OnePhonePage } from './components/OnePhonePage';
 import { Cart } from './components/Cart';
+import { FavoritesPage } from './components/FavoritesPage';
 
 function App() {
   return (
@@ -16,11 +18,18 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
 
-        <Route path="/phones" element={<PhonesPage />} />
+        <Route path="/phones">
+          <Route index element={<PhonesPage />} />
+
+          <Route path=":phoneSlug" element={<OnePhonePage />} />
+        </Route>
 
         <Route path="/cart" element={<Cart />} />
 
+        <Route path="/favorites" element={<FavoritesPage />} />
+
         <Route path="*" element={<PageNotFound />} />
+
       </Routes>
 
       <Footer />

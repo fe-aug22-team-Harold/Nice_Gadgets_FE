@@ -5,14 +5,20 @@ import { ProductCard } from '../ProductCard';
 
 type Props = {
   allPhones: Phone[],
+  title: string,
 };
 
-export const CardsSlider: React.FC<Props> = ({ allPhones }) => {
+export const CardsSlider: React.FC<Props> = ({ allPhones, title }) => {
   return (
-    <section className='cards-slider'>
+    <section className='
+      page__section
+      page__section--2
+      cards-slider
+      '
+    >
       <div className='cards-slider__container'>
         <div className='cards-slider__top'>
-          <h2 className='cards-slider__title'>Brand new models</h2>
+          <h2 className='cards-slider__title'>{title}</h2>
 
           <div className="cards-slider__buttons">
             <a className="cards-slider__button">

@@ -1,15 +1,17 @@
 .welcome {
   &__title {
+    box-sizing: border-box;
+    text-align: left;
     display: inline-block;
     font-family: 'Mont', sans-serif;
     font-style: normal;
     font-weight: 800;
     font-size: 32px;
     line-height: 41px;
-    margin-bottom: 24px;
-    margin-top: 24px;
+    margin: 24px 16px;
     color: $gray-white;
     background-color: $gray-black;
+    text-align: left;
 
     @include onDesktop {
       font-size: 48px;
@@ -29,11 +31,11 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    height: 320px;
+    height: 100%;
     background-image: url(../../../images/BannerSmall.png);
 
     @include onTablet {
-      height: 190px;
+      min-height: 190px;
       background-image: url(../../../images/Banner.png);
     }
 
@@ -41,17 +43,26 @@
       height: 400px;
       background-image: url(../../../images/Banner.png);
     }
+
+    &--2 {
+      background-image: url(../../../images/banner-phones.png);
+    }
+
+    &--3 {
+      background-image: url(../../../images/banner-accessories-1040.png);
+    }
   }
   &__sidebar {
     display: none;
     justify-content: center;
     align-items: center;
-    text-align: center;
     background-color: $gray-surface2;
     width: 100%;
+    outline: none;
+    border-color: transparent;
     @include onTablet {
       display: flex;
-      height: 190px;
+      min-height: 190px;
     }
 
     @include onDesktop {
@@ -63,15 +74,14 @@
       background-color: $icons-color;
     }
 
-    &:disabled{
+    &:disabled {
       background-color: $gray-black;
       border: 1px solid $gray-elements;
     }
 
-        &:disabled .icon-arrow {
-        background-image: url(../../../images/Vector_gray_right.svg);
+    &:disabled .icon-arrow {
+      background-image: url(../../../images/Vector_gray_right.svg);
     }
-
   }
 
   &__slider {
@@ -84,40 +94,50 @@
 .slider {
   display: flex;
   justify-content: center;
-  text-align: center;
   align-items: center;
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
   &__blocks {
     margin-right: 14px;
     height: 4px;
     width: 14px;
     background-color: $gray-elements;
-   &:first-child {
-    margin-left: 14px;
-   }
+    &:first-child {
+      margin-left: 14px;
+    }
     &:active {
+      background-color: $gray-white;
+    }
+
+    &--active {
       background-color: $gray-white;
     }
   }
 }
 
 .icon-arrow {
-  display: none;
+  display: block;
   height: 10px;
   width: 6px;
-  background-image: contain;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   background-image: url(../../../images/Vector.svg);
 
-  @include onDesktop {
-    display: flex;
+  &--sidebar {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+    }
+
+    @include onTablet {
+      display: flex;
+    }
   }
 
-  @include onTablet {
-    display: flex;
-  }
   &--left {
     transform: rotate(180deg);
   }
-
 }

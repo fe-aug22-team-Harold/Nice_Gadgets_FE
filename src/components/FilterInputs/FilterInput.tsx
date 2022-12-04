@@ -1,17 +1,33 @@
+/* eslint-disable no-shadow */
 /* eslint-disable no-return-assign */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from 'react';
+import React, { useState } from 'react';
 import './FilterInputs.scss';
+import { useAppSelector } from '../../app/hooks';
 
-export const FilterInputs: React.FC = () => {
+type Props = {
+  changeOnPage: (num: number) => void,
+  currentOnPage: number
+}
+
+export const FilterInputs: React.FC<Props> = ({
+  changeOnPage,
+  currentOnPage,
+}) => {
+  const { allPhones } = useAppSelector(state => state.phones);
+  const [name, setName] = useState('');
+
+  // eslint-disable-next-line no-console
+  console.log(name);
+
   return (
-    <>
+    <div className="filterInputs">
       <h1 className='objectsTitle'>
         Mobile phones
       </h1>
 
       <h5 className='objectsSubTitle'>
-        95 models
+        {allPhones?.length} models
       </h5>
 
       <div className="filter">
@@ -23,10 +39,11 @@ export const FilterInputs: React.FC = () => {
           <div className="sortBy__select select" tabIndex={1}>
             <input
               className="select__selectopt"
-              name="test"
+              name="SortBy"
               type="radio"
               id="opt1"
               defaultChecked
+              onChange={() => setName('Newest')}
             />
 
             <label htmlFor="opt1" className="select__option">
@@ -35,9 +52,10 @@ export const FilterInputs: React.FC = () => {
 
             <input
               className="select__selectopt"
-              name="test"
+              name="SortBy"
               type="radio"
               id="opt2"
+              onChange={() => setName('Test1')}
             />
 
             <label htmlFor="opt2" className="select__option">
@@ -46,9 +64,10 @@ export const FilterInputs: React.FC = () => {
 
             <input
               className="select__selectopt"
-              name="test"
+              name="SortBy"
               type="radio"
               id="opt3"
+              onChange={() => setName('Test2')}
             />
 
             <label htmlFor="opt3" className="select__option">
@@ -57,9 +76,10 @@ export const FilterInputs: React.FC = () => {
 
             <input
               className="select__selectopt"
-              name="test"
+              name="SortBy"
               type="radio"
               id="opt4"
+              onChange={() => setName('Test3')}
             />
 
             <label htmlFor="opt4" className="select__option">
@@ -68,9 +88,10 @@ export const FilterInputs: React.FC = () => {
 
             <input
               className="select__selectopt"
-              name="test"
+              name="SortBy"
               type="radio"
               id="opt5"
+              onChange={() => setName('Test4')}
             />
 
             <label htmlFor="opt5" className="select__option">
@@ -90,62 +111,66 @@ export const FilterInputs: React.FC = () => {
           >
             <input
               className="select__selectopt"
-              name="test1"
+              name="SortBy1"
               type="radio"
               id="opt11"
               defaultChecked
             />
 
             <label htmlFor="opt11" className="select__option">
+              {currentOnPage}
+            </label>
+
+            <input
+              className="select__selectopt"
+              name="SortBy1"
+              type="radio"
+              id="opt22"
+              onChange={() => changeOnPage(16)}
+            />
+
+            <label htmlFor="opt22" className="select__option">
               16
             </label>
 
             <input
               className="select__selectopt"
-              name="test1"
-              type="radio"
-              id="opt22"
-            />
-
-            <label htmlFor="opt22" className="select__option">
-              5
-            </label>
-
-            <input
-              className="select__selectopt"
-              name="test1"
+              name="SortBy1"
               type="radio"
               id="opt33"
+              onChange={() => changeOnPage(12)}
             />
 
             <label htmlFor="opt33" className="select__option">
-              3
+              12
             </label>
 
             <input
               className="select__selectopt"
-              name="test1"
+              name="SortBy1"
               type="radio"
               id="opt44"
+              onChange={() => changeOnPage(8)}
             />
 
             <label htmlFor="opt44" className="select__option">
-              10
+              8
             </label>
 
             <input
               className="select__selectopt"
-              name="test1"
+              name="SortBy1"
               type="radio"
               id="opt55"
+              onChange={() => changeOnPage(6)}
             />
 
             <label htmlFor="opt55" className="select__option">
-              1
+              6
             </label>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
