@@ -1,16 +1,20 @@
+@import "./AboutPhone/AboutPhone.scss";
+@import "./TechSpecs/TechSpecs.scss";
+
 @font-face {
   font-family: 'MontRegular';
-  src: url('../../utils/fonts/Mont-Regular.eot');
-  src: local('Mont Regular'), local('Mont-Regular'),
-      url('../../utils/fonts/Mont-Regular.eot?#iefix') format('embedded-opentype'),
-      url('../../utils/fonts/Mont-Regular.woff2') format('woff2'),
-      url('../../utils/fonts/Mont-Regular.woff') format('woff'),
-      url('../../utils/fonts/Mont-Regular.ttf') format('truetype');
+  //src: url('../../utils/fonts/Mont-Regular.eot');
+  //src: local('Mont Regular'), local('Mont-Regular'),
+  //    url('../../utils/fonts/Mont-Regular.eot?#iefix') format('embedded-opentype'),
+  //    url('../../utils/fonts/Mont-Regular.woff2') format('woff2'),
+  //    url('../../utils/fonts/Mont-Regular.woff') format('woff'),
+  //    url('../../utils/fonts/Mont-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 .OnePhonePage {
+  background-color: #0F1121;
   &__container {
       display: flex;
       gap: 50px;

@@ -81,8 +81,14 @@
 
   &__img {
     max-width: 256px;
+    transition: transform 0.3s;
+    cursor: pointer;
     @media (min-width: 640px) {
       max-width: 100%;
+    }
+
+    &:hover {
+      transform: scale(1.05);
     }
   }
 }
