@@ -1,5 +1,8 @@
 @import "./AboutPhone/AboutPhone.scss";
 @import "./TechSpecs/TechSpecs.scss";
+@import "../PhoneImageInfo/PhoneImageInfo.scss";
+@import "../CardsSlider/CardsSlider.scss";
+@import '../../utilsForScss/mixins.scss';
 
 @font-face {
   font-family: 'MontRegular';
@@ -16,17 +19,114 @@
 .OnePhonePage {
   background-color: #0F1121;
   &__container {
-      display: flex;
-      gap: 50px;
-      flex-direction: column;
-      justify-content: space-between;
-      box-sizing: border-box;
-      margin: 0 auto;
-      padding: 0 25px;
-      max-width: 1200px;
+      // display: flex;
+      // gap: 50px;
+      // flex-direction: column;
+      // justify-content: space-between;
+      // box-sizing: border-box;
+      // margin: 0 auto;
+      // padding: 0 25px;
+      // max-width: 1200px;
 
-      @media (min-width: 1200px) {
-        flex-direction: row;
+      // @media (min-width: 1200px) {
+      //   flex-direction: row;
+      // }
+  }
+
+  &__title {
+    margin-bottom: 32px;
+
+    font-family: 'Mont';
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 31px;
+
+    color: #F1F2F9;
+
+    @include onTablet {
+      margin-bottom: 32px;
+
+      font-size: 32px;
+      line-height: 41px;
+    }
+  }
+
+  &__phone-choose {
+    @include onTablet {
+      display: flex;
+      gap: 75px;
+    }
+
+    @include onDesktop{
+      gap: 130px;
+    }
+
+    &__container {
+      margin-bottom: 56px;
+
+      @include onTablet {
+        margin-bottom: 64px;
       }
+
+      @include onDesktop {
+        margin-bottom: 80px;
+      }
+    }
+
+    &__slider {
+      flex: 1;
+      margin-bottom: 40px;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+    }
+
+    &__info {
+      flex: 1;
+    }
+  }
+
+  &__phone-description {
+    @include onDesktop {
+      display: flex;
+      gap: 75px;
+    }
+
+    &__container {
+      margin-bottom: 56px;
+
+      @include onTablet {
+        margin-bottom: 64px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 80px;
+      }
+    }
+
+    &__about {
+      margin-bottom: 56px;
+
+      @include onTablet {
+        margin-bottom: 64px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__slider {
+    flex: 0;
+    margin: 0 -16px 0;
+    @include onTablet {
+      margin: 0 -24px 0;
+    }
+
+    @include onDesktop {
+      margin: 0 -32px 0;
+    }
   }
 }

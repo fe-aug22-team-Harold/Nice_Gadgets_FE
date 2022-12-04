@@ -1,11 +1,20 @@
+@import '../../utilsForScss/colors.scss';
+@import '../../utilsForScss/mixins.scss';
+
 .phone-picture {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  width: 100%;
 
-  @media (min-width: 640px) {
-    gap: 16px;
+  @include onTablet {
+    gap: 20px;
+    flex-direction: row;
+  }
+
+  @include onTablet {
+    gap: 32px;
     flex-direction: row;
   }
 
@@ -15,16 +24,21 @@
     object-fit: contain;
     order: -1;
 
-    @media (min-width: 640px) {
+    @include onTablet {
       height: 272px;
       width: 272px;
+
       flex-direction: row;
+      align-self: start;
+
       order: 0;
     }
 
-    @media (min-width: 1200px) {
+    @include onDesktop {
       height: 442px;
       width: 442px;
+
+      align-self: center;
     }
   }
 
@@ -39,7 +53,7 @@
       background-size: contain;
     }
 
-    @media (min-width: 1200px) {
+    @include onDesktop {
       max-height: 442px;
     }
   }
@@ -49,12 +63,12 @@
     gap: 8px;
     width: max-content;
 
-    @media (min-width: 640px) {
+    @include onTablet {
       flex-direction: column;
       align-self: start;
     }
 
-    @media (min-width: 1200px) {
+    @include onDesktop {
       gap: 16px;
     }
   }
@@ -69,12 +83,12 @@
     background-color: transparent;
     border: 1px solid #3B3E4A;
 
-    @media (min-width: 640px) {
+    @include onTablet {
       height: 35px;
       width: 35px;
     }
 
-    @media (min-width: 1200px) {
+    @include onDesktop {
       height: 80px;
       width: 80px;
     }
@@ -90,7 +104,7 @@
     max-width: 30px;
     object-fit: contain;
 
-    @media (min-width: 1200px) {
+    @include onDesktop {
       max-height: 66px;
       max-width: 66px;
     }
