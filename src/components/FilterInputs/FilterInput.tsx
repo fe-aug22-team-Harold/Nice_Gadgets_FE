@@ -6,10 +6,14 @@ import './FilterInputs.scss';
 import { useAppSelector } from '../../app/hooks';
 
 type Props = {
-  changeOnPage: (num: number) => void
+  changeOnPage: (num: number) => void,
+  currentOnPage: number
 }
 
-export const FilterInputs: React.FC<Props> = ({ changeOnPage }) => {
+export const FilterInputs: React.FC<Props> = ({
+  changeOnPage,
+  currentOnPage,
+}) => {
   const { allPhones } = useAppSelector(state => state.phones);
   const [name, setName] = useState('');
 
@@ -111,11 +115,10 @@ export const FilterInputs: React.FC<Props> = ({ changeOnPage }) => {
               type="radio"
               id="opt11"
               defaultChecked
-              onChange={() => changeOnPage(16)}
             />
 
             <label htmlFor="opt11" className="select__option">
-              16
+              {currentOnPage}
             </label>
 
             <input
@@ -123,11 +126,11 @@ export const FilterInputs: React.FC<Props> = ({ changeOnPage }) => {
               name="SortBy1"
               type="radio"
               id="opt22"
-              onChange={() => changeOnPage(5)}
+              onChange={() => changeOnPage(16)}
             />
 
             <label htmlFor="opt22" className="select__option">
-              5
+              16
             </label>
 
             <input
@@ -135,11 +138,11 @@ export const FilterInputs: React.FC<Props> = ({ changeOnPage }) => {
               name="SortBy1"
               type="radio"
               id="opt33"
-              onChange={() => changeOnPage(3)}
+              onChange={() => changeOnPage(12)}
             />
 
             <label htmlFor="opt33" className="select__option">
-              3
+              12
             </label>
 
             <input
@@ -147,11 +150,11 @@ export const FilterInputs: React.FC<Props> = ({ changeOnPage }) => {
               name="SortBy1"
               type="radio"
               id="opt44"
-              onChange={() => changeOnPage(10)}
+              onChange={() => changeOnPage(8)}
             />
 
             <label htmlFor="opt44" className="select__option">
-              10
+              8
             </label>
 
             <input
@@ -159,11 +162,11 @@ export const FilterInputs: React.FC<Props> = ({ changeOnPage }) => {
               name="SortBy1"
               type="radio"
               id="opt55"
-              onChange={() => changeOnPage(1)}
+              onChange={() => changeOnPage(6)}
             />
 
             <label htmlFor="opt55" className="select__option">
-              1
+              6
             </label>
           </div>
         </div>

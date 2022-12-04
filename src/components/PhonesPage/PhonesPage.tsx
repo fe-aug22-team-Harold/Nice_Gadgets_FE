@@ -13,7 +13,7 @@ export const PhonesPage: React.FC = () => {
     (state) => state.phonesPage,
   );
   const dispatch = useAppDispatch();
-  const [page, setPage] = useState(3);
+  const [page, setPage] = useState(1);
   const [onPage, setOnPage] = useState(16);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export const PhonesPage: React.FC = () => {
 
   useEffect(() => {
     dispatch(getPhonesPageAsync({ page, onPage }));
-  }, [page]);
+  }, [page, onPage]);
 
   const onPageChange = (newPageNum: number) => {
     setPage(newPageNum);
@@ -47,7 +47,10 @@ export const PhonesPage: React.FC = () => {
 
         {phonesOnPage && pagePhonesStatus === 'idle' && (
           <div className="phones-page__header">
-            <FilterInputs changeOnPage={onChangeOnPage} />
+            <FilterInputs
+              currentOnPage={onPage}
+              changeOnPage={onChangeOnPage}
+            />
           </div>
         )}
 
@@ -61,7 +64,11 @@ export const PhonesPage: React.FC = () => {
 
         {phonesOnPage && pagePhonesStatus === 'idle' && (
           <div className="phones-page__buttons">
-            <PaginationButtons currentPage={page} changePage={onPageChange} />
+            <PaginationButtons
+              onPage={onPage}
+              currentPage={page}
+              changePage={onPageChange}
+            />
           </div>
         )}
       </div>

@@ -18,9 +18,11 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
 
-        <Route path="/phones" element={<PhonesPage />} />
+        <Route path="/phones">
+          <Route index element={<PhonesPage />} />
 
-        <Route path="/phonesone" element={<OnePhonePage />} />
+          <Route path=":phoneSlug" element={<OnePhonePage />} />
+        </Route>
 
         <Route path="/cart" element={<Cart />} />
 

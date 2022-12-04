@@ -10,6 +10,7 @@ import {
 import {
   addFavorites, removeFavorites, setFavorites,
 } from '../../features/favoritesSlice';
+import { Link } from 'react-router-dom';
 
 // eslint-disable-next-line max-len
 const staticBasePath = 'https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/';
@@ -22,6 +23,7 @@ export const ProductCard: React.FC<Props> = ({ phoneCard }) => {
   const {
     name,
     fullPrice,
+    itemId,
     price,
     screen,
     capacity,
@@ -56,13 +58,15 @@ export const ProductCard: React.FC<Props> = ({ phoneCard }) => {
 
   return (
     <div className="card">
-      <img
-        className="card__img"
-        src={staticBasePath + image}
-        alt="iPhone"
-        width="208px"
-        height="196px"
-      />
+      <Link to={`/phones/${itemId}`}>
+        <img
+          className="card__img"
+          src={staticBasePath + image}
+          alt="iPhone"
+          width="208px"
+          height="196px"
+        />
+      </Link>
 
       <h2 className="card__title">
         {name}

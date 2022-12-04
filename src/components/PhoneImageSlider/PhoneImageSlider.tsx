@@ -72,7 +72,6 @@ export const PhoneImageSlider: React.FC<Props> = ({ imgPath }) => {
       {/* This group of elements are main images witch slides one by one */}
       <Slider className="phone-picture__main">
         <Slide index={0}>
-          {/* eslint-disable-next-line max-len */}
           <Image
             className="phone-picture__img"
             hasMasterSpinner
