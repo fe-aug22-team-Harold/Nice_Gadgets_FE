@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
     <div className="footer">
       <Link to="/" className="logo logo--footer" />
       <NavBarFooter />
-      <div className="back-to-top">
+      <div onClick={() => window.scrollTo(0, 0)} className="back-to-top">
         <p className="back-to-top__p">Back to top</p>
         <span className="back-to-top__slider"></span>
       </div>

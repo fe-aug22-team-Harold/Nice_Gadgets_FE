@@ -6,14 +6,22 @@ import fotoCategory3 from './Category-3.png';
 
 export const ShopByCategory: React.FC = () => {
   return (
-    <div className="shopByCategory">
+    <div className="
+      shopByCategory
+      page__section
+      page__section--1
+      "
+    >
       <h2 className='shopByCategory__title'>
         Shop by category
       </h2>
 
       <div className="shopByCategory__sections section">
         <div className="section__first">
-          <img src={fotoCategory1} alt="first-category" />
+          <img
+            className='section__img'
+            src={fotoCategory1}
+            alt="first-category" />
 
           <h3 className='section__title'>
             Mobile phones
@@ -25,7 +33,11 @@ export const ShopByCategory: React.FC = () => {
         </div>
 
         <div className="section__second">
-          <img src={fotoCategory2} alt="first-category" />
+          <img
+            className='section__img'
+            src={fotoCategory2}
+            alt="first-category"
+          />
 
           <h3 className='section__title'>
             Tablets
@@ -37,7 +49,11 @@ export const ShopByCategory: React.FC = () => {
         </div>
 
         <div className="section__third">
-          <img src={fotoCategory3} alt="first-category" />
+          <img
+            className='section__img'
+            src={fotoCategory3}
+            alt="first-category"
+          />
 
           <h3 className='section__title'>
             Accessories
