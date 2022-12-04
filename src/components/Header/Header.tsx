@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Menu } from '../Menu';
 import { NavBar } from '../NavBar';
 import { NavLinks } from '../NavLinks';
@@ -29,19 +29,19 @@ export const Header: React.FC = () => {
               </div>
             </div>
 
-            <NavLinks isOpen={isOpen} closeMenu={closeMenu}/>
+            <NavLinks isOpen={isOpen} closeMenu={closeMenu} />
 
             <div className="icons icons--menu">
-              <Link to={`/`} className="nav__link--heart">
+              <NavLink to={`/favorites`} className="nav__link--heart">
                 <span className="icon icon__heart icon__heart--menu"></span>
-              </Link>
+              </NavLink>
 
-              <Link to={`/cart`} className="nav__link--cart">
+              <NavLink to={`/cart`} className="nav__link--cart">
                 <span
                   className="icon icon__cart icon__cart--menu"
                   onClick={closeMenu}
                 ></span>
-              </Link>
+              </NavLink>
             </div>
           </Menu>
         )}
@@ -53,11 +53,17 @@ export const Header: React.FC = () => {
         <NavBar />
 
         <div className="icons">
-          <span className="icon icon__heart"></span>
+          <NavLink to={`/favorites`} className="nav__link--heart">
+            <span className="icon icon__heart icon__heart--relative">
+              <div className="badge-counter badge-counter--heart">2</div>
+            </span>
+          </NavLink>
 
-          <Link to={`/cart`} className="nav__link--cart">
-            <span className="icon icon__cart"></span>
-          </Link>
+          <NavLink to={`/cart`} className="nav__link--cart">
+            <div className="icon icon__cart icon__cart--relative">
+              <div className="badge-counter badge-counter--cart">2</div>
+            </div>
+          </NavLink>
 
           <span className="icon icon__menu" onClick={openMenu}></span>
         </div>
