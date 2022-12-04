@@ -1,19 +1,17 @@
 @font-face {
   font-family: 'Mont';
-  src: url('./fonts/Mont-SemiBold.eot');
-  src: local('./fonts/Mont SemiBold'), local('Mont-SemiBold'),
-      url('./fonts/Mont-SemiBold.eot?#iefix') format('embedded-opentype'),
-      url('./fonts/Mont-SemiBold.woff2') format('woff2'),
-      url('./fonts/Mont-SemiBold.woff') format('woff'),
-      url('./fonts/Mont-SemiBold.ttf') format('truetype');
+  src: url('../../fonts/Mont-SemiBold.eot');
+  src: local('../../fonts/Mont SemiBold'), local('Mont-SemiBold'),
+      url('../../fonts/Mont-SemiBold.eot?#iefix') format('embedded-opentype'),
+      url('../../fonts/Mont-SemiBold.woff2') format('woff2'),
+      url('../../fonts/Mont-SemiBold.woff') format('woff'),
+      url('../../fonts/Mont-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
 }
 
-
 .filter {
   display: flex;
-  // margin-left: 100px;
 
   font-family: "Mont", sans-serif;
   font-weight: 700;
@@ -38,6 +36,11 @@
     flex-direction: column;
     position: relative;
     width: 185px;
+
+    @media (max-width: 386px) {
+      width: 136px;
+    }
+
     height: 40px;
 
     &-items {
@@ -140,6 +143,11 @@
   letter-spacing: -0.01em;
 
   color: #F1F2F9;
+
+  @media (max-width: 386px) {
+    font-size: 32px;
+    line-height: 41px;
+  }
 }
 
 .objectsSubTitle {

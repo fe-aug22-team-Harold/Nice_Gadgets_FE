@@ -51,8 +51,10 @@ export const OnePhonePage: React.FC = () => {
           <>
             <PhoneImageSlider imgPath={currentItem.image} />
             {/* Add your last component and pass 'currentItem' there :) */}
+          <div className="OnePhonePage__flexWrap">
             <AboutPhone />
             <TechSpecs phoneInfo={currentItem}/>
+          </div>
           </>
         )}
       </div>

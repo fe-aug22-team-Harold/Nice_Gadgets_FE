@@ -9,6 +9,7 @@ export const CartItem: React.FC = () => {
         <div className="cart-item__description">
           <img
             className="card__img card__img--cart"
+            // eslint-disable-next-line max-len
             src="https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/img/phones/apple-iphone-11/black/00.jpg"
             alt="phone"
           />
