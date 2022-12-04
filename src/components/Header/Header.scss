@@ -1,6 +1,4 @@
-$gray-black: #0f1121;
-$gray-surface2: #323542;
-$gray-elements: #3b3e4a;
+@import '../../utilsForScss/colors';
 
 .header {
   background-color: $gray-black;
@@ -121,4 +119,14 @@ $gray-elements: #3b3e4a;
       padding: 25px;
     }
   }
+}
+
+.nav__link--cart {
+  display: flex;
+  flex: 1;
+}
+
+.nav__link--heart {
+  display: flex;
+  flex: 1;
 }

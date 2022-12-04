@@ -5,9 +5,10 @@ import './NavLinks.scss';
 
 type Props = {
   isOpen?: boolean;
+  closeMenu?: () => void;
 };
 
-export const NavLinks: React.FC<Props> = ({ isOpen }) => {
+export const NavLinks: React.FC<Props> = ({ isOpen, closeMenu }) => {
   return (
     <div
       className={classNames('nav__bar', {
@@ -19,6 +20,7 @@ export const NavLinks: React.FC<Props> = ({ isOpen }) => {
         className={classNames('nav__link', {
           'nav__link--menu': isOpen,
         })}
+        onClick={closeMenu}
       >
         Home
       </NavLink>
@@ -27,6 +29,7 @@ export const NavLinks: React.FC<Props> = ({ isOpen }) => {
         className={classNames('nav__link', {
           'nav__link--menu': isOpen,
         })}
+        onClick={closeMenu}
       >
         Phones
       </NavLink>
@@ -35,6 +38,7 @@ export const NavLinks: React.FC<Props> = ({ isOpen }) => {
         className={classNames('nav__link', {
           'nav__link--menu': isOpen,
         })}
+        onClick={closeMenu}
       >
         Tablets
       </NavLink>
@@ -43,6 +47,7 @@ export const NavLinks: React.FC<Props> = ({ isOpen }) => {
         className={classNames('nav__link', {
           'nav__link--menu': isOpen,
         })}
+        onClick={closeMenu}
       >
         Accessories
       </NavLink>
