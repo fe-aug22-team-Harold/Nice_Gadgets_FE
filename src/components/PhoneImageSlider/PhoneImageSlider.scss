@@ -1,0 +1,98 @@
+.phone-picture {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  @media (min-width: 640px) {
+    gap: 16px;
+    flex-direction: row;
+  }
+
+  &__main {
+    height: 288px;
+    width: 288px;
+    object-fit: contain;
+    order: -1;
+
+    @media (min-width: 640px) {
+      height: 272px;
+      width: 272px;
+      flex-direction: row;
+      order: 0;
+    }
+
+    @media (min-width: 1200px) {
+      height: 442px;
+      width: 442px;
+    }
+  }
+
+  &__img {
+    max-height: 274px;
+    object-fit: contain;
+    background-size: contain;
+
+    & > .carousel__image {
+      height: 400px;
+      width: 400px;
+      background-size: contain;
+    }
+
+    @media (min-width: 1200px) {
+      max-height: 442px;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    gap: 8px;
+    width: max-content;
+
+    @media (min-width: 640px) {
+      flex-direction: column;
+      align-self: start;
+    }
+
+    @media (min-width: 1200px) {
+      gap: 16px;
+    }
+  }
+
+  &__dot {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid #3B3E4A;
+
+    @media (min-width: 640px) {
+      height: 35px;
+      width: 35px;
+    }
+
+    @media (min-width: 1200px) {
+      height: 80px;
+      width: 80px;
+    }
+
+    &:hover, &:active {
+      border-color: #C4C4C4;
+    }
+  }
+
+  &__item {
+    display: block;
+    max-height: 30px;
+    max-width: 30px;
+    object-fit: contain;
+
+    @media (min-width: 1200px) {
+      max-height: 66px;
+      max-width: 66px;
+    }
+  }
+}
