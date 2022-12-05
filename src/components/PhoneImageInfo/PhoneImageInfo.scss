@@ -4,12 +4,11 @@
 .phone-info {
   font-family: 'Mont';
   width: 100%;
-  // flex: 1;
   position: relative;
 
   &__container {
     @include onDesktop {
-      max-width: 320px;
+      max-width: 560px;
     }
   }
 
@@ -52,10 +51,6 @@
     text-align: right;
 
     color: $secondary-color;
-
-    @include onDesktop {
-      right: -150px;
-    }
   }
 
   &__color {
@@ -222,32 +217,40 @@
 
     &:hover {
       background: $accent-hover;
-      color: $gray-white;
     }
 
     &--active {
       background: $gray-surface2;
       color: $gray-white;
+
+      &:hover {
+        background: #3B3E4A;
+      }
     }
   }
 
   &__favorites-icon {
-    height: 48px;
+    box-sizing: border-box;
     width: 48px;
-    background-image: url(../../images/fav-regular.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 48px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #323542;
+    background-image: url('../../images/favorites-default.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 
     cursor: pointer;
+    transition: background-color 0.3s;
 
     &--active {
-      background-image: url(../../images/fav-selected.svg);
-      background-repeat: no-repeat;
-      background-size: cover;
+      border: 1px solid #3B3E4A;
+      background-color: #161827;
+
+      background-image: url('../../images/favorites-active.png');
+    }
+
+    &:hover {
+      background-color: #4A4D58;
     }
   }
 }
