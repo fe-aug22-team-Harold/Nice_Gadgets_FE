@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import { AboutProject } from './AboutProject';
 import './NavBarFooter.scss';
 
 export const NavBarFooter: React.FC = () => {
@@ -10,7 +11,7 @@ export const NavBarFooter: React.FC = () => {
           Github
         </Link>
         <Link to="/contacts" className="nav__link nav__link--footer">
-          Contacts
+          <Route path="/about-project" element={<AboutProject />} />
         </Link>
         <Link to="/rights" className="nav__link nav__link--footer">
           Rights
