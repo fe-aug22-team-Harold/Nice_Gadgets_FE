@@ -11,6 +11,8 @@ import { Cart } from './components/Cart';
 import { FavoritesPage } from './components/FavoritesPage';
 import { TabletsPage } from './components/TabletsPage';
 import { AccessoriesPage } from './components/AccessoriesPage';
+import { RegisterForm } from './components/RegisterForm';
+import { LogInForm } from './components/LogInForm';
 
 function App() {
   return (
@@ -33,6 +35,10 @@ function App() {
         <Route path="/cart" element={<Cart />} />
 
         <Route path="/favorites" element={<FavoritesPage />} />
+
+        <Route path="/register" element={<RegisterForm />} />
+
+        <Route path="/logIn" element={<LogInForm />} />
 
         <Route path="*" element={<PageNotFound />} />
 
