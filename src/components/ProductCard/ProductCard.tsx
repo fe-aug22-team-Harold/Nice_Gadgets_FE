@@ -82,7 +82,7 @@ export const ProductCard: React.FC<Props> = ({ phoneCard }) => {
         <Link to={`/phones/${itemId}`}>
           <img
             className="card__img"
-            src={staticBasePath + image}
+            src={staticBasePath + image.replace(/jpg/g, 'png')}
             alt="iPhone"
             width="208px"
             height="196px"

@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Phone } from '../types/Phone';
 import { fetchPhonesPage } from './allPhonesAPI';
 
@@ -28,7 +28,12 @@ export const getPhonesPageAsync = createAsyncThunk(
 export const phonesPageSlice = createSlice({
   name: 'phonesPage',
   initialState,
-  reducers: {},
+  reducers: {
+    setPhonesOnPage: (state, action: PayloadAction<Phone[] | null>) => {
+      // eslint-disable-next-line no-param-reassign
+      state.phonesOnPage = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getPhonesPageAsync.pending, (state) => {
@@ -48,4 +53,5 @@ export const phonesPageSlice = createSlice({
   },
 });
 
+export const { setPhonesOnPage } = phonesPageSlice.actions;
 export default phonesPageSlice.reducer;

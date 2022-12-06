@@ -5,11 +5,11 @@ import './OnePhonePage.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { client } from '../../utils/fetch';
-import { Loader } from '../Loader';
 import { PhoneImageSlider } from '../PhoneImageSlider';
 import { CardsSlider } from '../CardsSlider';
 import { PhoneImageInfo } from '../PhoneImageInfo';
 import { HistoryBlock } from '../HistoryBlock';
+import { LoaderBox } from '../LoaderBox';
 
 const allPhones = [
   {
@@ -113,7 +113,7 @@ export const OnePhonePage: React.FC = () => {
       <div className='OnePhonePage__container'>
         {isLoading && (
           <div className="OnePhonePage__loader">
-            <Loader />
+            <LoaderBox />
           </div>
         )}
 

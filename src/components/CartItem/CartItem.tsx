@@ -1,14 +1,14 @@
 import React, { useEffect, useMemo } from 'react';
-import './CartItem.scss';
-import { Phone } from '../../types/Phone';
+import classNames from 'classnames';
 import {
   useAppDispatch, useAppSelector, useLocalStorage,
 } from '../../app/hooks';
 import { Link } from 'react-router-dom';
-import classNames from 'classnames';
 import {
   addToCart, removeFromCart, setCart,
 } from '../../features/cartSlice';
+import './CartItem.scss';
+import { Phone } from '../../types/Phone';
 
 // eslint-disable-next-line max-len
 const staticURL = 'https://raw.githubusercontent.com/fe-aug22-team-Harold/nice_gadgets_static-files/master/';
@@ -27,6 +27,13 @@ export const CartItem: React.FC<Props> = ({ phoneItem }) => {
   }, [currentCart]);
 
   const deleteHandler = () => {
+    const isEmpty = currentCart
+      .filter(item => item.itemId !== phoneItem.itemId).length === 0;
+
+    if (isEmpty) {
+      setCartStored([]);
+    }
+
     dispatch(removeFromCart(phoneItem));
   };
 
@@ -50,7 +57,7 @@ export const CartItem: React.FC<Props> = ({ phoneItem }) => {
   };
 
   useEffect(() => {
-    setCartStored(() => currentCart);
+    setCartStored(currentCart);
   }, [currentCart]);
 
   return (
@@ -65,7 +72,7 @@ export const CartItem: React.FC<Props> = ({ phoneItem }) => {
           <Link to={`/phones/${phoneItem.itemId}`}>
             <img
               className="card__img card__img--cart"
-              src={staticURL + phoneItem.image}
+              src={staticURL + phoneItem.image.replace(/jpg/g, 'png')}
               alt="phone"
             />
           </Link>
