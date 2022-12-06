@@ -92,5 +92,19 @@
   column-gap: 16px;
   row-gap: 40px;
   }
+}
 
+.phones-page-list-enter {
+  opacity: 0;
+}
+.phones-page-list-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms;
+}
+.phones-page-list-exit {
+  opacity: 1;
+}
+.phones-page-list-active {
+  opacity: 0;
+  transition: opacity 1000ms;
 }

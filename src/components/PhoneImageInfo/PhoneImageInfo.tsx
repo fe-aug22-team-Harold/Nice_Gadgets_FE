@@ -1,8 +1,15 @@
 /* eslint-disable no-shadow */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PhoneImageInfo.scss';
 import { Phone } from '../../types/Phone';
 import cn from 'classnames';
+import {
+  useAppDispatch, useAppSelector, useLocalStorage,
+} from '../../app/hooks';
+import { addToCart, setCart } from '../../features/cartSlice';
+import {
+  addFavorites, removeFavorites, setFavorites,
+} from '../../features/favoritesSlice';
 
 type Props = {
   phoneCard: Phone,
@@ -16,8 +23,49 @@ export const PhoneImageInfo: React.FC<Props> = ({ phoneCard }) => {
     ram,
   } = phoneCard;
 
-  const [added, setAdded] = useState(false);
-  const [favorite, setFavorite] = useState(false);
+  const [favoritesStored, setFavoritesStored] = useLocalStorage('favorites');
+  const [cartStored, setCartStored] = useLocalStorage('cart');
+  const dispatch = useAppDispatch();
+  const { currentFavorites } = useAppSelector(state => state.favorites);
+  const { currentCart } = useAppSelector(state => state.cart);
+
+  const [added, setAdded] = useState(
+    cartStored.some((item: Phone) => item.itemId === phoneCard.itemId),
+  );
+  const [favorite, setFavorite] = useState(
+    favoritesStored.some((item: Phone) => item.itemId === phoneCard.itemId),
+  );
+
+  const addToCartHandler = () => {
+    if (currentCart.find(item => item.itemId === phoneCard.itemId)) {
+      return;
+    }
+
+    setAdded(!added);
+    dispatch(addToCart(phoneCard));
+  };
+
+  const addToFavoriteHandler = () => {
+    if (currentFavorites.find(item => item.itemId === phoneCard.itemId)) {
+      dispatch(removeFavorites(phoneCard));
+    } else {
+      dispatch(addFavorites(phoneCard));
+    }
+    setFavorite(!favorite);
+  };
+
+  useEffect(() => {
+    dispatch(setFavorites(favoritesStored));
+    dispatch(setCart(cartStored));
+  }, []);
+
+  useEffect(() => {
+    setFavoritesStored(() => currentFavorites);
+  }, [currentFavorites]);
+
+  useEffect(() => {
+    setCartStored(() => currentCart);
+  }, [currentCart]);
 
   return (
     <div className='phone-info'>
@@ -79,9 +127,7 @@ export const PhoneImageInfo: React.FC<Props> = ({ phoneCard }) => {
 
           <div className='phone-info__buy'>
             <a
-              onClick={() => {
-                setAdded(!added);
-              }}
+              onClick={addToCartHandler}
               className={cn('phone-info__add-to-cart', {
                 'phone-info__add-to-cart--active': added,
               })}
@@ -94,9 +140,7 @@ export const PhoneImageInfo: React.FC<Props> = ({ phoneCard }) => {
             </a>
 
             <a
-              onClick={() => {
-                setFavorite(!favorite);
-              }}
+              onClick={addToFavoriteHandler}
               className={cn('phone-info__favorites-icon', {
                 'phone-info__favorites-icon--active': favorite,
               })}
