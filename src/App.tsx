@@ -11,6 +11,8 @@ import { Cart } from './components/Cart';
 import { FavoritesPage } from './components/FavoritesPage';
 import { TabletsPage } from './components/TabletsPage';
 import { AccessoriesPage } from './components/AccessoriesPage';
+import { AboutProject } from './components/NavBarFooter/AboutProject';
+import { Rights } from './components/NavBarFooter/Rights';
 
 function App() {
   return (
@@ -33,6 +35,10 @@ function App() {
         <Route path="/cart" element={<Cart />} />
 
         <Route path="/favorites" element={<FavoritesPage />} />
+
+        <Route path="/about-project" element={<AboutProject />} />
+
+        <Route path="/rights" element={<Rights />} />
 
         <Route path="*" element={<PageNotFound />} />
 
