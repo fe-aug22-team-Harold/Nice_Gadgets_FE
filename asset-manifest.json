@@ -1,12 +1,11 @@
 {
   "files": {
-    "main.css": "/nice_gadgets_FE/static/css/main.70dacab0.css",
-    "main.js": "/nice_gadgets_FE/static/js/main.7c689414.js",
+    "main.css": "/nice_gadgets_FE/static/css/main.319cdbab.css",
+    "main.js": "/nice_gadgets_FE/static/js/main.1f327d8c.js",
     "static/js/787.b21c7653.chunk.js": "/nice_gadgets_FE/static/js/787.b21c7653.chunk.js",
-    "static/media/banner-phones.png": "/nice_gadgets_FE/static/media/banner-phones.b4eeda8bd82b712057a2.png",
-    "static/media/banner-accessories-1040.png": "/nice_gadgets_FE/static/media/banner-accessories-1040.86ab88ba84bb46462eb6.png",
     "static/media/logo.svg": "/nice_gadgets_FE/static/media/logo.e0bf13985d78a74197d9.svg",
     "static/media/logoFooter.svg": "/nice_gadgets_FE/static/media/logoFooter.7c86cf5336d53d092e30.svg",
+    "static/media/iphone-banner-1.png": "/nice_gadgets_FE/static/media/iphone-banner-1.70c56bb7a5a7931d9cd2.png",
     "static/media/Mont-Regular.eot": "/nice_gadgets_FE/static/media/Mont-Regular.d26dbe2a7757c39153d5.eot",
     "static/media/Mont-Regular.ttf": "/nice_gadgets_FE/static/media/Mont-Regular.e797167c18f9897bb607.ttf",
     "static/media/Mont-SemiBold.eot": "/nice_gadgets_FE/static/media/Mont-SemiBold.2dc79e1cb836e6342c2e.eot",
@@ -14,16 +13,16 @@
     "static/media/Banner.png": "/nice_gadgets_FE/static/media/Banner.57c1512128531573240d.png",
     "static/media/Category-3.png": "/nice_gadgets_FE/static/media/Category-3.f97da0dc0fcd6230e9d3.png",
     "static/media/Category-2.png": "/nice_gadgets_FE/static/media/Category-2.70cceed369d267762189.png",
+    "static/media/iphone-banner-2.png": "/nice_gadgets_FE/static/media/iphone-banner-2.a82abb0822dba0feef63.png",
     "static/media/Category-1.png": "/nice_gadgets_FE/static/media/Category-1.d3090abd5e973ee85475.png",
     "static/media/Mont-Regular.woff": "/nice_gadgets_FE/static/media/Mont-Regular.5f2dd0890a78d28216de.woff",
     "static/media/Mont-SemiBold.woff": "/nice_gadgets_FE/static/media/Mont-SemiBold.5d4afcfe00f8d6a38e5f.woff",
-    "static/media/BannerSmall.png": "/nice_gadgets_FE/static/media/BannerSmall.0582a9dfa7e5ea770487.png",
     "static/media/Mont-SemiBold.woff2": "/nice_gadgets_FE/static/media/Mont-SemiBold.95ab478c134f9e9da545.woff2",
     "static/media/Mont-Regular.woff2": "/nice_gadgets_FE/static/media/Mont-Regular.efd082cbd3e10b7e9c88.woff2",
+    "static/media/640px-Apple-logo.png": "/nice_gadgets_FE/static/media/640px-Apple-logo.e45d3ada5c90bb1e9207.png",
     "static/media/cart.svg": "/nice_gadgets_FE/static/media/cart.fbb7bb4b7513df420fa1.svg",
-    "static/media/fav-regular.svg": "/nice_gadgets_FE/static/media/fav-regular.eee73a995179761b2327.svg",
+    "static/media/favorites-default.svg": "/nice_gadgets_FE/static/media/favorites-default.622066cce6dd82ef6c8a.svg",
     "static/media/heart.svg": "/nice_gadgets_FE/static/media/heart.793bee0c55e6c159546a.svg",
-    "static/media/fav-selected.svg": "/nice_gadgets_FE/static/media/fav-selected.d1bdfe0892e988a5ff96.svg",
     "index.html": "/nice_gadgets_FE/index.html",
     "static/media/close-gray.svg": "/nice_gadgets_FE/static/media/close-gray.a7b1ced7ed3e49385129.svg",
     "static/media/close.svg": "/nice_gadgets_FE/static/media/close.240bedeea54b93e8ac74.svg",
@@ -44,12 +43,12 @@
     "static/media/Line.svg": "/nice_gadgets_FE/static/media/Line.278e30dfc7523926f7ea.svg",
     "static/media/LineLong.svg": "/nice_gadgets_FE/static/media/LineLong.13fe418492440acc8189.svg",
     "static/media/LineLong2.svg": "/nice_gadgets_FE/static/media/LineLong2.13fe418492440acc8189.svg",
-    "main.70dacab0.css.map": "/nice_gadgets_FE/static/css/main.70dacab0.css.map",
-    "main.7c689414.js.map": "/nice_gadgets_FE/static/js/main.7c689414.js.map",
+    "main.319cdbab.css.map": "/nice_gadgets_FE/static/css/main.319cdbab.css.map",
+    "main.1f327d8c.js.map": "/nice_gadgets_FE/static/js/main.1f327d8c.js.map",
     "787.b21c7653.chunk.js.map": "/nice_gadgets_FE/static/js/787.b21c7653.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.70dacab0.css",
-    "static/js/main.7c689414.js"
+    "static/css/main.319cdbab.css",
+    "static/js/main.1f327d8c.js"
   ]
 }
