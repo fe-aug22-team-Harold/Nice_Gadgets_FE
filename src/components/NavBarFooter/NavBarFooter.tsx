@@ -1,17 +1,21 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
-import { AboutProject } from './AboutProject';
+import { Link } from 'react-router-dom';
 import './NavBarFooter.scss';
 
 export const NavBarFooter: React.FC = () => {
   return (
     <div className="nav nav--footer">
       <div className="nav__bar nav__bar--footer">
-        <Link to="/github" className="nav__link nav__link--footer">
+        <a
+          href="https://github.com/fe-aug22-team-Harold"
+          target="_blank"
+          rel="noreferrer"
+          className="nav__link nav__link--footer"
+        >
           Github
-        </Link>
-        <Link to="/contacts" className="nav__link nav__link--footer">
-          <Route path="/about-project" element={<AboutProject />} />
+        </a>
+        <Link to="/about-project" className="nav__link nav__link--footer">
+          About
         </Link>
         <Link to="/rights" className="nav__link nav__link--footer">
           Rights
