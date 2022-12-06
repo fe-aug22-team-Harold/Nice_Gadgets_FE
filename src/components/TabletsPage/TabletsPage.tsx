@@ -10,17 +10,20 @@ export const TabletsPage: React.FC = () => {
   return (
     <div className="phones-page">
       <div className="phones-page__container">
-          <div className="phones-page__header">
-            <div className="phones-page__history">
-              <HistoryBlock
-                firstRoute={'Tablets'}
-                secondRoute={undefined}
-              />
+        <div className="favorites-page__grid">
+          <div className="favorites-page__history">
+            <HistoryBlock firstRoute={'Tablets'} secondRoute={undefined} />
+          </div>
+          <div className="favorites-page__text">
+            <div className="favorites-page__title">Tablets</div>
+            <div className="favorites-page__models-number">
+              2 models
             </div>
           </div>
+        </div>
         <div className="phones-page__all-phones all-phones">
           {tablets.map((tablet) => (
-              <ProductCard key={tablet.itemId} phoneCard={tablet} />
+            <ProductCard key={tablet.itemId} phoneCard={tablet} />
           ))}
         </div>
         <div style={{ paddingTop: '1px' }}></div>
