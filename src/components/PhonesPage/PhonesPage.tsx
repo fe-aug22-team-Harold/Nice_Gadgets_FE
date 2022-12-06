@@ -47,17 +47,16 @@ export const PhonesPage: React.FC = () => {
         )}
 
         {phonesOnPage && pagePhonesStatus === 'idle' && (
-          <div className="phones-page__header">
+          <div className="phones-page__header phones-page__grid">
             <div className="phones-page__history">
-              <HistoryBlock
-                firstRoute={'Phones'}
-                secondRoute={undefined}
+              <HistoryBlock firstRoute={'Phones'} secondRoute={undefined} />
+            </div>
+            <div className="phones-page__filter">
+              <FilterInputs
+                currentOnPage={onPage}
+                changeOnPage={onChangeOnPage}
               />
             </div>
-            <FilterInputs
-              currentOnPage={onPage}
-              changeOnPage={onChangeOnPage}
-            />
           </div>
         )}
 
