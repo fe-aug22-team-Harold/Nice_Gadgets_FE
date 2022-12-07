@@ -1,8 +1,16 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-shadow */
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HistoryBlock } from '../HistoryBlock';
 
 export const LogInForm: React.FC = () => {
+  const [emailQuery, setEmailQuery] = useState('');
+  const [passwordQuery, setPasswordQuery] = useState('');
+
+  const validEmail = emailQuery.includes('@');
+  const validPassword = passwordQuery.trim().length > 6;
+
   return (
     <div className="register-page">
       <div className="register-page__container">
@@ -14,24 +22,40 @@ export const LogInForm: React.FC = () => {
             <div className="favorites-page__title">Log In</div>
           </div>
         </div>
-        <form className="register-page__form--login form">
-          <input type="email"
-          placeholder="Enter Email"
-          className="form__field"
-          required
-          />
-          <input
-            type="password"
-            placeholder="Enter Password"
-            className="form__field"
-            required
-          />
-          <button className="form__button">Log In</button>
+        <form className="register-page__form form">
+          <div className="form__block">
+            <input
+              type="email"
+              placeholder="Enter Email"
+              className="form__field"
+              value={emailQuery}
+              onChange={(event) => setEmailQuery(event.target.value)}
+              required
+            />
+            {!validEmail && (
+              <span className="form__error">Incorrect Email</span>
+            )}
+          </div>
+          <div className="form__block">
+            <input
+              type="password"
+              placeholder="Enter Password"
+              className="form__field"
+              value={passwordQuery}
+              onChange={(event) => setPasswordQuery(event.target.value)}
+            />
+            {!validPassword && (
+              <span className="form__error">
+                Password must be at least 6 characters
+              </span>
+            )}
+          </div>
+          <button className="form__button">Register</button>
         </form>
         <div className="register-page__text text">
           Not registered yet?
           <Link to="/register" className="text__link">
-            &nbsp; Sign Up!
+            &nbsp; Sign up!
           </Link>
         </div>
       </div>

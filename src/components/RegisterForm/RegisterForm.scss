@@ -60,10 +60,10 @@
    border-bottom: solid 1px $secondary-color;
    width: 270px;
    height: 40px;
-   margin-bottom: 15px;
+   margin-top: 15px;
 
-   &:last-of-type {
-    margin-bottom: 60px;
+   &:first-of-type {
+    margin-bottom: 0px;
    }
 
        &::placeholder {
@@ -90,6 +90,7 @@
   }
 
   &__button {
+    margin-top: 60px;
 
     display: flex;
     width: 200px;
@@ -117,6 +118,28 @@
       background-color: $accent-hover;
     }
 
+  }
+
+    &__error {
+    color:darkred;
+    font-family: 'Mont', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    text-align: left;
+    width: 288px;
+
+    @include onTablet {
+      width: 340px;
+    }
+
+    @include onDesktop {
+      width: 400px;
+    }
+  }
+
+  &__blokc {
+    height: 65px;
+    box-sizing: border-box;
   }
 }
 
