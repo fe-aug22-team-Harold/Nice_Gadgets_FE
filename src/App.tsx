@@ -40,7 +40,7 @@ function App() {
 
         <Route path="/register" element={<RegisterForm />} />
 
-        <Route path="/logIn" element={<LogInForm />} />
+        <Route path="/login" element={<LogInForm />} />
 
         <Route path="/about-project" element={<AboutProject />} />
 
