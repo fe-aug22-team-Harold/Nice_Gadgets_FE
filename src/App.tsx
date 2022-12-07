@@ -11,6 +11,8 @@ import { Cart } from './components/Cart';
 import { FavoritesPage } from './components/FavoritesPage';
 import { TabletsPage } from './components/TabletsPage';
 import { AccessoriesPage } from './components/AccessoriesPage';
+import { RegisterForm } from './components/RegisterForm';
+import { LogInForm } from './components/LogInForm';
 import { AboutProject } from './components/NavBarFooter/AboutProject';
 import { Rights } from './components/NavBarFooter/Rights';
 
@@ -35,6 +37,10 @@ function App() {
         <Route path="/cart" element={<Cart />} />
 
         <Route path="/favorites" element={<FavoritesPage />} />
+
+        <Route path="/register" element={<RegisterForm />} />
+
+        <Route path="/logIn" element={<LogInForm />} />
 
         <Route path="/about-project" element={<AboutProject />} />
 

@@ -1,0 +1,130 @@
+.register-page {
+  background-color: $gray-black;
+  min-height: 100vh;
+  &__container {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 16px;
+
+    @include onTablet {
+      padding: 0 24px;
+    }
+
+    @include onDesktop {
+      padding: 0 32px;
+    }
+  }
+
+  &__grid {
+  display: grid;
+  justify-content: center;
+
+  @include onTablet {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 270px);
+  }
+
+  @include onDesktop {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  }
+  }
+
+
+  &__text {
+    margin-top: 20px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__field {
+    font-family: 'Mont', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    color: $gray-white;
+
+   display: block;
+   background-color: $gray-black;
+   border: none;
+   outline: none;
+   border-bottom: solid 1px $secondary-color;
+   width: 288px;
+   height: 40px;
+   margin-bottom: 15px;
+
+       &::placeholder {
+      color: inherit;
+    }
+
+    &:hover {
+      border-bottom-color: $accent-hover;
+      color: $accent-color;
+    }
+
+    &:focus {
+      border-bottom-color: $accent-color;
+      color: $accent-color;
+    }
+
+    @include onTablet {
+      width: 340px;
+    }
+
+    @include onDesktop {
+      width: 400px;
+    }
+  }
+
+  &__button {
+
+    display: flex;
+    width: 160px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
+    border: 1px solid $gray-black;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: $gray-white;
+    background: $accent-color;
+    text-align: center;
+    cursor: pointer;
+    &:active {
+    border: 1px solid $gray-black;
+    background-color: $gray-surface2;
+    }
+
+    &:hover {
+      background-color: $accent-hover;
+    }
+
+  }
+}
+
+.text {
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Mont', san-serif;
+    color: $secondary-color;
+    font-weight: 800;
+    font-size: 12px;
+    &__link {
+      font-family: 'Mont', san-serif;
+      color: $accent-color;
+      cursor: pointer;
+      text-decoration: none;
+    }
+}
