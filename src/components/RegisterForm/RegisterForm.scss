@@ -35,6 +35,10 @@
   &__text {
     margin-top: 20px;
   }
+
+  &__form {
+    margin-top: 40px;
+  }
 }
 
 .form {
@@ -47,29 +51,33 @@
     font-size: 14px;
     font-weight: 700;
     line-height: 21px;
-    color: $gray-white;
+    color: $secondary-color;
 
    display: block;
    background-color: $gray-black;
    border: none;
    outline: none;
    border-bottom: solid 1px $secondary-color;
-   width: 288px;
+   width: 270px;
    height: 40px;
    margin-bottom: 15px;
+
+   &:last-of-type {
+    margin-bottom: 60px;
+   }
 
        &::placeholder {
       color: inherit;
     }
 
     &:hover {
-      border-bottom-color: $accent-hover;
-      color: $accent-color;
+      border-bottom-color: $gray-white;
+      color: $gray-white;
     }
 
     &:focus {
-      border-bottom-color: $accent-color;
-      color: $accent-color;
+      border-bottom-color: $gray-white;
+      color: $gray-white;
     }
 
     @include onTablet {
@@ -84,8 +92,8 @@
   &__button {
 
     display: flex;
-    width: 160px;
-    height: 40px;
+    width: 200px;
+    height: 48px;
     justify-content: center;
     align-items: center;
     flex-grow: 1;

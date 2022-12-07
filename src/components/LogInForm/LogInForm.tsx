@@ -7,45 +7,32 @@ export const LogInForm: React.FC = () => {
     <div className="register-page">
       <div className="register-page__container">
         <div className="register-page__grid">
-        <div className="favorites-page__history">
-          <HistoryBlock
-            firstRoute={'Register'}
-            secondRoute={undefined}
-          />
-        </div>
+          <div className="favorites-page__history">
+            <HistoryBlock firstRoute={'LogIn'} secondRoute={undefined} />
+          </div>
           <div className="favorites-page__text">
-            <div className="favorites-page__title">Register</div>
+            <div className="favorites-page__title">Log In</div>
           </div>
-          </div>
-        <form className="register-page__form form">
-          <input
-            type="text"
-            placeholder='Username'
-            className='form__field'
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            className='form__field'
+        </div>
+        <form className="register-page__form--login form">
+          <input type="email"
+          placeholder="Enter Email"
+          className="form__field"
+          required
           />
           <input
             type="password"
-            placeholder='Password'
-            className='form__field'
+            placeholder="Enter Password"
+            className="form__field"
+            required
           />
-          <input
-            type="password"
-            placeholder='Confirm Password'
-            className='form__field'
-          />
-        <button
-          className='form__button'>
-            Register
-        </button>
+          <button className="form__button">Log In</button>
         </form>
-        <div className='register-page__text text'>
-          Already registered?
-          <Link to="/log-in" className="text__link">Log in!</Link>
+        <div className="register-page__text text">
+          Not registered yet?
+          <Link to="/register" className="text__link">
+            &nbsp; Sign Up!
+          </Link>
         </div>
       </div>
     </div>

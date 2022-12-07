@@ -20,22 +20,22 @@ export const RegisterForm: React.FC = () => {
         <form className="register-page__form form">
           <input
             type="text"
-            placeholder='Username'
+            placeholder='Enter Username'
             className='form__field'
           />
           <input
             type="email"
-            placeholder="Email"
+            placeholder="Enter Email"
             className='form__field'
           />
           <input
             type="password"
-            placeholder='Password'
+            placeholder='Enter Password'
             className='form__field'
           />
           <input
             type="password"
-            placeholder='Confirm Password'
+            placeholder='Repeat Password'
             className='form__field'
           />
         <button
@@ -45,7 +45,7 @@ export const RegisterForm: React.FC = () => {
         </form>
         <div className='register-page__text text'>
           Already registered?
-          <Link to="/logIn" className="text__link">&nbsp; Log in!</Link>
+          <Link to="/login" className="text__link">&nbsp; Log in!</Link>
         </div>
       </div>
     </div>
