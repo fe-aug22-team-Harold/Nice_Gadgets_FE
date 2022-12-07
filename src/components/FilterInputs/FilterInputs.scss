@@ -36,6 +36,7 @@
     flex-direction: column;
     position: relative;
     width: 185px;
+    box-sizing: border-box;
 
     @media (max-width: 386px) {
       width: 136px;

@@ -10,12 +10,16 @@ export const AccessoriesPage: React.FC = () => {
   return (
     <div className="phones-page">
       <div className="phones-page__container">
-        <div className="phones-page__header">
-          <div className="phones-page__history">
+        <div className="favorites-page__grid">
+          <div className="favorites-page__history">
             <HistoryBlock
               firstRoute={'Accessories'}
               secondRoute={undefined}
             />
+          </div>
+          <div className="favorites-page__text">
+            <div className="favorites-page__title">Accessories</div>
+            <div className="favorites-page__models-number">2 models</div>
           </div>
         </div>
         <div className="phones-page__all-phones all-phones">

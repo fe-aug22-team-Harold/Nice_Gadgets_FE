@@ -9,13 +9,10 @@ export const FavoritesPage: React.FC = () => {
   return (
     <div className="favorites-page">
       <div className="favorites-page__container">
-        <div className="all-phones">
-        <div className="favorites-page__history">
-          <HistoryBlock
-            firstRoute={'Favourites'}
-            secondRoute={undefined}
-          />
-        </div>
+        <div className="favorites-page__grid">
+          <div className="favorites-page__history">
+            <HistoryBlock firstRoute={'Favourites'} secondRoute={undefined} />
+          </div>
           <div className="favorites-page__text">
             <div className="favorites-page__title">Favourites</div>
             <div className="favorites-page__models-number">
