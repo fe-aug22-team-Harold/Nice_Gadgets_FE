@@ -45,7 +45,7 @@ export const RegisterForm: React.FC = () => {
         </form>
         <div className='register-page__text text'>
           Already registered?
-          <Link to="/log-in" className="text__link">Log in!</Link>
+          <Link to="/logIn" className="text__link">&nbsp; Log in!</Link>
         </div>
       </div>
     </div>

@@ -31,10 +31,6 @@
   }
   }
 
-  &__form {
-    grid-column: 1 / 4;
-
-  }
 
   &__text {
     margin-top: 20px;
@@ -42,28 +38,42 @@
 }
 
 .form {
-  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   &__field {
     font-family: 'Mont', sans-serif;
-    font-weight: 800;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    color: $gray-white;
+
    display: block;
    background-color: $gray-black;
-   border: solid 1px $gray-black;
+   border: none;
+   outline: none;
    border-bottom: solid 1px $secondary-color;
-   width: 200px;
-   height: 30px;
+   width: 288px;
+   height: 40px;
    margin-bottom: 15px;
 
-    &::placeholder {
-      color: $secondary-color;
+       &::placeholder {
+      color: inherit;
+    }
+
+    &:hover {
+      border-bottom-color: $accent-hover;
+      color: $accent-color;
+    }
+
+    &:focus {
+      border-bottom-color: $accent-color;
+      color: $accent-color;
     }
 
     @include onTablet {
-      width: 300px;
+      width: 340px;
     }
 
     @include onDesktop {
@@ -74,7 +84,7 @@
   &__button {
 
     display: flex;
-    width: 120px;
+    width: 160px;
     height: 40px;
     justify-content: center;
     align-items: center;
@@ -92,7 +102,13 @@
     cursor: pointer;
     &:active {
     border: 1px solid $gray-black;
+    background-color: $gray-surface2;
     }
+
+    &:hover {
+      background-color: $accent-hover;
+    }
+
   }
 }
 
