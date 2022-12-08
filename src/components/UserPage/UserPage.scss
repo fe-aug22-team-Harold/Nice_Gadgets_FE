@@ -1,0 +1,15 @@
+.order {
+  padding: 10px;
+  background-color: #2f3545;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
+.user-info {
+  padding: 10px 20px;
+  background-color: #0f1121;
+  font-size: 28px;
+}
