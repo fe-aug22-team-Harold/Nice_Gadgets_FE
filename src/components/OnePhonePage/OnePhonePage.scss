@@ -18,6 +18,7 @@
 
 .OnePhonePage {
   background-color: #0F1121;
+  overflow-x: hidden;
 
   &__loader {
     height: 90vh;
