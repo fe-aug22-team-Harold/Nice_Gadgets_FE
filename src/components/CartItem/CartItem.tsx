@@ -81,7 +81,7 @@ export const CartItem: React.FC<Props> = ({ phoneItem }) => {
       </div>
 
       <div className="cart-item__price-block">
-        <div className="cart-item__counter">
+        <div className="cart-item__icons-block">
           <a
             onClick={minusHandler}
             className={
@@ -89,7 +89,9 @@ export const CartItem: React.FC<Props> = ({ phoneItem }) => {
               'icon__cart-item--minus-disabled': sameItemInCart === 1,
             })}
           ></a>
-          {sameItemInCart}
+          <div className="cart-item__counter">
+            {sameItemInCart}
+          </div>
           <a
             onClick={plusHandler}
             className="icon
