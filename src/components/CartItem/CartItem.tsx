@@ -41,15 +41,14 @@ export const CartItem: React.FC<Props> = ({ phoneItem }) => {
     if (sameItemInCart === 1) {
       return;
     }
+  
+    const indexToDelete = currentCart.lastIndexOf(phoneItem);
 
-    const restOfCart = currentCart.filter(
-      item => item.itemId !== phoneItem.itemId,
-    );
-    const currentOnCart = currentCart.filter(
-      item => item.itemId === phoneItem.itemId,
-    );
+    const cartItems = [...currentCart];
 
-    dispatch(setCart([...restOfCart, ...currentOnCart.slice(1)]));
+    cartItems.splice(indexToDelete, 1);
+
+    dispatch(setCart(cartItems));
   };
 
   const plusHandler = () => {
