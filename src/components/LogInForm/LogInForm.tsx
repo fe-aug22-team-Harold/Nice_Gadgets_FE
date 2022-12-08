@@ -63,7 +63,7 @@ export const LogInForm: React.FC = () => {
               </span>
             )}
           </div>
-          <button className="form__button">Register</button>
+          <button className="form__button">Log In</button>
         </form>
         <div className="register-page__text text">
           Not registered yet?
