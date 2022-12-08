@@ -3,13 +3,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HistoryBlock } from '../HistoryBlock';
+import { validateEmail } from '../RegisterForm';
 
 export const LogInForm: React.FC = () => {
   const [emailQuery, setEmailQuery] = useState('');
   const [passwordQuery, setPasswordQuery] = useState('');
-
-  const validEmail = emailQuery.includes('@');
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
   const validPassword = passwordQuery.trim().length > 6;
+  const validEmailAndFocus = () => !validateEmail(emailQuery) && emailError;
+  const validPasswordAndFocus = !validPassword && passwordError;
 
   return (
     <div className="register-page">
@@ -30,9 +33,14 @@ export const LogInForm: React.FC = () => {
               className="form__field"
               value={emailQuery}
               onChange={(event) => setEmailQuery(event.target.value)}
+              onBlur={() => {
+                if (!validateEmail(emailQuery)) {
+                  setEmailError(true);
+                }
+              }}
               required
             />
-            {!validEmail && (
+            {validEmailAndFocus() && (
               <span className="form__error">Incorrect Email</span>
             )}
           </div>
@@ -43,8 +51,13 @@ export const LogInForm: React.FC = () => {
               className="form__field"
               value={passwordQuery}
               onChange={(event) => setPasswordQuery(event.target.value)}
+              onBlur={() => {
+                if (!validPassword) {
+                  setPasswordError(true);
+                }
+              }}
             />
-            {!validPassword && (
+            {validPasswordAndFocus && (
               <span className="form__error">
                 Password must be at least 6 characters
               </span>

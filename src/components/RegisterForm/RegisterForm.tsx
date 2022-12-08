@@ -1,19 +1,35 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HistoryBlock } from '../HistoryBlock';
+
+export const validateEmail = (email: string) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      // eslint-disable-next-line max-len, comma-dangle
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};
 
 export const RegisterForm: React.FC = () => {
   const [usernameQuery, setUsernameQuery] = useState('');
   const [emailQuery, setEmailQuery] = useState('');
   const [passwordQuery, setPasswordQuery] = useState('');
   const [confirmPasswordQuery, setConfirmPasswordQuery] = useState('');
-
+  const [usernameError, setUsernameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
   const validUsername = usernameQuery.trim().length > 4;
-  const validEmail = emailQuery.includes('@');
   const validPassword = passwordQuery.trim().length > 6;
   const validConfirmPassoword = passwordQuery === confirmPasswordQuery;
+  const validUsernameAndFocus = !validUsername && usernameError;
+  const validEmailAndFocus = () =>
+    !validateEmail(emailQuery) && emailError;
+  const validPasswordAndFocus = !validPassword && passwordError;
+  const validConfirmPassowordAndFocus
+  = !validConfirmPassoword && confirmPasswordError;
 
   return (
     <div className="register-page">
@@ -35,8 +51,13 @@ export const RegisterForm: React.FC = () => {
               value={usernameQuery}
               onChange={(event) => setUsernameQuery(event.target.value)}
               required
+              onBlur={() => {
+                if (!validUsername) {
+                  setUsernameError(true);
+                }
+              }}
             />
-            {!validUsername && (
+            {validUsernameAndFocus && (
               <span className="form__error">
                 Username must be at least 4 characters
               </span>
@@ -50,8 +71,13 @@ export const RegisterForm: React.FC = () => {
               value={emailQuery}
               onChange={(event) => setEmailQuery(event.target.value)}
               required
+              onBlur={() => {
+                if (!validateEmail(emailQuery)) {
+                  setEmailError(true);
+                }
+              }}
             />
-            {!validEmail && (
+            {validEmailAndFocus() && (
               <span className="form__error">Incorrect Email</span>
             )}
           </div>
@@ -62,8 +88,14 @@ export const RegisterForm: React.FC = () => {
               className="form__field"
               value={passwordQuery}
               onChange={(event) => setPasswordQuery(event.target.value)}
+              required
+              onBlur={() => {
+                if (!validPassword) {
+                  setPasswordError(true);
+                }
+              }}
             />
-            {!validPassword && (
+            {validPasswordAndFocus && (
               <span className="form__error">
                 Password must be at least 6 characters
               </span>
@@ -76,9 +108,14 @@ export const RegisterForm: React.FC = () => {
               className="form__field"
               value={confirmPasswordQuery}
               onChange={(event) => setConfirmPasswordQuery(event.target.value)}
+              onBlur={() => {
+                if (!validConfirmPassoword) {
+                  setConfirmPasswordError(true);
+                }
+              }}
               required
             />
-            {validConfirmPassoword && (
+            {validConfirmPassowordAndFocus && (
               <span className="form__error">Passwords must match</span>
             )}
           </div>
