@@ -1,7 +1,10 @@
 /* eslint-disable no-shadow */
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HistoryBlock } from '../HistoryBlock';
+import { client } from '../../utils/fetch';
+import { ErrorMessage } from '../ErrorMessage';
+import { Loader } from '../Loader';
 
 export const validateEmail = (email: string) => {
   return String(email)
@@ -21,15 +24,39 @@ export const RegisterForm: React.FC = () => {
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState(false);
-  const validUsername = usernameQuery.trim().length > 4;
-  const validPassword = passwordQuery.trim().length > 6;
-  const validConfirmPassoword = passwordQuery === confirmPasswordQuery;
-  const validUsernameAndFocus = !validUsername && usernameError;
-  const validEmailAndFocus = () =>
-    !validateEmail(emailQuery) && emailError;
-  const validPasswordAndFocus = !validPassword && passwordError;
-  const validConfirmPassowordAndFocus
-  = !validConfirmPassoword && confirmPasswordError;
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const formSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (emailError || passwordError || usernameError || confirmPasswordError) {
+      return;
+    }
+
+    singUpOnAPI();
+  };
+
+  const singUpOnAPI = async() => {
+    setIsLoading(true);
+
+    try {
+      const data = {
+        name: usernameQuery,
+        email: emailQuery,
+        password: passwordQuery,
+      };
+
+      await client.post('/users/singup', data);
+      setIsSuccess(true);
+    } catch (e) {
+      setIsError(true);
+    }
+
+    setIsLoading(false);
+  };
 
   return (
     <div className="register-page">
@@ -39,25 +66,31 @@ export const RegisterForm: React.FC = () => {
             <HistoryBlock firstRoute={'Register'} secondRoute={undefined} />
           </div>
           <div className="favorites-page__text">
-            <div className="favorites-page__title">Register</div>
+            <div className="favorites-page__title">Sing Up</div>
           </div>
         </div>
-        <form className="register-page__form form">
+        <form
+          className="register-page__form form"
+          onSubmit={formSubmit}
+        >
           <div className="form__block">
             <input
               type="text"
               placeholder="Enter Username"
               className="form__field"
               value={usernameQuery}
-              onChange={(event) => setUsernameQuery(event.target.value)}
+              onChange={(event) => {
+                setUsernameError(false);
+                setUsernameQuery(event.target.value);
+              }}
               required
               onBlur={() => {
-                if (!validUsername) {
+                if (usernameQuery.trim().length < 4) {
                   setUsernameError(true);
                 }
               }}
             />
-            {validUsernameAndFocus && (
+            {usernameError && (
               <span className="form__error">
                 Username must be at least 4 characters
               </span>
@@ -69,7 +102,10 @@ export const RegisterForm: React.FC = () => {
               placeholder="Enter Email"
               className="form__field"
               value={emailQuery}
-              onChange={(event) => setEmailQuery(event.target.value)}
+              onChange={(event) => {
+                setEmailError(false);
+                setEmailQuery(event.target.value);
+              }}
               required
               onBlur={() => {
                 if (!validateEmail(emailQuery)) {
@@ -77,7 +113,7 @@ export const RegisterForm: React.FC = () => {
                 }
               }}
             />
-            {validEmailAndFocus() && (
+            {emailError && (
               <span className="form__error">Incorrect Email</span>
             )}
           </div>
@@ -87,17 +123,20 @@ export const RegisterForm: React.FC = () => {
               placeholder="Enter Password"
               className="form__field"
               value={passwordQuery}
-              onChange={(event) => setPasswordQuery(event.target.value)}
+              onChange={(event) => {
+                setPasswordError(false);
+                setPasswordQuery(event.target.value);
+              }}
               required
               onBlur={() => {
-                if (!validPassword) {
+                if (passwordQuery.trim().length < 5) {
                   setPasswordError(true);
                 }
               }}
             />
-            {validPasswordAndFocus && (
+            {passwordError && (
               <span className="form__error">
-                Password must be at least 6 characters
+                Password must be at least 5 characters
               </span>
             )}
           </div>
@@ -107,23 +146,48 @@ export const RegisterForm: React.FC = () => {
               placeholder="Repeat Password"
               className="form__field"
               value={confirmPasswordQuery}
-              onChange={(event) => setConfirmPasswordQuery(event.target.value)}
+              onChange={(event) => {
+                setConfirmPasswordError(false);
+                setConfirmPasswordQuery(event.target.value);
+              }}
               onBlur={() => {
-                if (!validConfirmPassoword) {
+                if (confirmPasswordQuery !== passwordQuery) {
                   setConfirmPasswordError(true);
                 }
               }}
               required
             />
-            {validConfirmPassowordAndFocus && (
+            {confirmPasswordError && (
               <span className="form__error">Passwords must match</span>
             )}
           </div>
-          <button className="form__button">Register</button>
+
+          {isError && <ErrorMessage message={null} />}
+
+          {isSuccess && (
+            <div style={{
+              color: 'white',
+              width: 'max-content',
+              padding: '15px',
+              border: '1px solid #905BFF',
+              background: '#161827',
+            }}>
+              Cool! Your account successfully created!
+              <br />
+              Please check your email to activate your account now!
+            </div>
+          )}
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="form__button"
+          >
+            {isLoading ? <Loader /> : 'Sing Up'}
+          </button>
         </form>
         <div className="register-page__text text">
           Already registered?
-          <Link to="/logIn" className="text__link">
+          <Link to="/login" className="text__link">
             &nbsp; Log in!
           </Link>
         </div>

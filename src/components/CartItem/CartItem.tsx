@@ -41,7 +41,7 @@ export const CartItem: React.FC<Props> = ({ phoneItem }) => {
     if (sameItemInCart === 1) {
       return;
     }
-  
+
     const indexToDelete = currentCart.lastIndexOf(phoneItem);
 
     const cartItems = [...currentCart];

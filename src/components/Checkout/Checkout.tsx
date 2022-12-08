@@ -1,10 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import './Checkout.scss';
-import { useAppSelector } from '../../app/hooks';
+import {
+  useAppDispatch, useAppSelector, useLocalStorage,
+} from '../../app/hooks';
+import { client } from '../../utils/fetch';
+import { Loader } from '../Loader';
+import { ErrorMessage } from '../ErrorMessage';
+import { Link } from 'react-router-dom';
+import { setCart } from '../../features/cartSlice';
 
 export const Checkout: React.FC = () => {
   const { currentCart } = useAppSelector(state => state.cart);
+  const { user } = useAppSelector(state => state.user);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const dispatch = useAppDispatch();
+  const [, setCartStored] = useLocalStorage('cart');
+
+  const totalForCart = currentCart.reduce((acc, item) => acc + item.price, 0);
+
+  const checkOutToAPI = async() => {
+    setIsLoading(true);
+    setIsError(false);
+
+    try {
+      const itemsList = currentCart.map(item => item.name);
+
+      // eslint-disable-next-line no-console
+      console.log(itemsList);
+
+      const data = {
+        userid: user?.id,
+        useremail: user?.email,
+        orderList: itemsList,
+        total: totalForCart,
+      };
+
+      await client.post('/orders', data);
+      dispatch(setCart([]));
+      setCartStored([]);
+    } catch (e) {
+      setIsError(true);
+    }
+
+    setIsLoading(false);
+  };
 
   return (
     <div
@@ -14,12 +54,21 @@ export const Checkout: React.FC = () => {
         grid__item--mobile-1-4"
     >
       <h2 className="checkout__sum">
-        $ {currentCart.reduce((acc, item) => acc + item.price, 0)}
+        $ {totalForCart}
       </h2>
       <p className="checkout__total-items">
         Total for {currentCart.length} items
       </p>
-      <Link to="/" className="checkout__btn">Checkout</Link>
+      {isError && <ErrorMessage message={'Error while creating order'} />}
+      {user ? (
+        <div onClick={checkOutToAPI} className="checkout__btn">
+          {isLoading ? <Loader /> : 'Checkout'}
+        </div>
+      ) : (
+        <Link to={'/login'} className="checkout__btn">
+          Login to make an order
+        </Link>
+      )}
     </div>
   );
 };
