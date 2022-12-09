@@ -68,6 +68,56 @@ export const Header: React.FC = () => {
               <Link to="/" className="logo" />
 
               <div className="icons">
+                {user ? (
+                  <>
+                    <NavLink to={`/user`} className="nav__link--cart">
+                      <span
+                        className="
+                          icon
+                          icon__user
+                          icon__user--menu
+                          "
+                        onClick={closeMenu}
+                      ></span>
+                    </NavLink>
+
+                    <div className="nav__link--cart" onClick={logoutHandler}>
+                      <span
+                        className="
+                          icon
+                          icon__log-out
+                          icon__log-out--menu
+                          "
+                        onClick={closeMenu}
+                      ></span>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <NavLink to={`/sing-up`} className="nav__link--cart">
+                      <span
+                        className="
+                          icon
+                          icon__user-plus
+                          icon__user-plus--menu
+                          "
+                          onClick={closeMenu}
+                      ></span>
+                    </NavLink>
+
+                    <NavLink to={`/login`} className="nav__link--cart">
+                      <span
+                        className="
+                          icon
+                          icon__log-in
+                          icon__log-in--menu
+                          "
+                        onClick={closeMenu}
+                      ></span>
+                    </NavLink>
+                  </>
+                )}
+
                 <span className="icon icon__close" onClick={closeMenu}></span>
               </div>
             </div>
@@ -75,7 +125,7 @@ export const Header: React.FC = () => {
             <NavLinks isOpen={isOpen} closeMenu={closeMenu} />
 
             <div className="icons icons--menu">
-              <NavLink to={`/favorites`} className="nav__link--heart">
+              <NavLink to={`/favorites`} className="nav__link--cart">
                 <span
                   className="
                     icon
@@ -85,7 +135,8 @@ export const Header: React.FC = () => {
                   "
                   onClick={closeMenu}
                 >
-                  <div className="
+                  <div
+                    className="
                     badge-counter
                     badge-counter--heart
                     badge-counter--heart-menu
@@ -109,7 +160,8 @@ export const Header: React.FC = () => {
                   "
                   onClick={closeMenu}
                 >
-                  <div className="
+                  <div
+                    className="
                     badge-counter
                     badge-counter--cart
                     badge-counter--cart-menu
@@ -130,63 +182,7 @@ export const Header: React.FC = () => {
         <NavBar />
 
         <div className="icons">
-          {user ? (
-            <>
-              <NavLink
-                style={{
-                  paddingTop: '12px',
-                  textDecoration: 'none',
-                  color: 'white',
-                  borderLeft: '1px solid #323542',
-                }}
-                to={`/user`}
-                className="nav__link--heart"
-              >
-                {user.name}
-              </NavLink>
-              <div
-                className="nav__link--heart"
-                onClick={logoutHandler}
-                style={{
-                  paddingTop: '12px',
-                  textDecoration: 'none',
-                  color: 'white',
-                  borderLeft: '1px solid #323542',
-                  cursor: 'pointer',
-                }}
-              >
-                Logout
-              </div>
-            </>
-          ) : (
-            <>
-              <NavLink
-                to={`/sing-up`}
-                className="nav__link--heart"
-                style={{
-                  paddingTop: '12px',
-                  textDecoration: 'none',
-                  color: 'white',
-                  borderLeft: '1px solid #323542',
-                }}
-              >
-                SingUp
-              </NavLink>
-              <NavLink
-                to={`/login`}
-                className="nav__link--heart"
-                style={{
-                  paddingTop: '12px',
-                  textDecoration: 'none',
-                  color: 'white',
-                  borderLeft: '1px solid #323542',
-                }}
-              >
-                Login
-              </NavLink>
-            </>
-          )}
-          <NavLink to={`/favorites`} className="nav__link--heart">
+          <NavLink to={`/favorites`} className="nav__link--cart">
             <span className="icon icon__heart icon__heart--relative">
               <div className="badge-counter badge-counter--heart">
                 {currentFavorites.length}
@@ -201,6 +197,28 @@ export const Header: React.FC = () => {
               </div>
             </div>
           </NavLink>
+
+          {user ? (
+            <>
+              <NavLink to={`/user`} className="nav__link--cart">
+                <span className="icon icon__user"></span>
+              </NavLink>
+
+              <div className="nav__link--cart" onClick={logoutHandler}>
+                <span className="icon icon__log-out"></span>
+              </div>
+            </>
+          ) : (
+            <>
+              <NavLink to={`/sing-up`} className="nav__link--cart">
+                <span className="icon icon__user-plus"></span>
+              </NavLink>
+
+              <NavLink to={`/login`} className="nav__link--cart">
+                <span className="icon icon__log-in"></span>
+              </NavLink>
+            </>
+          )}
 
           <span className="icon icon__menu" onClick={openMenu}></span>
         </div>
