@@ -20,6 +20,7 @@
   text-transform: uppercase;
   text-decoration: none;
   color: $secondary-color;
+  transition: color 0.3s ease-in;
   cursor: pointer;
 
   @media (max-width: 1199px) {
@@ -42,6 +43,10 @@
     &:not(:last-child) {
       margin-right: 0;
     }
+  }
+
+  &:hover {
+    color: $gray-white;
   }
 }
 

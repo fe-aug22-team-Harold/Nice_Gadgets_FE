@@ -15,6 +15,8 @@ import { RegisterForm } from './components/RegisterForm';
 import { LogInForm } from './components/LogInForm';
 import { AboutProject } from './components/NavBarFooter/AboutProject';
 import { Rights } from './components/NavBarFooter/Rights';
+import { ActivationPage } from './components/ActivationPage';
+import { UserPage } from './components/UserPage';
 
 function App() {
   return (
@@ -38,13 +40,17 @@ function App() {
 
         <Route path="/favorites" element={<FavoritesPage />} />
 
-        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/sing-up" element={<RegisterForm />} />
 
         <Route path="/login" element={<LogInForm />} />
 
         <Route path="/about-project" element={<AboutProject />} />
 
         <Route path="/rights" element={<Rights />} />
+
+        <Route path="/activate/:token" element={<ActivationPage />} />
+
+        <Route path="/user" element={<UserPage />} />
 
         <Route path="*" element={<PageNotFound />} />
 

@@ -10,17 +10,29 @@ import { addToCart, setCart } from '../../features/cartSlice';
 import {
   addFavorites, removeFavorites, setFavorites,
 } from '../../features/favoritesSlice';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   phoneCard: Phone,
+  colors: string[],
+  memory: string[],
+  currentColor: string,
+  currentMemory: string,
 };
 
-export const PhoneImageInfo: React.FC<Props> = ({ phoneCard }) => {
+export const PhoneImageInfo: React.FC<Props> = ({
+  phoneCard,
+  memory,
+  colors,
+}) => {
   const {
     fullPrice,
     price,
     screen,
     ram,
+    color: currentColor,
+    capacity: currentMemory,
+    image,
   } = phoneCard;
 
   const [favoritesStored, setFavoritesStored] = useLocalStorage('favorites');
@@ -28,6 +40,13 @@ export const PhoneImageInfo: React.FC<Props> = ({ phoneCard }) => {
   const dispatch = useAppDispatch();
   const { currentFavorites } = useAppSelector(state => state.favorites);
   const { currentCart } = useAppSelector(state => state.cart);
+
+  const navigate = useNavigate();
+  const routeChange = (memoryToFind: string, colorToFind: string) => {
+    const basePhone = image.split('/')[2];
+
+    navigate(`/phones/${basePhone}-${memoryToFind.toLowerCase()}-${colorToFind}`);
+  };
 
   const [added, setAdded] = useState(
     cartStored.some((item: Phone) => item.itemId === phoneCard.itemId),
@@ -77,19 +96,20 @@ export const PhoneImageInfo: React.FC<Props> = ({ phoneCard }) => {
           </div>
 
           <div className='phone-info__color'>
-            <button className='phone-info__color-button'></button>
-            <button className='
-              phone-info__color-button
-              phone-info__color-button--2'
-            ></button>
-            <button className='
-              phone-info__color-button
-              phone-info__color-button--3'
-            ></button>
-            <button className='
-              phone-info__color-button
-              phone-info__color-button--4'
-            ></button>
+            {colors.map(color => (
+              // eslint-disable-next-line max-len
+              <button className={cn(
+                `phone-info__color-button phone-info__color-button--${color}`,
+                {
+                  'phone-info__color-button--active': color === currentColor,
+                },
+              )}
+                key={color}
+                onClick={() => {
+                  routeChange(currentMemory, color);
+                }}
+              ></button>
+            ))}
           </div>
         </div>
 
@@ -99,18 +119,22 @@ export const PhoneImageInfo: React.FC<Props> = ({ phoneCard }) => {
           </h2>
 
           <div className='phone-info__capacity__buttons'>
-            <button className='
-              phone-info__capacity__button
-              phone-info__capacity-button--low'
-            >64 GB</button>
-            <button className='
-              phone-info__capacity__button
-              phone-info__capacity-button--med'
-            >256 GB</button>
-            <button className='
-              phone-info__capacity__button
-              phone-info__capacity-button--high'
-            >512 GB</button>
+            {memory.map(capacity => (
+              <button className={cn(
+                'phone-info__capacity__button phone-info__capacity-button--low',
+                {
+                  // eslint-disable-next-line max-len
+                  'phone-info__capacity__button--active': capacity === currentMemory,
+                },
+              )}
+                key={capacity}
+                onClick={() => {
+                  routeChange(capacity, currentColor);
+                }}
+              >
+                {capacity}
+              </button>
+            ))}
           </div>
         </div>
 

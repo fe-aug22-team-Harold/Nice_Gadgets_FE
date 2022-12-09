@@ -42,14 +42,13 @@ export const CartItem: React.FC<Props> = ({ phoneItem }) => {
       return;
     }
 
-    const restOfCart = currentCart.filter(
-      item => item.itemId !== phoneItem.itemId,
-    );
-    const currentOnCart = currentCart.filter(
-      item => item.itemId === phoneItem.itemId,
-    );
+    const indexToDelete = currentCart.lastIndexOf(phoneItem);
 
-    dispatch(setCart([...restOfCart, ...currentOnCart.slice(1)]));
+    const cartItems = [...currentCart];
+
+    cartItems.splice(indexToDelete, 1);
+
+    dispatch(setCart(cartItems));
   };
 
   const plusHandler = () => {
@@ -81,7 +80,7 @@ export const CartItem: React.FC<Props> = ({ phoneItem }) => {
       </div>
 
       <div className="cart-item__price-block">
-        <div className="cart-item__counter">
+        <div className="cart-item__icons-block">
           <a
             onClick={minusHandler}
             className={
@@ -89,7 +88,9 @@ export const CartItem: React.FC<Props> = ({ phoneItem }) => {
               'icon__cart-item--minus-disabled': sameItemInCart === 1,
             })}
           ></a>
-          {sameItemInCart}
+          <div className="cart-item__counter">
+            {sameItemInCart}
+          </div>
           <a
             onClick={plusHandler}
             className="icon
