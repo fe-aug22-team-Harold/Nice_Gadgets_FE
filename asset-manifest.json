@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/nice_gadgets_FE/static/css/main.da789852.css",
-    "main.js": "/nice_gadgets_FE/static/js/main.63583d70.js",
+    "main.css": "/nice_gadgets_FE/static/css/main.410b2d8c.css",
+    "main.js": "/nice_gadgets_FE/static/js/main.fd81a3e4.js",
     "static/js/787.b21c7653.chunk.js": "/nice_gadgets_FE/static/js/787.b21c7653.chunk.js",
     "static/media/logo.svg": "/nice_gadgets_FE/static/media/logo.e0bf13985d78a74197d9.svg",
     "static/media/logoFooter.svg": "/nice_gadgets_FE/static/media/logoFooter.7c86cf5336d53d092e30.svg",
@@ -26,6 +26,12 @@
     "index.html": "/nice_gadgets_FE/index.html",
     "static/media/close-gray.svg": "/nice_gadgets_FE/static/media/close-gray.a7b1ced7ed3e49385129.svg",
     "static/media/close.svg": "/nice_gadgets_FE/static/media/close.240bedeea54b93e8ac74.svg",
+    "static/media/right-from-bracket-solid-hover.svg": "/nice_gadgets_FE/static/media/right-from-bracket-solid-hover.ff862a62e30d810dce6f.svg",
+    "static/media/right-from-bracket-solid.svg": "/nice_gadgets_FE/static/media/right-from-bracket-solid.3f2383273acbd3e56a56.svg",
+    "static/media/user-plus-solid-hover.svg": "/nice_gadgets_FE/static/media/user-plus-solid-hover.5219b145b9e63046442a.svg",
+    "static/media/user-plus-solid.svg": "/nice_gadgets_FE/static/media/user-plus-solid.65cf64293ad6ec9592a1.svg",
+    "static/media/right-to-bracket-solid-hover.svg": "/nice_gadgets_FE/static/media/right-to-bracket-solid-hover.517254e0d4c4d7a1ef9c.svg",
+    "static/media/right-to-bracket-solid.svg": "/nice_gadgets_FE/static/media/right-to-bracket-solid.73a634cfe46b82b81f50.svg",
     "static/media/menu.svg": "/nice_gadgets_FE/static/media/menu.ccd1a9542b5bc584f2a1.svg",
     "static/media/plus.svg": "/nice_gadgets_FE/static/media/plus.1377f8b445ceb66e847d.svg",
     "static/media/slider.svg": "/nice_gadgets_FE/static/media/slider.63149f1173408198c06c.svg",
@@ -36,6 +42,8 @@
     "static/media/arrow-hover.svg": "/nice_gadgets_FE/static/media/arrow-hover.6e4b28ea22939ec09dd8.svg",
     "static/media/arrow.svg": "/nice_gadgets_FE/static/media/arrow.d34d23c6ec6b2fc56d8e.svg",
     "static/media/arrow-rotate.svg": "/nice_gadgets_FE/static/media/arrow-rotate.9344bb0be5d109fe52f6.svg",
+    "static/media/user-solid-hover.svg": "/nice_gadgets_FE/static/media/user-solid-hover.d2351e9a5eeaa7eed284.svg",
+    "static/media/user-solid.svg": "/nice_gadgets_FE/static/media/user-solid.563eb5b97ae9d483c75c.svg",
     "static/media/arrow-back-hover.svg": "/nice_gadgets_FE/static/media/arrow-back-hover.9fb5e5069671cc30b9c7.svg",
     "static/media/arrow-back.svg": "/nice_gadgets_FE/static/media/arrow-back.4dc386686e1f77999a38.svg",
     "static/media/minus-disabled.svg": "/nice_gadgets_FE/static/media/minus-disabled.03bfc02c1b52f07eae07.svg",
@@ -43,12 +51,12 @@
     "static/media/Line.svg": "/nice_gadgets_FE/static/media/Line.278e30dfc7523926f7ea.svg",
     "static/media/LineLong.svg": "/nice_gadgets_FE/static/media/LineLong.13fe418492440acc8189.svg",
     "static/media/LineLong2.svg": "/nice_gadgets_FE/static/media/LineLong2.13fe418492440acc8189.svg",
-    "main.da789852.css.map": "/nice_gadgets_FE/static/css/main.da789852.css.map",
-    "main.63583d70.js.map": "/nice_gadgets_FE/static/js/main.63583d70.js.map",
+    "main.410b2d8c.css.map": "/nice_gadgets_FE/static/css/main.410b2d8c.css.map",
+    "main.fd81a3e4.js.map": "/nice_gadgets_FE/static/js/main.fd81a3e4.js.map",
     "787.b21c7653.chunk.js.map": "/nice_gadgets_FE/static/js/787.b21c7653.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.da789852.css",
-    "static/js/main.63583d70.js"
+    "static/css/main.410b2d8c.css",
+    "static/js/main.fd81a3e4.js"
   ]
 }
