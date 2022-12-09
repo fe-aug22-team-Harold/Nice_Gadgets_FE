@@ -35,6 +35,44 @@
   &__buttons {
     padding-bottom: 64px;
   }
+
+  &__history {
+    display: grid;
+    grid-column: 1 / 4;
+    padding: 26px 0 24px;
+
+    @include onTablet {
+      padding: 26px 0 40px;
+    }
+    @include onDesktop {
+      padding: 26px 0 40px;
+    }
+  }
+
+  &__filter {
+    display: grid;
+    grid-column: 1 / 4;
+  }
+
+    &__grid {
+
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(1, 270px);
+  column-gap: 16px;
+
+    @include onTablet {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 270px);
+  column-gap: 16px;
+  }
+
+  @include onDesktop {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 16px;
+  }
+  }
 }
 
 .all-phones {
@@ -54,5 +92,19 @@
   column-gap: 16px;
   row-gap: 40px;
   }
+}
 
+.phones-page-list-enter {
+  opacity: 0;
+}
+.phones-page-list-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms;
+}
+.phones-page-list-exit {
+  opacity: 1;
+}
+.phones-page-list-active {
+  opacity: 0;
+  transition: opacity 1000ms;
 }

@@ -1,0 +1,31 @@
+[
+  {
+    "id":"1",
+    "category":"accessories",
+    "phoneId":"apple_airpods_2021_wireless",
+    "itemId":"apple_airpods_2021_wireless",
+    "name":"Apple AirPods with Wireless Charging Case 2021",
+    "fullPrice":350,
+    "price":300,
+    "screen":"LED",
+    "capacity":"-",
+    "color":"white",
+    "ram":"-",
+    "year":2021,
+    "image":"img/accessories/apple-airpods-pro/00.jpeg"
+  }, {
+    "id":"2",
+    "category":"accessories",
+    "phoneId":"apple_case-ukraine",
+    "itemId":"apple_case-ukraine",
+    "name":"Apple IPhone 13 Case Ukraine",
+    "fullPrice":99,
+    "price":79,
+    "screen":"-",
+    "capacity":"-",
+    "color":"UA",
+    "ram":"-",
+    "year":2022,
+    "image":"img/accessories/case-ua/00.jpeg"
+  }
+]

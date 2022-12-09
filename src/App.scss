@@ -5,6 +5,7 @@
 @import './components/HomePage/page.scss';
 @import './components/HomePage/HomePage.scss';
 @import './components/HomePage/WelcomeBanner/WelcomeBanner.scss';
+@import './components/ProductCard/ProductCard.scss';
 @import './components/Cart/Cart.scss';
 @import './components/PhonesPage/PhonesPage.scss';
 @import './components/FilterInputs/FilterInputs.scss';
@@ -12,6 +13,8 @@
 @import './components/FavoritesPage/FavoritesPage.scss';
 @import './components/OnePhonePage/OnePhonePage.scss';
 @import './components/HistoryBlock/HistoryBlock.scss';
+@import './components/RegisterForm/RegisterForm.scss';
+@import './components/LogInForm/LogInForm.scss';
 
 @font-face {
   font-family: 'Mont';

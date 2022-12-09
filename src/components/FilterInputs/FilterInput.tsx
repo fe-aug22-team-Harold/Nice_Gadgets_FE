@@ -1,24 +1,21 @@
-/* eslint-disable no-shadow */
-/* eslint-disable no-return-assign */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from 'react';
+import React from 'react';
 import './FilterInputs.scss';
 import { useAppSelector } from '../../app/hooks';
 
 type Props = {
-  changeOnPage: (num: number) => void,
+  changeOnPage: (newPage: number) => void,
   currentOnPage: number
+  sortBy: string,
+  changeSortBy: (newSortBy: string) => void,
 }
 
 export const FilterInputs: React.FC<Props> = ({
   changeOnPage,
   currentOnPage,
+  sortBy,
+  changeSortBy,
 }) => {
   const { allPhones } = useAppSelector(state => state.phones);
-  const [name, setName] = useState('');
-
-  // eslint-disable-next-line no-console
-  console.log(name);
 
   return (
     <div className="filterInputs">
@@ -43,11 +40,10 @@ export const FilterInputs: React.FC<Props> = ({
               type="radio"
               id="opt1"
               defaultChecked
-              onChange={() => setName('Newest')}
             />
 
             <label htmlFor="opt1" className="select__option">
-              Newest
+              {sortBy}
             </label>
 
             <input
@@ -55,11 +51,11 @@ export const FilterInputs: React.FC<Props> = ({
               name="SortBy"
               type="radio"
               id="opt2"
-              onChange={() => setName('Test1')}
+              onChange={() => changeSortBy('Newest')}
             />
 
             <label htmlFor="opt2" className="select__option">
-              Test1
+              Newest
             </label>
 
             <input
@@ -67,11 +63,11 @@ export const FilterInputs: React.FC<Props> = ({
               name="SortBy"
               type="radio"
               id="opt3"
-              onChange={() => setName('Test2')}
+              onChange={() => changeSortBy('Cheapest')}
             />
 
             <label htmlFor="opt3" className="select__option">
-              Test2
+              Cheapest
             </label>
 
             <input
@@ -79,11 +75,11 @@ export const FilterInputs: React.FC<Props> = ({
               name="SortBy"
               type="radio"
               id="opt4"
-              onChange={() => setName('Test3')}
+              onChange={() => changeSortBy('Expensive')}
             />
 
             <label htmlFor="opt4" className="select__option">
-              Test3
+              Expensive
             </label>
 
             <input
@@ -91,11 +87,11 @@ export const FilterInputs: React.FC<Props> = ({
               name="SortBy"
               type="radio"
               id="opt5"
-              onChange={() => setName('Test4')}
+              onChange={() => changeSortBy('Alphabetic')}
             />
 
             <label htmlFor="opt5" className="select__option">
-              Test4
+              Alphabetic
             </label>
           </div>
         </div>

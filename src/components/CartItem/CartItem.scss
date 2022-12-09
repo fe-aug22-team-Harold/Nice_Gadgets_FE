@@ -11,6 +11,10 @@
   color: $gray-white;
   padding: 16px;
 
+  &:last-child {
+    margin-bottom: 20px;
+  }
+
   @include onTablet {
     flex-direction: row;
     padding: 31px 24px;
@@ -39,7 +43,7 @@
   }
 
   &__title {
-    font-family: 'Mont', sans-serif;
+    font-family: 'Mont';
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
@@ -56,13 +60,18 @@
     }
   }
 
-  &__counter {
+  &__icons-block {
     display: flex;
     align-items: center;
-    gap: 14px;
     font-family: 'Mont', sans-serif;
     font-size: 14px;
     line-height: 21px;
+  }
+
+  &__counter {
+    display: flex;
+    justify-content: center;
+    width: 32px;
   }
 
   &__price {

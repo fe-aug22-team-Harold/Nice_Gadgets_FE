@@ -12,13 +12,13 @@ export const HistoryBlock: React.FC<Props>
 = ({ firstRoute, secondRoute }) => {
   let slicedSecondRoute = secondRoute;
 
-  if (slicedSecondRoute && slicedSecondRoute.length > 23) {
-    slicedSecondRoute = slicedSecondRoute.slice(0, 23) + '...';
+  if (slicedSecondRoute && slicedSecondRoute.length > 20) {
+    slicedSecondRoute = slicedSecondRoute.slice(0, 20) + '...';
   }
 
   return (
     <div className="history-block">
-      <a href="/" className="history-block__home "></a>
+      <Link to="/" className="history-block__home "></Link>
       <div className="history-block__arrow icon-arrow"></div>
       <Link
         to={`/${firstRoute.toLowerCase()}`}

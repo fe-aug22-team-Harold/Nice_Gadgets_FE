@@ -5,116 +5,91 @@ import './OnePhonePage.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { client } from '../../utils/fetch';
-import { Loader } from '../Loader';
 import { PhoneImageSlider } from '../PhoneImageSlider';
 import { CardsSlider } from '../CardsSlider';
 import { PhoneImageInfo } from '../PhoneImageInfo';
-
-const allPhones = [
-  {
-    'id': '1',
-    'category': 'phones',
-    'phoneId': 'apple-iphone-7-32gb-black',
-    'itemId': 'apple-iphone-7-32gb-black',
-    'name': 'Apple iPhone 7 32GB Black',
-    'fullPrice': 400,
-    'price': 375,
-    'screen': "4.7' IPS",
-    'capacity': '32GB',
-    'color': 'black',
-    'ram': '2GB',
-    'year': 2016,
-    'image': 'img/phones/apple-iphone-7/black/00.jpg',
-  },
-  {
-    'id': '2',
-    'category': 'phones',
-    'phoneId': 'apple-iphone-7-plus-32gb-black',
-    'itemId': 'apple-iphone-7-plus-32gb-black',
-    'name': 'Apple iPhone 7 Plus 32GB Black',
-    'fullPrice': 540,
-    'price': 500,
-    'screen': "4.7' IPS",
-    'capacity': '32GB',
-    'color': 'black',
-    'ram': '3GB',
-    'year': 2016,
-    'image': 'img/phones/apple-iphone-7-plus/black/00.jpg',
-  },
-  {
-    'id': '3',
-    'category': 'phones',
-    'phoneId': 'apple-iphone-8-64gb-gold',
-    'itemId': 'apple-iphone-8-64gb-gold',
-    'name': 'Apple iPhone 8 64GB Gold',
-    'fullPrice': 600,
-    'price': 550,
-    'screen': "4.7' IPS",
-    'capacity': '64GB',
-    'color': 'gold',
-    'ram': '2GB',
-    'year': 2017,
-    'image': 'img/phones/apple-iphone-8/gold/00.jpg',
-  },
-  {
-    'id': '4',
-    'category': 'phones',
-    'phoneId': 'apple-iphone-11-64gb-black',
-    'itemId': 'apple-iphone-11-64gb-black',
-    'name': 'Apple iPhone 11 64GB Black',
-    'fullPrice': 932,
-    'price': 880,
-    'screen': "4.7' IPS",
-    'capacity': '64GB',
-    'color': 'black',
-    'ram': '4GB',
-    'year': 2019,
-    'image': 'img/phones/apple-iphone-11/black/00.jpg',
-  },
-];
+import { HistoryBlock } from '../HistoryBlock';
+import { LoaderBox } from '../LoaderBox';
+import { Loader } from '../Loader';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { getPhonesAsync } from '../../features/phonesSlice';
 
 export const OnePhonePage: React.FC = () => {
   const { phoneSlug } = useParams();
   const [currentItem, setCurrentItem] = useState<Phone | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [samePhonesLoading, setSamePhonesLoading] = useState(false);
+  const [colors, setColors] = useState<string[]>([]);
+  const [memory, setMemory] = useState<string[]>([]);
+
+  const { allPhones } = useAppSelector(state => state.phones);
+  const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
   const routeChange = () => {
     navigate('/nope');
   };
 
-  useEffect(() => {
-    const getItemFromAPI = async() => {
-      setIsLoading(true);
+  const getItemFromAPI = async() => {
+    setIsLoading(true);
+    setSamePhonesLoading(true);
 
-      try {
-        const response = await client.get<Phone>('/products/one/' + phoneSlug);
+    try {
+      const response = await client.get<Phone>('/products/one/' + phoneSlug);
 
-        if ('error' in response) {
-          routeChange();
-
-          return;
-        }
-
-        setCurrentItem(response);
-      } catch (e) {
+      if ('error' in response) {
         routeChange();
+
+        return;
       }
 
-      setIsLoading(false);
-    };
+      const currentModel = response.image.split('/')[2];
+      const samePhones = await client
+        .get<Phone[]>('/products/same/' + currentModel);
+      const colorsUniq = new Set(samePhones.map(item => item.color));
+      const memoryUniq = new Set(samePhones.map(item => item.capacity));
 
+      if (!allPhones) {
+        await dispatch(getPhonesAsync());
+      }
+
+      setColors(Array.from(colorsUniq));
+      setMemory(Array.from(memoryUniq));
+      setCurrentItem(response);
+    } catch (e) {
+      routeChange();
+    }
+
+    setSamePhonesLoading(false);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
     getItemFromAPI();
   }, []);
+
+  useEffect(() => {
+    getItemFromAPI();
+  }, [phoneSlug]);
 
   return (
     <div className='OnePhonePage'>
       <div className='OnePhonePage__container'>
-        {isLoading && <Loader />}
+        {isLoading && (
+          <div className="OnePhonePage__loader">
+            <LoaderBox />
+          </div>
+        )}
 
         {currentItem && !isLoading && (
           <>
             <div className='OnePhonePage page__section page__section--3'>
+              <div className="OnePhonePage__history">
+                <HistoryBlock
+                  firstRoute={'Phones'}
+                  secondRoute={currentItem.name}
+                />
+              </div>
               <h1 className='OnePhonePage__title'>{currentItem.name}</h1>
               <div className='
                 OnePhonePage__phone-choose
@@ -126,7 +101,18 @@ export const OnePhonePage: React.FC = () => {
                 </div>
 
                 <div className='OnePhonePage__phone-choose__info'>
-                  <PhoneImageInfo phoneCard={currentItem} />
+                  <>
+                    {samePhonesLoading
+                      ? <Loader />
+                      : <PhoneImageInfo
+                          colors={colors}
+                          memory={memory}
+                          phoneCard={currentItem}
+                          currentColor={currentItem.color}
+                          currentMemory={currentItem.capacity}
+                      />
+                    }
+                  </>
                 </div>
               </div>
 
@@ -150,10 +136,12 @@ export const OnePhonePage: React.FC = () => {
               OnePhonePage__phone-slider__container
               '
             >
-              <CardsSlider
-                allPhones={allPhones}
-                title='You may also like'
-              />
+              {allPhones && (
+                <CardsSlider
+                  allPhones={allPhones.slice(46, 50)}
+                  title='You may also like'
+                />
+              ) }
             </div>
           </>
         )}

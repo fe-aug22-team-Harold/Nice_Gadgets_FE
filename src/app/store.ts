@@ -3,6 +3,7 @@ import phonesReducer from '../features/phonesSlice';
 import phonesPageReducer from '../features/allPhonesSlice';
 import favoritesReducer from '../features/favoritesSlice';
 import cartReducer from '../features/cartSlice';
+import userReducer from '../features/userSlice';
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     phonesPage: phonesPageReducer,
     favorites: favoritesReducer,
     cart: cartReducer,
+    user: userReducer,
   },
 });
 

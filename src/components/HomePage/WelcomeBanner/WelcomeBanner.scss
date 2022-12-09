@@ -28,28 +28,26 @@
   }
 
   &__now-available {
-    background-size: contain;
+    background-size:contain;
     background-position: center;
     background-repeat: no-repeat;
     height: 100%;
-    background-image: url(../../../images/BannerSmall.png);
+    background-image: url(../../../images/iphone-banner-1.png);
 
     @include onTablet {
       min-height: 190px;
-      background-image: url(../../../images/Banner.png);
     }
 
     @include onDesktop {
-      height: 400px;
-      background-image: url(../../../images/Banner.png);
+            height: 400px;
     }
 
     &--2 {
-      background-image: url(../../../images/banner-phones.png);
+      background-image: url(../../../images/iphone-banner-2.png);
     }
 
     &--3 {
-      background-image: url(../../../images/banner-accessories-1040.png);
+      background-image: url(../../../images/Banner.png);
     }
   }
   &__sidebar {
@@ -63,11 +61,14 @@
     @include onTablet {
       display: flex;
       min-height: 190px;
+      width: 40%;
+      justify-self: center;
     }
 
     @include onDesktop {
       display: flex;
       height: 400px;
+      width: 100%;
     }
 
     &:hover {
