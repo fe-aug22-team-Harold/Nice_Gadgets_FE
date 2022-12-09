@@ -1,5 +1,4 @@
 import React from 'react';
-import './ErrorMessage.scss';
 
 type Props = {
   message: string | null,
