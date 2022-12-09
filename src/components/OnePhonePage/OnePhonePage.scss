@@ -20,6 +20,10 @@
   background-color: #0F1121;
   overflow-x: hidden;
 
+  &__container {
+    margin: 0 auto;
+    max-width: 1200px;
+
   &__loader {
     height: 90vh;
     display: flex;
@@ -46,13 +50,12 @@
   }
 
   &__phone-choose {
+    display: flex;
+    flex-direction: column;
     @include onTablet {
-      display: flex;
-      gap: 75px;
-    }
-
-    @include onDesktop{
-      gap: 130px;
+      flex-direction: row;
+      flex: 0 0 50%;
+      gap: 32px;
     }
 
     &__container {
@@ -68,7 +71,7 @@
     }
 
     &__slider {
-      flex: 1;
+      flex: 0 0 50%;
       margin-bottom: 40px;
 
       @include onTablet {
@@ -97,7 +100,7 @@
   &__phone-description {
     @include onDesktop {
       display: flex;
-      gap: 75px;
+      gap: 32px;
     }
 
     &__container {
@@ -113,6 +116,7 @@
     }
 
     &__about {
+      flex-basis: 50%;
       margin-bottom: 56px;
 
       @include onTablet {
@@ -122,6 +126,11 @@
       @include onDesktop {
         margin-bottom: 0;
       }
+    }
+
+    &__specs {
+      width: 100%;
+      flex-basis: 50%;
     }
   }
 
