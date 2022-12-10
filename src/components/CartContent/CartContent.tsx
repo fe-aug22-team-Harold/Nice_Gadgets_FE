@@ -10,17 +10,17 @@ export const CartContent: React.FC = () => {
   const { currentCart } = useAppSelector(state => state.cart);
 
   const uniqCart: Phone[] = useMemo(() => {
-    const res: Phone[] = [];
+    const uniqPhones: Phone[] = [];
 
     currentCart.forEach(item => {
-      const i = res.findIndex(itm => itm.itemId === item.itemId);
+      const i = uniqPhones.findIndex(itm => itm.itemId === item.itemId);
 
       if (i === -1) {
-        res.push(item);
+        uniqPhones.push(item);
       }
     });
 
-    return res;
+    return uniqPhones;
   }, [currentCart]);
 
   return (
@@ -42,17 +42,15 @@ export const CartContent: React.FC = () => {
         }
 
         {currentCart.length === 0 && (
-          <Link
-            to={'/phones'}
-            style={{
-              textDecoration: 'none',
-              color: '#27AE60',
-              fontSize: '35px',
-              textAlign: 'center',
-            }}
-          >
-            Go to shop -&gt;
-          </Link>
+          <div className="go-to-shop">
+            <span className="go-to-shop__title">Cart is empty</span>
+            <Link
+              to={'/phones'}
+              className="go-to-shop__link"
+            >
+              👉 Go to shop
+            </Link>
+          </div>
         )}
       </div>
 
