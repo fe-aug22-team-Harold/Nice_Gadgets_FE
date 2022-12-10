@@ -20,6 +20,10 @@ export const Checkout: React.FC = () => {
   const totalForCart = currentCart.reduce((acc, item) => acc + item.price, 0);
 
   const checkOutToAPI = async() => {
+    if (!currentCart.length) {
+      return;
+    }
+
     setIsLoading(true);
     setIsError(false);
 
@@ -61,8 +65,14 @@ export const Checkout: React.FC = () => {
       </p>
       {isError && <ErrorMessage message={'Error while creating order'} />}
       {user ? (
-        <div onClick={checkOutToAPI} className="checkout__btn">
-          {isLoading ? <Loader /> : 'Checkout'}
+        <div
+          onClick={checkOutToAPI}
+          className="checkout__btn"
+        >
+          {currentCart.length
+            ? (isLoading ? <Loader /> : 'Checkout')
+            : 'Cart is empty'
+          }
         </div>
       ) : (
         <Link to={'/login'} className="checkout__btn">
