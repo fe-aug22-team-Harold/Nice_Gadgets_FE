@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { client } from '../../utils/fetch';
 import { LoaderBox } from '../LoaderBox';
 import { ErrorMessage } from '../ErrorMessage';
+import { HistoryBlock } from '../HistoryBlock';
+import { User } from '../../types/User';
 
 export const ActivationPage: React.FC = () => {
   const { token } = useParams();
@@ -14,8 +16,14 @@ export const ActivationPage: React.FC = () => {
   const activateByToken = async() => {
     setIsLoading(true);
 
+    let response;
+
     try {
-      await client.get('/users/activate/' + token);
+      response = await client.get<User>('/users/activate/' + token);
+
+      if ('error' in response) {
+        setIsError(true);
+      }
 
       setIsSuccess(true);
     } catch (e) {
@@ -23,6 +31,8 @@ export const ActivationPage: React.FC = () => {
     }
 
     setIsLoading(false);
+
+    return response;
   };
 
   useEffect(() => {
@@ -30,25 +40,35 @@ export const ActivationPage: React.FC = () => {
   }, []);
 
   return (
-    <div style={{ minHeight: '80vh', color: 'white' }} className="home-page">
-      <div className="home-page__container">
+    <div
+    className="activation-page"
+    >
+      <div className="activation-page__container">
+        <div className="activation-page__history">
+          <HistoryBlock firstRoute={'Activation'} secondRoute={undefined} />
+        </div>
         <h1 className="OnePhonePage__title">Activation page</h1>
         {isLoading && (
-          <div>
+          <div className='activation-page__text'>
             Wait we are doing everything to activate your account!
-            <LoaderBox />
+            <div className="activation-page__loader">
+              <LoaderBox />
+            </div>
           </div>
         )}
 
         {isError && (
           <ErrorMessage message={'Error during activation your account :('} />
+
         )}
 
-        {isSuccess && (
-          <div>
-            Congratulations! Your account successfully activated!)
+        {(isSuccess && !isError) && (
+          <div className='activation-page__text'>
+            Congratulations! Your account successfully activated!
             <br />
-            Now please LogIn to your account!
+            Now please <Link
+            className='activation-page__text activation-page__text--link'
+            to="/login">Log In</Link> to your account.
           </div>
         )}
       </div>
