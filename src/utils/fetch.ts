@@ -23,8 +23,8 @@ function request<T>(
     options.headers = {
       'Content-Type': 'application/json; charset=UTF-8',
     };
+    options.credentials = 'include';
   }
-  // options.credentials = 'include';
 
   return wait(300)
     .then(() => fetch(BASE_URL + url, options))
