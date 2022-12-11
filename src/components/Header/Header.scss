@@ -300,3 +300,19 @@
 .nav__link--cart-menu {
   box-shadow: -1px 0px 0px $gray-surface2;
 }
+
+.mob-menu-enter {
+  transform: translateY(-100%);
+}
+.mob-menu-enter-active {
+  transform: translateY(0);
+  transition: transform 600ms;
+}
+.mob-menu-exit {
+  transform: translateY(0);
+  transition: opacity 600ms;
+}
+.mob-menu-exit-active {
+  transform: translateY(-100%);
+  transition: transform 600ms;
+}

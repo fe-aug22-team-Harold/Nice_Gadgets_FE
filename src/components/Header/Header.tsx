@@ -13,6 +13,7 @@ import { setFavorites } from '../../features/favoritesSlice';
 import { setCart } from '../../features/cartSlice';
 import { client } from '../../utils/fetch';
 import { setUser } from '../../features/userSlice';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -62,118 +63,128 @@ export const Header: React.FC = () => {
   return (
     <>
       <div id="menu-hook">
-        {isOpen && (
-          <Menu>
-            <div className="header">
-              <Link to="/" className="logo" />
+        <TransitionGroup>
+          {isOpen && (
+            <CSSTransition timeout={600} classNames="mob-menu">
+              <Menu>
+                <div className="header">
+                  <Link to="/" className="logo" />
 
-              <div className="icons">
-                {user ? (
-                  <>
-                    <NavLink to={`/user`} className="nav__link--cart">
-                      <span
-                        className="
-                          icon
-                          icon__user
-                          icon__user--menu
-                          "
-                        onClick={closeMenu}
-                      ></span>
-                    </NavLink>
+                  <div className="icons">
+                    {user ? (
+                      <>
+                        <NavLink to={`/user`} className="nav__link--cart">
+                          <span
+                            className="
+                              icon
+                              icon__user
+                              icon__user--menu
+                              "
+                            onClick={closeMenu}
+                          ></span>
+                        </NavLink>
 
-                    <div className="nav__link--cart" onClick={logoutHandler}>
-                      <span
-                        className="
-                          icon
-                          icon__log-out
-                          icon__log-out--menu
-                          "
-                        onClick={closeMenu}
-                      ></span>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <NavLink to={`/sing-up`} className="nav__link--cart">
-                      <span
-                        className="
-                          icon
-                          icon__user-plus
-                          icon__user-plus--menu
-                          "
-                          onClick={closeMenu}
-                      ></span>
-                    </NavLink>
+                        <div
+                          className="nav__link--cart"
+                          onClick={logoutHandler}
+                        >
+                          <span
+                            className="
+                              icon
+                              icon__log-out
+                              icon__log-out--menu
+                              "
+                            onClick={closeMenu}
+                          ></span>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <NavLink to={`/sing-up`} className="nav__link--cart">
+                          <span
+                            className="
+                              icon
+                              icon__user-plus
+                              icon__user-plus--menu
+                              "
+                              onClick={closeMenu}
+                          ></span>
+                        </NavLink>
 
-                    <NavLink to={`/login`} className="nav__link--cart">
-                      <span
-                        className="
-                          icon
-                          icon__log-in
-                          icon__log-in--menu
-                          "
-                        onClick={closeMenu}
-                      ></span>
-                    </NavLink>
-                  </>
-                )}
+                        <NavLink to={`/login`} className="nav__link--cart">
+                          <span
+                            className="
+                              icon
+                              icon__log-in
+                              icon__log-in--menu
+                              "
+                            onClick={closeMenu}
+                          ></span>
+                        </NavLink>
+                      </>
+                    )}
 
-                <span className="icon icon__close" onClick={closeMenu}></span>
-              </div>
-            </div>
-
-            <NavLinks isOpen={isOpen} closeMenu={closeMenu} />
-
-            <div className="icons icons--menu">
-              <NavLink to={`/favorites`} className="nav__link--cart">
-                <span
-                  className="
-                    icon
-                    icon__heart
-                    icon__heart--relative
-                    icon__heart--menu
-                  "
-                  onClick={closeMenu}
-                >
-                  <div
-                    className="
-                    badge-counter
-                    badge-counter--heart
-                    badge-counter--heart-menu
-                  "
-                  >
-                    {currentFavorites.length}
+                    <span
+                      className="icon icon__close"
+                      onClick={closeMenu}
+                    ></span>
                   </div>
-                </span>
-              </NavLink>
+                </div>
 
-              <NavLink
-                to={`/cart`}
-                className="nav__link--cart nav__link--cart-menu"
-              >
-                <span
-                  className="
-                    icon
-                    icon__cart
-                    icon__cart--relative
-                    icon__cart--menu
-                  "
-                  onClick={closeMenu}
-                >
-                  <div
-                    className="
-                    badge-counter
-                    badge-counter--cart
-                    badge-counter--cart-menu
-                  "
+                <NavLinks isOpen={isOpen} closeMenu={closeMenu} />
+
+                <div className="icons icons--menu">
+                  <NavLink to={`/favorites`} className="nav__link--cart">
+                    <span
+                      className="
+                        icon
+                        icon__heart
+                        icon__heart--relative
+                        icon__heart--menu
+                      "
+                      onClick={closeMenu}
+                    >
+                      <div
+                        className="
+                        badge-counter
+                        badge-counter--heart
+                        badge-counter--heart-menu
+                      "
+                      >
+                        {currentFavorites.length}
+                      </div>
+                    </span>
+                  </NavLink>
+
+                  <NavLink
+                    to={`/cart`}
+                    className="nav__link--cart nav__link--cart-menu"
                   >
-                    {currentCart.length}
-                  </div>
-                </span>
-              </NavLink>
-            </div>
-          </Menu>
-        )}
+                    <span
+                      className="
+                        icon
+                        icon__cart
+                        icon__cart--relative
+                        icon__cart--menu
+                      "
+                      onClick={closeMenu}
+                    >
+                      <div
+                        className="
+                        badge-counter
+                        badge-counter--cart
+                        badge-counter--cart-menu
+                      "
+                      >
+                        {currentCart.length}
+                      </div>
+                    </span>
+                  </NavLink>
+                </div>
+              </Menu>
+            </CSSTransition>
+          )}
+        </TransitionGroup>
       </div>
 
       <div className="header">
