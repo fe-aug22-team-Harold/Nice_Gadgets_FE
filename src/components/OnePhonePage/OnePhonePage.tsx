@@ -118,7 +118,6 @@ export const OnePhonePage: React.FC = () => {
 
               <div className='
                 OnePhonePage__phone-description
-                OnePhonePage__phone-description__container
                 '
               >
                 <div className='OnePhonePage__phone-description__about'>
