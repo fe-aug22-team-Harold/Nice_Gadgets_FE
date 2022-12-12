@@ -8,6 +8,7 @@ import { Loader } from '../Loader';
 import { ErrorMessage } from '../ErrorMessage';
 import { Link } from 'react-router-dom';
 import { setCart } from '../../features/cartSlice';
+import { Modal } from '../Modal';
 
 export const Checkout: React.FC = () => {
   const { currentCart } = useAppSelector(state => state.cart);
@@ -16,6 +17,10 @@ export const Checkout: React.FC = () => {
   const [isError, setIsError] = useState(false);
   const dispatch = useAppDispatch();
   const [, setCartStored] = useLocalStorage('cart');
+  const [showModal, setShowModal] = useState(false);
+
+  const openModalHandler = () => setShowModal(true);
+  const closeModalHandler = () => setShowModal(false);
 
   const totalForCart = currentCart.reduce((acc, item) => acc + item.price, 0);
 
@@ -43,6 +48,7 @@ export const Checkout: React.FC = () => {
       await client.post('/orders', data);
       dispatch(setCart([]));
       setCartStored([]);
+      openModalHandler();
     } catch (e) {
       setIsError(true);
     }
@@ -51,6 +57,17 @@ export const Checkout: React.FC = () => {
   };
 
   return (
+    <>
+    <Modal
+      show={showModal}
+      onCancel={closeModalHandler}
+      header={'Thank You!'}
+      className={'checkout__modal'}
+    >
+      <div className="checkout__message">
+        <p>Your order has been successfully created.</p>
+      </div>
+    </Modal>
     <div
       className="checkout
         grid__item--desktop-17-24
@@ -80,5 +97,6 @@ export const Checkout: React.FC = () => {
         </Link>
       )}
     </div>
+    </>
   );
 };

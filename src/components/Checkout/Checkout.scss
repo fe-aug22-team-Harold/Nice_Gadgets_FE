@@ -58,4 +58,17 @@
       background-color: $accent-hover;
     }
   }
+
+  &__modal {
+    border: 1px solid $accent-color;
+  }
+
+  &__message {
+    box-sizing: border-box;
+    height: 100px;
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+  }
 }
