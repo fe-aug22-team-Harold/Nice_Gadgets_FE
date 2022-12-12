@@ -5,6 +5,7 @@ import { HistoryBlock } from '../HistoryBlock';
 import { client } from '../../utils/fetch';
 import { ErrorMessage } from '../ErrorMessage';
 import { Loader } from '../Loader';
+import { Modal } from '../Modal';
 
 export const validateEmail = (email: string) => {
   return String(email)
@@ -28,6 +29,8 @@ export const RegisterForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  const closeModalHandler = () => setIsSuccess(false);
 
   const formSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -165,17 +168,17 @@ export const RegisterForm: React.FC = () => {
           {isError && <ErrorMessage message={null} />}
 
           {isSuccess && (
-            <div style={{
-              color: 'white',
-              width: 'max-content',
-              padding: '15px',
-              border: '1px solid #905BFF',
-              background: '#161827',
-            }}>
-              Cool! Your account successfully created!
-              <br />
-              Please check your email to activate your account now!
-            </div>
+            <Modal
+              show={isSuccess}
+              onCancel={closeModalHandler}
+              header={'Congratulations!'}
+              className={'register-page__modal'}
+            >
+              <div className="register-page__modal-message">
+                <p>Your account has been successfully created!</p>
+                <p>Please check your email to activate your account now.</p>
+              </div>
+            </Modal>
           )}
           <button
             type="submit"
