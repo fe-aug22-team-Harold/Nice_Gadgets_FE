@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/nice_gadgets_FE/static/css/main.edf38b1e.css",
-    "main.js": "/nice_gadgets_FE/static/js/main.a51846f3.js",
+    "main.css": "/nice_gadgets_FE/static/css/main.8af2584c.css",
+    "main.js": "/nice_gadgets_FE/static/js/main.68661b86.js",
     "static/js/787.b21c7653.chunk.js": "/nice_gadgets_FE/static/js/787.b21c7653.chunk.js",
     "static/media/logo.svg": "/nice_gadgets_FE/static/media/logo.e0bf13985d78a74197d9.svg",
     "static/media/logoFooter.svg": "/nice_gadgets_FE/static/media/logoFooter.7c86cf5336d53d092e30.svg",
@@ -23,6 +23,8 @@
     "static/media/cart.svg": "/nice_gadgets_FE/static/media/cart.fbb7bb4b7513df420fa1.svg",
     "static/media/favorites-default.svg": "/nice_gadgets_FE/static/media/favorites-default.622066cce6dd82ef6c8a.svg",
     "static/media/heart.svg": "/nice_gadgets_FE/static/media/heart.793bee0c55e6c159546a.svg",
+    "static/media/not-active-acc.svg": "/nice_gadgets_FE/static/media/not-active-acc.c3331f9df1db992d7383.svg",
+    "static/media/active-acc.svg": "/nice_gadgets_FE/static/media/active-acc.0dc00a2cae1198041090.svg",
     "index.html": "/nice_gadgets_FE/index.html",
     "static/media/close-gray.svg": "/nice_gadgets_FE/static/media/close-gray.a7b1ced7ed3e49385129.svg",
     "static/media/close.svg": "/nice_gadgets_FE/static/media/close.240bedeea54b93e8ac74.svg",
@@ -51,12 +53,12 @@
     "static/media/Line.svg": "/nice_gadgets_FE/static/media/Line.278e30dfc7523926f7ea.svg",
     "static/media/LineLong.svg": "/nice_gadgets_FE/static/media/LineLong.13fe418492440acc8189.svg",
     "static/media/LineLong2.svg": "/nice_gadgets_FE/static/media/LineLong2.13fe418492440acc8189.svg",
-    "main.edf38b1e.css.map": "/nice_gadgets_FE/static/css/main.edf38b1e.css.map",
-    "main.a51846f3.js.map": "/nice_gadgets_FE/static/js/main.a51846f3.js.map",
+    "main.8af2584c.css.map": "/nice_gadgets_FE/static/css/main.8af2584c.css.map",
+    "main.68661b86.js.map": "/nice_gadgets_FE/static/js/main.68661b86.js.map",
     "787.b21c7653.chunk.js.map": "/nice_gadgets_FE/static/js/787.b21c7653.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.edf38b1e.css",
-    "static/js/main.a51846f3.js"
+    "static/css/main.8af2584c.css",
+    "static/js/main.68661b86.js"
   ]
 }
