@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useAppSelector } from '../../app/hooks';
 import { client } from '../../utils/fetch';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Order } from '../../types/Order';
 import './UserPage.scss';
 import { LoaderBox } from '../LoaderBox';
 import { ErrorMessage } from '../ErrorMessage';
+import cn from 'classnames';
 
 export const UserPage: React.FC = () => {
   const { user } = useAppSelector(state => state.user);
@@ -43,36 +44,60 @@ export const UserPage: React.FC = () => {
   }, []);
 
   return (
-    <div style={{ minHeight: '80vh', color: 'white' }} className="home-page">
-      <div className="home-page__container">
+    <div
+      style={{ minHeight: '80vh', color: 'white' }}
+      className="page__section--2 home-page user"
+    >
+      <h1 className='user__title'>Welcome to your account, {user?.name}!</h1>
+
+      <div className="home-page__container user__page">
         <div className="user-info">
-          <div>{user?.name}</div>
-          <div>{user?.email}</div>
-          <div
-            style={{ color: user?.active ? '#357325' : '#9f3311' }}
-          >
-            {user?.active ? 'active account' : 'not active account'}
+          <h4 className='user__subtitle'>Account info</h4>
+
+          <div className='user__info'>Username: {user?.name}</div>
+          <div className='user__info'>Email: {user?.email}</div>
+          <div className='user__statuses'>
+            <span className='user__info'>
+              {user?.active ? 'Active account' : 'Please activate account'}
+            </span>
+            <div
+              className={cn('user__status', {
+                'user__status--disabled': !user?.active,
+              })}
+            >
+            </div>
           </div>
         </div>
-        <hr />
+
         {!orders?.length && !isLoading && (
-          <div className="order">No orders yet</div>
+          <div className='user__order'>
+            <h4 className="user__subtitle">No orders yet</h4>
+
+            <Link
+              to={'/phones'}
+              className="user__order--go-to-shop__link"
+            >
+              👉 Go to shop
+            </Link>
+          </div>
         )}
 
         {isLoading && <LoaderBox />}
         {isError && <ErrorMessage message={null} />}
 
         {orders && (
-          orders.map(order => (
-            <div className="order" key={order.id}>
-              <span>Order id: {order.id}</span>
-              <span>Total items: {order.orderList.length}</span>
-              <span>Total price: ${order.total}</span>
-              <span>
-                Date: {new Date(order.createdAt).toLocaleDateString()}
-              </span>
-            </div>
-          ))
+          <div className="user__orders">
+            {orders.map(order => (
+              <div className="user__order" key={order.id}>
+                <span>Order id: {order.id}</span>
+                <span>Total items: {order.orderList.length}</span>
+                <span>Total price: ${order.total}</span>
+                <span>
+                  Date: {new Date(order.createdAt).toLocaleDateString()}
+                </span>
+              </div>
+            ))}
+          </div>
         )}
       </div>
     </div>

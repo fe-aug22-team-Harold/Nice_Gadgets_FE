@@ -1,15 +1,123 @@
-.order {
-  padding: 10px;
-  background-color: #2f3545;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  &:not(:last-child) {
-    margin-bottom: 15px;
+@import '../../utilsForScss/mixins.scss';
+@import '../../utilsForScss/colors.scss';
+
+.user {
+  font-family: 'Mont', sans-serif;
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    font-size: 28px;
+
+    @include onDesktop {
+      padding: 30px 0;
+    }
+  }
+
+  &__subtitle {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  &__about {
+    background-color: #1d2032;
+  }
+
+  &__page {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include onTablet {
+      flex-direction: row;
+    }
+
+    @include onDesktop {
+      gap: 24px;
+    }
+  }
+
+  &__info {
+    font-size: 16px;
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding: 10px 20px;
+    background-color: #161827;
+    border-radius: 5px;
+  }
+
+  &__orders {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-grow: 2;
+  }
+
+  &__order {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 3;
+
+    gap: 10px;
+
+    border-radius: 5px;
+
+    padding: 10px;
+    background-color: #2f3545;
+
+    &-title {
+      font-size: 28px;
+      align-self: center;
+    }
+
+    &--go-to-shop__link {
+      margin-top: 50px;
+      text-decoration: none;
+      color: #27AE60;
+      font-size: 22px;
+      text-align: center;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #1b7942;
+      }
+
+      @include onTablet {
+        font-size: 28px;
+      }
+    }
+  }
+
+  &__statuses {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &__status {
+    width: 24px;
+    height: 24px;
+
+    color: white;
+    border-radius: 5px;
+
+    background-color: green;
+    background-image: url(../../images/active-acc.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &--disabled {
+      background-color: red;
+      background-image: url(../../images/not-active-acc.svg);
+    }
   }
 }
-.user-info {
-  padding: 10px 20px;
-  background-color: #0f1121;
-  font-size: 28px;
-}
+
+
+
