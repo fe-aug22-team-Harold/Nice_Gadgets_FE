@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/nice_gadgets_FE/static/css/main.8af2584c.css",
-    "main.js": "/nice_gadgets_FE/static/js/main.68661b86.js",
+    "main.js": "/nice_gadgets_FE/static/js/main.401fcd7c.js",
     "static/js/787.b21c7653.chunk.js": "/nice_gadgets_FE/static/js/787.b21c7653.chunk.js",
     "static/media/logo.svg": "/nice_gadgets_FE/static/media/logo.e0bf13985d78a74197d9.svg",
     "static/media/logoFooter.svg": "/nice_gadgets_FE/static/media/logoFooter.7c86cf5336d53d092e30.svg",
@@ -54,11 +54,11 @@
     "static/media/LineLong.svg": "/nice_gadgets_FE/static/media/LineLong.13fe418492440acc8189.svg",
     "static/media/LineLong2.svg": "/nice_gadgets_FE/static/media/LineLong2.13fe418492440acc8189.svg",
     "main.8af2584c.css.map": "/nice_gadgets_FE/static/css/main.8af2584c.css.map",
-    "main.68661b86.js.map": "/nice_gadgets_FE/static/js/main.68661b86.js.map",
+    "main.401fcd7c.js.map": "/nice_gadgets_FE/static/js/main.401fcd7c.js.map",
     "787.b21c7653.chunk.js.map": "/nice_gadgets_FE/static/js/787.b21c7653.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8af2584c.css",
-    "static/js/main.68661b86.js"
+    "static/js/main.401fcd7c.js"
   ]
 }
