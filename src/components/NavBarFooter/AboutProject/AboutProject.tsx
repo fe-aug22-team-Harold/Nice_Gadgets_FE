@@ -13,47 +13,99 @@ export const AboutProject: React.FC = () => {
       </div>
 
       <h1 className='AboutProject__title'>
-        About our project
+        About
       </h1>
 
       <h3 className='AboutProject__subtitle'>
-        Who we are?
+        About project
       </h3>
 
       <p className='AboutProject__text'>
-        A transformative triple‑camera system that adds tons of capability
-        without complexity.
+        Welcome to the Nice Gadgets.
         <br />
+        Nice Gadgets is E-Commerce Web Application
+        for buying phones, tablets etc.
         <br />
-        An unprecedented leap in battery life.
-        And a mind‑blowing chip that doubles down on machine learning and
-        pushes the boundariesof what a smartphone can do.
-        Welcome to the first iPhone powerful enough to be called Pro.
+        The project was developed by a team of developers
+        using the front-end React library.
+        <br />
+        As well as technologies such as React-Router, Redux(Redux-Toolkit),
+        TypeScript, LocalStorage, Fetch, HTML5, CSS3(SASS) etc.
+        <br />
+        The backend part of the application is built with Node.JS (Express).
+        <br />
+        The client part uses a component approach to development,
+         as well as strong typing using TypeScript.
+        <br />
+        The server part is built according to the MVC pattern
+        and works according to the principles of the REST API.
+
       </p>
 
       <h3 className='AboutProject__subtitle'>
-        Used features
+        Harold&apos;s Team
       </h3>
 
       <p className='AboutProject__text'>
-        Meet the first triple‑camera system to combine cutting‑edge technology
-        with the legendary simplicity of iPhone. Capture up to four times more
-        scene. Get beautiful images in drastically lower light. Shoot the
-        highest‑quality video in a smartphone — then edit with the same tools
-        you love for photos. You’ve never shot with anything like it.
+        - Max Bovtun - maxbovtun@gmail.com (team-lead)
+        <br />
+        - Anton Iskryk - iskryk.anton@gmail.com
+        <br />
+        - Nikita Ovchinnikov - frederiquezn@gmail.com
+        <br />
+        - Iryna Borniak - irynaborniak@gmail.com
+        <br />
+        - Andrii Zhabynets - a.zhabynets03@gmail.com
       </p>
 
       <h3 className='AboutProject__subtitle'>
-        To whom this website may concern?
+        Application parts
       </h3>
 
       <p className='AboutProject__text'>
-        iPhone 11 Pro lets you capture videos that are beautifully true
-        to life, with greater detail and smoother motion. Epic processing
-        power means it can shoot 4K video with extended dynamic range and
-        cinematic video stabilization — all at 60 fps. You get more creative
-        control, too, with four times more scene and powerful new editing
-        tools to play with.
+        <a
+          style={{ textDecoration: 'none', color: 'yellow' }}
+          href="https://fe-aug22-team-harold.github.io/nice_gadgets_FE"
+        >
+          👉DEPLOYED APPLICATION
+        </a>
+        <br />
+        <a
+          style={{ textDecoration: 'none', color: 'yellow' }}
+          href="https://github.com/fe-aug22-team-Harold/nice_gadgets_FE"
+        >
+          👉Frontend Part
+        </a>
+        <br />
+        <a
+          style={{ textDecoration: 'none', color: 'yellow' }}
+          href="https://github.com/MaxManis/nice_gadgets_backend-restful-api"
+        >
+          👉Backend Part
+        </a>
+        <br />
+        <a
+          style={{ textDecoration: 'none', color: 'yellow' }}
+          href="https://github.com/fe-aug22-team-Harold"
+        >
+          👉Harold&apos;s Team GitHub
+        </a>
+      </p>
+
+      <h3 className='AboutProject__subtitle'>
+        Technologies
+      </h3>
+
+      <p className='AboutProject__text'>
+      <strong style={{ textDecoration: 'underline' }}>Client side:</strong>
+        <br />
+        React/React-Router/Redux/Redux-Toolkit
+        /TypeScript/LocalStorage/Fetch/HTML5/CSS3(SASS)
+        <br />
+        <strong style={{ textDecoration: 'underline' }}>Server side:</strong>
+        <br />
+        REST API/NodeJS/Express/CORS/JWT/Bcrypt
+        /PostgresSQL(cloud claster)/SequelizeORM/Cookies/Nodemailer
       </p>
     </div>
   );
